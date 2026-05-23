@@ -53,9 +53,6 @@ session_start();
                      <div class="row text-center bg-secondary rounded-4 p-4 my-4">
                         <h5>Products List</h5>
                     </div>
-                     <div class="row text-center p-4 my-4">
-                        <h5><a href="logs.php" class = "link-underline link-underline-opacity-0 text-dark">Logs</a></h5>
-                    </div>
                   </div>
             </div>
              <div class="col-9">
