@@ -7,26 +7,33 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../font-family.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
  </head>
 <style>
-    @font-face {
-         font-family: "new-york";
-        src: url('../../new-york-font/NewYorkSmall-Regular.otf');
-    }
     img{
         object-fit:cover;
     }
     body{
-        font-family: "new-york";
+        font-family: "New York Medium Regular";
+    }
+
+    #orders{
+        background-color: #eee8e0;
+    }
+    #orders-content{
+        height: 100%;
+        background-color: #eee8e0;
+    }
+    #orders-content-title{
+        font-family: "New York Large Bold";
     }
 </style> 
 <body class = "text-dark">
     <!-- Navbar for name -->
     <nav class="navbar navbar-expand-lg navbar-dark d-flexbox">
         <div class="container-fluid">
-
-            </button>
+            <img src="../../images/logo.png" alt="" width = 300 height = 150>
 
                 <div>
                          <img src= ""
@@ -39,28 +46,50 @@ session_start();
         </div>
     </nav>
 
-    <div class="container" id = "">
+    <div class="container" id = "menu">
         <div class="row">
             <div class="col">
-                  <div class="container  border">
+                  <div class="container">
                     <div class="row ">
-                        <h4>Hello, Admin!</h4>
+                        <h2>Hello, Admin!</h2>
                     </div>
-                     <div class="row text-center border bg-secondary rounded-4 p-4 my-4">
-                        <h5>Order List</h5>
+                     <div class="row text-center rounded-4 p-4 my-4" id="orders">
+                        <h5><a href="admindash.php" class="link-underline link-underline-opacity-0 text-dark">Order List</a></h5>
                     </div>
-                     <div class="row text-center p-4 my-4">
-                        <h5><a href="products.php" class = "link-underline link-underline-opacity-0 text-dark">Products List</a></h5>
+                     <div class="row text-center p-4 my-4 ">
+                        <h5><a href="products.php" class="link-underline link-underline-opacity-0 text-dark">Products List</a></h5>
                     </div>
-                     <div class="row text-center p-4 my-4">
+                     <div class="row text-center p-4 my-4 ">
                         <h5><a href="logs.php" class = "link-underline link-underline-opacity-0 text-dark">Logs</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-4">
+                        <h5>&nbsp</h5>
                     </div>
                   </div>
             </div>
-             <div class="col-9">
-                  <div class="container border">
-                 <h1>Welcome back, Employee!</h1>
-        </div>
+            <div class="col-9">
+                <div class="container rounded-4 " id = "orders-content">
+                    <div class="row p-3" id ="orders-content-title">
+                        <h4>Orders</h4>
+                    </div>
+                     <div class="row bg-white rounded border mx-3 my-2 px-3 py-2" id ="orders-content-title">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <p>Order ID</p>
+                                </div>
+                                <div class="col text-end">
+                                    <p>Time</p>
+                                </div>
+                            </div>
+                              <div class="row">
+                                <div class="col">
+                                    <p>Username</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
