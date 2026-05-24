@@ -1,0 +1,99 @@
+/*
+List of Fonts (Use them for Font-family in CSS):
+- New York Medium Regular
+- New York Medium Regular Italic
+- New York Medium Medium
+- New York Medium Medium Italic
+- New York Medium Bold
+- New York Medium Bold Italic
+- New York Large Regular
+- New York Large Regular Italic
+- New York Large Medium
+- New York Large Medium Italic
+- New York Large Bold
+- New York Large Bold Italic
+*/
+
+@font-face {
+    font-family: 'New York Medium Regular';
+    src: url('new-york-font/NewYorkMedium-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Medium Regular Italic';
+    src: url('new-york-font/NewYorkMedium-RegularItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Medium Medium';
+    src: url('new-york-font/NewYorkMedium-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Medium Medium Italic';
+    src: url('new-york-font/NewYorkMedium-MediumItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Medium Bold';
+    src: url('new-york-font/NewYorkMedium-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Medium Bold Italic';
+    src: url('new-york-font/NewYorkMedium-BoldItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Large Regular';
+    src: url('new-york-font/NewYorkLarge-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Large Regular Italic';
+    src: url('new-york-font/NewYorkLarge-RegularItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Large Medium';
+    src: url('new-york-font/NewYorkLarge-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Large Medium Italic';
+    src: url('new-york-font/NewYorkLarge-MediumItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Large Bold';
+    src: url('new-york-font/NewYorkLarge-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Large Bold Italic';
+    src: url('new-york-font/NewYorkLarge-BoldItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
