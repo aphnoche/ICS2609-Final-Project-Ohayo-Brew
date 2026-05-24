@@ -32,7 +32,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 180px;
+            gap: 100px;
             margin-right: 50px;                    
         }
 
@@ -40,7 +40,7 @@
             text-decoration: none;
             color: #333;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 30px;                                  
+            font-size: 25px;                                  
         }
 
         #btn {
@@ -48,7 +48,7 @@
             border-radius: 10px;
             padding: 10px 20px;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 30px;            
+            font-size: 25px;            
             cursor: pointer;
             background: transparent;
         }
@@ -57,19 +57,18 @@
             flex: 1; 
             display: flex;
             align-items: center; 
-            margin-top: -200px;
         }
 
         .hero-text-container {
-            margin-left: 200px;   
-            max-width: 950px;    
+            margin-left: 150px;   
+            max-width: 900px;    
         }
 
         .hero-title {
             font-family: 'New York Large Bold', serif;
             color: #2D3748; 
             line-height: 1.1; 
-            font-size: 9.8rem; 
+            font-size: 7.8rem; 
         }
 
         .hero-btn {
@@ -80,7 +79,7 @@
             font-family: 'New York Medium Regular', sans-serif;
             font-style: italic;
             padding: 14px 45px; 
-            font-size: 2rem;  
+            font-size: 21px;  
             text-decoration: none;
             display: inline-block;
             margin-top: 40px;
@@ -108,6 +107,7 @@
         </div>
     </div>
 
+    
     <div class="hero-section">
         <div class="hero-text-container text-start">
             <h1 class="fw-bold hero-title mb-5">Make every taste count.</h1>
@@ -115,6 +115,13 @@
         </div>
     </div>
 
+
+
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>
+
+<?php
+
+
+?>
