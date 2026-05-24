@@ -33,7 +33,7 @@ session_start();
     <!-- Navbar for name -->
     <nav class="navbar navbar-expand-lg navbar-dark d-flexbox">
         <div class="container-fluid">
-            <img src="../../images/logo.png" alt="" width = 300 height = 150>
+            <img src="../../images/logo.png" alt="" width = auto height = 100>
 
                 <div>
                          <img src= ""
