@@ -25,7 +25,6 @@ session_start();
     <!-- Navbar for name -->
     <nav class="navbar navbar-expand-lg navbar-dark d-flexbox">
         <div class="container-fluid">
-                <img src="../../images/OHAYOBREWLOGOLABEL.png" alt="" width = 150px height = 150px class = "img-fluid">
 
             </button>
 
