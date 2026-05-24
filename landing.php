@@ -40,15 +40,15 @@
             text-decoration: none;
             color: #333;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 25px;                                  
+            font-size: 20px;                                  
         }
 
         #btn {
             border: 5px solid #333;
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 10px 20px;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 25px;            
+            font-size: 20px;            
             cursor: pointer;
             background: transparent;
         }

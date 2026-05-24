@@ -81,7 +81,7 @@
         }
 
         .custom-form-group {
-            margin-bottom: 22px;
+            margin-bottom: 50px;
         }
 
         .custom-input {
@@ -119,7 +119,7 @@
             height: 28px;
             cursor: pointer;
             border-radius: 6px; 
-            accent-color: #1A365D;
+            accent-color: #1A365D; 
         }
 
         .checkbox-label {
@@ -166,38 +166,18 @@
     <div class="hero-section">
         <div class="hero-text-container text-start">
             
-            <h2 class="form-title">Almost there!</h2>
-            <p class="form-subtitle">Fill the necessary information to proceed with ordering.</p>
+            <h2 class="form-title">Verify your email</h2>
+            <p class="form-subtitle">We sent an email in your inbox. Please check your spam folder if you don't see it.</p>
 
             <form action="register_process.php" method="post">
                 
                 <div class="row g-3 custom-form-group">
                     <div class="col-md-6">
-                        <input type="text" class="custom-input" name="first_name" placeholder="First Name" required>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" class="custom-input" name="last_name" placeholder="Last Name" required>
+                        <input type="text" class="custom-input" name="one_time_password" placeholder="One-time Password" required>
                     </div>
                 </div>
-                
-                <div class="custom-form-group">
-                    <input type="text" class="custom-input" name="address" placeholder="Address" required>
-                </div>
-                
-                <div class="custom-form-group">
-                    <input type="text" class="custom-input" name="contact" placeholder="Contact Number" required>
-                </div>
 
-                <div class="custom-form-group">
-                    <input type="email" class="custom-input" name="email" placeholder="Email Address" required>
-                </div>
-                
-                <div class="checkbox-container">
-                    <input type="checkbox" id="terms" name="terms" class="custom-checkbox" required>
-                    <label for="terms" class="checkbox-label">I agree to the terms and conditions.</label>
-                </div>
-
-                <input type="submit" class="hero-btn" value="Proceed">
+                <input type="submit" class="hero-btn" value="Verify">
                 
             </form>
         </div>
