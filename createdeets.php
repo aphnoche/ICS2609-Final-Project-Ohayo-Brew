@@ -44,7 +44,7 @@
         }
 
         #btn {
-            border: 5px solid #333;
+            border: 3px solid #333;
             border-radius: 10px;
             padding: 10px 20px;
             font-family: 'New York Medium Regular', sans-serif;

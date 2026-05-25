@@ -44,7 +44,7 @@
         }
 
         #btn {
-            border: 5px solid #333;
+            border: 3px solid #333;
             border-radius: 10px;
             padding: 10px 20px;
             font-family: 'New York Medium Regular', sans-serif;
@@ -173,7 +173,7 @@
                 
                 <div class="row g-3 custom-form-group">
                     <div class="col-md-6">
-                        <input type="text" class="custom-input" name="one_time_password" placeholder="One-time Password" required>
+                        <input type="text" class="custom-input" name="otp" placeholder="One-time Password" required>
                     </div>
                 </div>
 
@@ -186,3 +186,49 @@
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>
+
+<?php
+    require_once 'db_ohayo_conn.php';
+
+    if(isset($_POST['ver'])){
+        //user input
+        $an_userotp = $_POST['otp'];
+
+        $an_otpsql = "SELECT * FROM tbl_userdetails_ahn WHERE otp = '$an_userotp'";
+        $an_otpresult = $conn->query($an_otpsql);
+    
+        if ($an_otpresult->num_rows == 1) {
+            $an_otpverifysql = "UPDATE tbl_userdetails_ahn SET otp = NULL, otp_status = 'Active' WHERE otp = '$an_userotp'";
+            $conn->query($an_otpverifysql);
+
+            ?>
+            <script>
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "OTP Verified Successfully.",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href = "login.php";
+                });
+            </script>
+            <?php
+        } else {
+            ?>
+            <script>
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Invalid OTP.",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            </script>
+            <?php
+        }
+                
+        
+    }
+
+?>
