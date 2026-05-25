@@ -28,23 +28,44 @@ session_start();
     .products-content-title{
         font-family: "New York Large Bold";
     }
+    .header-bar {
+            background-color: #ffffff;
+            padding: 16px 40px;
+        }
+
+       .logo-img {
+            height: 100px;
+            width: auto;
+        }
+        
+
+        .profile-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid #2b2b2b;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 </style> 
 <body class = "text-dark">
     <!-- Navbar for name -->
-    <nav class="navbar navbar-expand-lg navbar-dark d-flexbox">
-        <div class="container-fluid">
-            <img src="../../images/logo.png" alt="" width = auto height = 100>
-
-                <div>
-                         <img src= ""
-                             class="rounded-circle me-2"
-                             width="40"
-                             height="40">
-                </div>
-
-            </div>
+    <div class="header-bar d-flex justify-content-between align-items-center">
+        <div>
+            <img src="../../images/logo.png" alt="" class="logo-img">
         </div>
-    </nav>
+        <div class="profile-icon">
+            <img src="../../images/PROFILE SYMBOL.png" alt="">
+        </div>
+</div>
 
    <div class="container" id = "menu">
         <div class="row">
