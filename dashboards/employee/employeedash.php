@@ -58,7 +58,7 @@ session_start();
         }
 </style> 
 <body class = "text-dark">
-    <!-- Navbar for name -->
+
     <div class="header-bar d-flex justify-content-between align-items-center">
         <div>
             <img src="../../images/logo.png" alt="" class="logo-img">
@@ -66,13 +66,13 @@ session_start();
         <div class="profile-icon">
             <img src="../../images/PROFILE SYMBOL.png" alt="">
         </div>
-</div>
+    </div>
 
     <div class="container" id = "menu">
         <div class="row">
             <div class="col">
                   <div class="container">
-                    <div class="row ">
+                    <div class="row">
                         <h2>Hello, Employee!</h2>
                     </div>
                      <div class="row text-center rounded-4 p-4 my-4" id="orders">

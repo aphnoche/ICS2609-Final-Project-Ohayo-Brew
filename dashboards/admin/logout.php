@@ -122,7 +122,7 @@ session_start();
 <body>
     <div class="header-bar d-flex justify-content-between align-items-center">
         <div>
-            <img src="../../images/logo.png" alt="" class="logo-img">
+            <img src="../images/logo.png" alt="" class="logo-img">
         </div>
         <div class="profile-icon">
             <img src="" alt="">
