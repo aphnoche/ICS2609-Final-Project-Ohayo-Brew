@@ -125,7 +125,7 @@ session_start();
             <img src="../../images/logo.png" alt="" class="logo-img">
         </div>
         <div class="profile-icon">
-            <img src="../../images/PROFILE SYMBOL.png" alt="">
+            <img src="" alt="">
         </div>
     </div>
     <div class="container">
