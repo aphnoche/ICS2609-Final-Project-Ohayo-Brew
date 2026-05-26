@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Customer Information</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../font-family.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #ffffff;
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family: "New York Medium Regular";
+
         }
 
         .header-bar {
@@ -22,6 +24,8 @@
             height: 100px;
             width: auto;
         }
+
+        
 
         .header-icons {
             display: flex;
@@ -64,53 +68,42 @@
             stroke-width: 1.8;
         }
 
-        .greeting {
-            font-size: 40px;
-            color: #2b2b2b;
-            margin-bottom: 32px;
-        }
-
-        .nav-item-link {
-            font-size: 17px;
-            color: #2b2b2b;
-            padding: 16px 20px;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .nav-item-link.active-nav {
-            background-color: #ede8e0;
-            font-weight: 600;
-        }
+          #orders{
+        background-color: #eee8e0;
+    }
+    #orders-content{
+        height: 100%;
+        background-color: #eee8e0;
+    }
+    #orders-content-title{
+        font-family: "New York Large Bold";
+    }
 
         .content-panel {
             background-color: #ede8e0;
-            border-radius: 16px;
-            padding: 30px 34px;
-            min-height: 560px;
+            border-radius: 10px;
         }
 
         .section-heading {
-            font-size: 26px;
-            font-weight: 700;
-            color: #2b2b2b;
+            font-size: 40px;
+            color: #3a3f4b;
             margin-bottom: 20px;
+            font-family: "New York Medium Bold";
         }
 
         .btn-add-info {
             background-color: #a07840;
             color: #ffffff;
-            border-radius: 24px;
+            border-radius: 10px;
             font-size: 15px;
             padding: 10px 22px;
             border: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family:"New York Medium Regular";
+            margin-top: 60px;
+            margin-bottom: 20px;
         }
 
         .btn-add-info:hover {
@@ -121,7 +114,7 @@
         .edit-card {
             background-color: #ffffff;
             border-radius: 14px;
-            padding: 28px 32px 32px 32px;
+            padding: 28px 32px 40px 50px;
         }
 
         .edit-card-heading {
@@ -129,6 +122,10 @@
             font-weight: 600;
             color: #2b2b2b;
             margin-bottom: 22px;
+        }
+
+       .edit-card .row {
+            width:65%;
         }
 
         .form-control-custom {
@@ -156,12 +153,11 @@
         .btn-apply {
             background-color: #a07840;
             color: #ffffff;
-            border-radius: 24px;
+            border-radius: 10px;
             font-size: 15px;
             padding: 11px 32px;
             border: none;
-            font-family: Georgia, 'Times New Roman', serif;
-            margin-top: 10px;
+            font-family: "New York Medium Regular";
         }
 
         .btn-apply:hover {
@@ -180,19 +176,34 @@
         </div>
     </div>
 
-    <div class="container-fluid px-4 py-3">
+    <div class="container px-4 py-3">
         <div class="row">
-            <div class="col-3 col-xl-2 pe-4">
-                <div class="greeting">Settings</div>
-                <a href="customyorder.php" class="nav-item-link">My Order</a>
-                <a href="custoaccount.php" class="nav-item-link">Accounts</a>
-                <a href="custoinfo.php" class="nav-item-link">Customer Information</a>
-                <a href="custopayment.php" class="nav-item-link active-nav">Payment Method</a>
-                <a href="custoTOS.php" class="nav-item-link">Terms of Service</a>
-            </div>
             <div class="col">
-                <div class="content-panel">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
+                 <div class="container">
+                    <div class="row ">
+                        <h2><b>Settings</b></h2>
+                    </div>
+                     <div class="row text-center rounded-4 p-4 my-3">
+                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My Order</a></h5>
+                    </div>
+                     <div class="row text-center p-4 my-3">
+                        <h5><a href="custoaccount.php" class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
+                    </div>
+                     <div class="row text-center p-4 my-3 rounded-4" id="orders">
+                        <h5><a href="custoinfo.php" class = "link-underline link-underline-opacity-0 text-dark">Customer Information</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custopayment.php" class = "link-underline link-underline-opacity-0 text-dark">Payment Method</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custoTOS.php" class = "link-underline link-underline-opacity-0 text-dark">Terms of Service</a></h5>
+                    </div>
+
+                  </div>
+                </div>
+            <div class="col-9">
+                <div class="content-panel px-5 pb-3">
+                    <div class="d-flex justify-content-between align-items-center">
                         <div class="section-heading mb-0">Customer Information</div>
                         <button class="btn-add-info">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -206,7 +217,7 @@
 
                     <div class="edit-card">
                         <div class="edit-card-heading">Edit Information</div>
-                        <div class="row g-3">
+                        <div class="row g-3 mx-auto">
                             <div class="col-md-6">
                                 <input type="text" class="form-control-custom" placeholder="First Name">
                             </div>

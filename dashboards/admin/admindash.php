@@ -32,8 +32,7 @@ session_start();
             background-color: #ffffff;
             padding: 16px 40px;
         }
-
-       .logo-img {
+  .logo-img {
             height: 100px;
             width: auto;
         }
@@ -60,14 +59,14 @@ session_start();
     <!-- Navbar for name -->
     <div class="header-bar d-flex justify-content-between align-items-center">
         <div>
-            <img src="../../images/logo.png" alt="" class="logo-img">
+            <img src="../../images/logo.png" alt="" width="auto" height="100">
         </div>
         <div class="profile-icon">
             <img src="../../images/PROFILE SYMBOL.png" alt="">
         </div>
 </div>
 
-    <div class="container border-2" id = "menu">
+    <div class="container border-2">
         <div class="row">
             <div class="col">
                   <div class="container">

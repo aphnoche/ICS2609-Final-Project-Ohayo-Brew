@@ -28,23 +28,42 @@ session_start();
     #orders-content-title{
         font-family: "New York Large Bold";
     }
+     .header-bar {
+            background-color: #ffffff;
+            padding: 16px 40px;
+        }
+      .logo-img {
+            height: 100px;
+            width: auto;
+        }
+        
+
+        .profile-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid #2b2b2b;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 </style> 
 <body class = "text-dark">
-    <!-- Navbar for name -->
-    <nav class="navbar navbar-expand-lg navbar-dark d-flexbox">
-        <div class="container-fluid">
-            <img src="../images/logo.png" alt="" width = auto height = 100>
-
-                <div>
-                         <img src= ""
-                             class="rounded-circle me-2"
-                             width="40"
-                             height="40">
-                </div>
-
-            </div>
+  <div class="header-bar d-flex justify-content-between align-items-center">
+         <div>
+            <img src="../images/logo.png" alt="" class="logo-img">
         </div>
-    </nav>
+        <div class="profile-icon">
+            <img src="" alt="">
+        </div>
+</div>
 
     <div class="container" id = "menu">
         <div class="row">
@@ -67,9 +86,6 @@ session_start();
                     </div>
                     <div class="row text-center p-4 my-3">
                         <h5><a href="custoTOS.php" class = "link-underline link-underline-opacity-0 text-dark">Terms of Service</a></h5>
-                    </div>
-                      <div class="row text-center p-4 my-4">
-                        <h5>&nbsp</h5>
                     </div>
                   </div>
             </div>

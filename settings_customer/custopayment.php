@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Payment Method</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../font-family.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #ffffff;
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family:  "New York Medium Regular";
         }
 
         .header-bar {
@@ -23,28 +24,6 @@
             width: auto;
         }
 
-        .header-icons {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .cart-icon {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-icon svg {
-            width: 30px;
-            height: 30px;
-            stroke: #2b2b2b;
-            fill: none;
-            stroke-width: 1.8;
-        }
-
         .profile-icon {
             width: 52px;
             height: 52px;
@@ -56,36 +35,23 @@
             justify-content: center;
         }
 
-        .profile-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke: #2b2b2b;
-            fill: none;
-            stroke-width: 1.8;
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .greeting {
-            font-size: 40px;
-            color: #2b2b2b;
-            margin-bottom: 32px;
-        }
 
-        .nav-item-link {
-            font-size: 17px;
-            color: #2b2b2b;
-            padding: 16px 20px;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            margin-bottom: 12px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .nav-item-link.active-nav {
-            background-color: #ede8e0;
-            font-weight: 600;
-        }
+         #orders{
+        background-color: #eee8e0;
+    }
+    #orders-content{
+        height: 100%;
+        background-color: #eee8e0;
+    }
+    #orders-content-title{
+        font-family: "New York Large Bold";
+    }
 
         .content-panel {
             background-color: #ede8e0;
@@ -183,25 +149,39 @@
 <body>
     <div class="header-bar d-flex justify-content-between align-items-center">
         <div>
-            <img src="../images/logo.png" alt="" class="logo-img">
+            <img src="../images/logo.png" alt="" width = auto height = 100>
         </div>
         <div class="profile-icon">
             <img src="" alt="">
         </div>
     </div>
 
-    <div class="container-fluid px-4 py-3">
+    <div class="container">
         <div class="row">
-            <div class="col-3 col-xl-2 pe-4">
-                <div class="greeting">Settings</div>
-                <a href="customyorder.php" class="nav-item-link">My Order</a>
-                <a href="custoaccount.php" class="nav-item-link">Accounts</a>
-                <a href="custoinfo.php" class="nav-item-link">Customer Information</a>
-                <a href="custopayment.php" class="nav-item-link active-nav">Payment Method</a>
-                <a href="custoTOS.php" class="nav-item-link">Terms of Service</a>
+            <div class="col">
+                <div class="container">
+                    <div class="row ">
+                        <h2><b>Settings</b></h2>
+                    </div>
+                     <div class="row text-center rounded-4 p-4 my-3">
+                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My Order</a></h5>
+                    </div>
+                     <div class="row text-center p-4 my-3">
+                        <h5><a href="custoaccount.php" class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
+                    </div>
+                     <div class="row text-center p-4 my-3">
+                        <h5><a href="custoinfo.php" class = "link-underline link-underline-opacity-0 text-dark">Customer Information</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3 rounded-4" id="orders">
+                        <h5><a href="custopayment.php" class = "link-underline link-underline-opacity-0 text-dark">Payment Method</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custoTOS.php" class = "link-underline link-underline-opacity-0 text-dark">Terms of Service</a></h5>
+                    </div>
+                  </div>
             </div>
 
-            <div class="col-9 col-xl-10">
+            <div class="col-9">
                 <div class="content-panel">
                     <div class="section-heading">Payment Method</div>
 
