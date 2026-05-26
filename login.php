@@ -202,6 +202,47 @@
 </html>
 
 <?php
+    require_once 'db_ohayo_conn.php';
 
+    if(isset($_POST['sub'])) {
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $login_sql = "SELECT * FROM tb_user WHERE email='$email' AND password='$password'";
+        $login_result = mysqli_query($conn, $login_sql);
+        if($login_result && mysqli_num_rows($login_result) > 0) {
+            $user_data = mysqli_fetch_assoc($login_result);
+            $user_id = $user_data['id'];
+            $user_email = $user_data['email'];
+            $user_role = $user_data['role'];
+
+            session_start();
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['email'] = $user_email;
+            $_SESSION['role'] = $user_role;
+
+            if($user_role == 'admin') {
+                header("Location: dashboards/admin/adminhome.php");
+                exit();
+            } else {
+                header("Location: home.php");
+                exit();
+            }
+        } else {
+            echo "
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed!',
+                    text: 'Invalid email or password. Please try again.',
+                    confirmButtonText: 'OK'
+                });
+            </script>
+            ";
+        }
+
+
+    }
 
 ?>
