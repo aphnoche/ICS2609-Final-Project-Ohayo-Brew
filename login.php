@@ -10,6 +10,7 @@
     <title>Log-in to your account - Ohayo Brew</title>
     <link rel="stylesheet" href="font-family.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         html, body {
             height: 100%;
@@ -231,6 +232,9 @@
 
             if($user_role == 'admin') {
                 header("Location: dashboards/admin/adminhome.php");
+                exit();
+            } elseif($user_role == 'employee') {
+                header("Location: dashboards/employee/employeehome.php");
                 exit();
             } else {
                 header("Location: home.php");

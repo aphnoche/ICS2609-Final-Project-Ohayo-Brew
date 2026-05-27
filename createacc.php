@@ -1,4 +1,5 @@
 <?php
+    session_start(); 
     require_once 'db_ohayo_conn.php';
 ?>
 
@@ -10,6 +11,7 @@
     <title>Create your account - Ohayo Brew</title>
     <link rel="stylesheet" href="font-family.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         html, body {
             height: 100%;
@@ -31,21 +33,21 @@
             display: flex;
             justify-content: space-between; 
             align-items: center;           
-            padding: 20px 20px;            
+            padding: 10px 20px;            
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             gap: 100px;
-            margin-right: 50px;                    
+            margin-right: 50px;                                        
         }
 
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;                                                                                  
+            font-size: 20px;                                                                                                                                                 
         }
 
         #btn {
@@ -62,13 +64,13 @@
             flex: 1; 
             display: flex;
             align-items: center;
-            margin-top: -150px; 
+            margin-top: -50px; 
         }
 
         .signup-text-container {
             margin-left: 150px;   
             width: 100%;
-            max-width: 520px;
+            max-width: 500px;
         }
 
         .back-btn {
@@ -76,16 +78,15 @@
             font-size: 40px;
             color: #333;
             text-decoration: none;
-            margin-bottom: 20px;
         }
 
         .login-title {
             font-family: 'New York Large Bold', serif;
             color: #2D3748; 
-            font-size: 4rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 40px;
-            margin-left: 75px;
+            margin-bottom: 20px;
+            margin-left: 80px;
         }
 
         .custom-form-group {
@@ -121,7 +122,7 @@
             color: #4A5568;
             margin-top: 25px;
             margin-bottom: 35px;
-            margin-left: 75px;
+            margin-left: 85px;
         }
 
         .signup-text a {
@@ -136,12 +137,11 @@
             border: none;
             border-radius: 12px;
             font-family: 'New York Medium Regular', sans-serif;
-            font-style: italic;
             padding: 14px 50px; 
-            font-size: 24px;  
+            font-size: 18px;  
             cursor: pointer;
             transition: background-color 0.2s;
-            margin-left: 75px;
+            margin-left: 90px;
         }
 
         .signup-btn:hover {
@@ -164,7 +164,6 @@
         </div>
     </div>
 
-    
     <div class="signup-section">
         <div class="signup-text-container text-start">
             
@@ -176,19 +175,19 @@
                 
                 <div class="row custom-form-group">
                     <div class="col">
-                        <input type="text" class="custom-input" id="username" name="username" placeholder="Username" required>
+                        <input type="text" class="custom-input" name="username" placeholder="Username" required>
                     </div>
                 </div>
                 
                 <div class="row custom-form-group">
                     <div class="col">
-                        <input type="password" class="custom-input" id="password" name="password" placeholder="Password" required>
+                        <input type="password" class="custom-input" name="password" placeholder="Password" required>
                     </div>
                 </div>
                 
                 <div class="row custom-form-group">
                     <div class="col">
-                        <input type="password" class="custom-input" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+                        <input type="password" class="custom-input" name="confirm_password" placeholder="Confirm Password" required>
                     </div>
                 </div>
                 
@@ -213,6 +212,51 @@
 </html>
 
 <?php
+    if (isset($_POST['sub'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
 
+        if($password !== $confirm_password) {
+            echo "
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'Passwords do not match. Please try again.'
+                });
+            </script>
+            ";
+        } else {
+            $insert_sql = "INSERT INTO tb_user (username, password) VALUES ('$username', '$password')";
+            if(mysqli_query($conn, $insert_sql)) {
+                
+                // SAVE THE ASSIGNED USER ID INTO THE SESSION HOOK
+                $_SESSION["user_id"] = mysqli_insert_id($conn);
 
+                echo "
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Account created successfully. Please provide your profile details next.',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        window.location.href = 'createdeets.php';
+                    });
+                </script>
+                ";
+            } else {
+                echo "
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'There was an error creating your account. Please try again.',
+                        footer: '".mysqli_error($conn)."'
+                    });
+                </script>";
+            }
+        }
+    }
 ?>
