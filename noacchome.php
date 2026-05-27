@@ -1,6 +1,5 @@
 <?php
     require_once 'db_ohayo_conn.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,7 @@
             display: flex;
             justify-content: space-between; 
             align-items: center;           
-            padding: 20px 20px;            
+            padding: 10px 20px;            
         }
 
         .nav-links {
@@ -51,7 +50,8 @@
 
         /* STICKY SIDEBAR NAV ALIGNMENT FIX (Mockup #2) */
         .sidebar-nav-container {
-            padding-top: 40px; 
+            padding-top: 40px;
+            border-right: 1px solid #e0e0e0; /* Subtle border para visual separation */
         }
         
         .sidebar-nav {
@@ -191,7 +191,7 @@
 
         /* Footer Logo Image Formatting */
         .footer-logo-img {
-            max-width: 140px; /* I-adjust depende sa laki ng logo ninyo */
+            max-width: 130px;
             height: auto;
             margin-bottom: 12px;
         }
@@ -280,7 +280,7 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br>
+                <br><br>
 
 
                 <div class="mb-5">
@@ -306,7 +306,7 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br>
+                <br><br>
 
 
                 <div class="mb-5">
@@ -332,7 +332,7 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br>
+                <br><br>
 
 
                 <div class="mb-5">
@@ -367,7 +367,7 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br>
+                <br><br>
 
                 <div class="mb-5">
                     <h2 class="category-title" id="matcha">Matcha Crafts</h2>

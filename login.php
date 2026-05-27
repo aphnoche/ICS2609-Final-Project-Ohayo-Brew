@@ -1,3 +1,7 @@
+<?php
+    require_once 'db_ohayo_conn.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +26,8 @@
             flex-direction: column; 
         }
 
+
+        /* Navbar Section */
         .navbar {
             display: flex;
             justify-content: space-between; 
@@ -53,20 +59,21 @@
             background: transparent;
         }
 
-        .hero-section {
+        /* Login on the Left Section */    
+        .login-section {
             flex: 1; 
             display: flex;
             align-items: center;
             margin-top: -150px; 
         }
 
-        .hero-text-container {
+        .login-text-container {
             margin-left: 150px;   
             width: 100%;
             max-width: 520px;
         }
 
-        .back-btn {
+        .back-btn { /*Forda back button on the left*/ 
             display: inline-block;
             font-size: 40px;
             color: #333;
@@ -83,12 +90,12 @@
             margin-left: 75px;
         }
 
-        .custom-form-group {
+        .custom-form-group {            /*div for the input*/
             margin-bottom: 25px;
             margin-left: 75px;
         }
 
-        .custom-input {
+        .custom-input {                 /*mismong design of the input*/
             width: 100%;
             padding: 16px 25px;
             font-family: 'New York Medium Regular', sans-serif;
@@ -101,11 +108,11 @@
             transition: all 0.2s ease-in-out;
         }
 
-        .custom-input::placeholder {
+        .custom-input::placeholder {    /*the text inside the input text*/
             color: #999;
         }
 
-        .custom-input:focus {
+        .custom-input:focus {           /*pag-click, this happens*/
             border-color: #1A365D;
             box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
         }
@@ -125,7 +132,9 @@
             font-weight: 600;
         }
 
-        .hero-btn {
+
+        /*login button*/
+        .login-btn {
             background-color: #1A365D;
             color: white;
             border: none;
@@ -139,7 +148,7 @@
             margin-left: 75px;
         }
 
-        .hero-btn:hover {
+        .login-btn:hover {
             background-color: #2A4365;
             color: white;
         }
@@ -160,8 +169,8 @@
     </div>
 
     
-    <div class="hero-section">
-        <div class="hero-text-container text-start">
+    <div class="login-section">
+        <div class="login-text-container text-start">
             
             <a href="landing.php" class="back-btn">&#8592;</a>
 
@@ -189,7 +198,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <input type="submit" name="sub" class="hero-btn" value="Log-in">
+                        <input type="submit" name="sub" class="login-btn" value="Log-in">
                     </div>
                 </div>
                 
@@ -202,7 +211,6 @@
 </html>
 
 <?php
-    require_once 'db_ohayo_conn.php';
 
     if(isset($_POST['sub'])) {
 

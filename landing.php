@@ -22,6 +22,7 @@
             flex-direction: column; 
         }
 
+        /* Navbar Section */
         .navbar {
             display: flex;
             justify-content: space-between; 
@@ -53,25 +54,27 @@
             background: transparent;
         }
 
-        .hero-section {
+        
+        /* Text on the Left Section */
+        .tleft-section {
             flex: 1; 
             display: flex;
             align-items: center; 
         }
 
-        .hero-text-container {
+        .tleft-text-container {
             margin-left: 150px;   
             max-width: 900px;    
         }
 
-        .hero-title {
+        .tleft-title {
             font-family: 'New York Large Bold', serif;
             color: #2D3748; 
             line-height: 1.1; 
             font-size: 7.8rem; 
         }
 
-        .hero-btn {
+        .tleft-btn {
             background-color: #1A365D;
             color: white;
             border: none;
@@ -85,7 +88,7 @@
             margin-top: 40px;
         }
 
-        .hero-btn:hover {
+        .tleft-btn:hover {
             background-color: #2A4365;
             color: white;
         }
@@ -108,10 +111,10 @@
     </div>
 
     
-    <div class="hero-section">
-        <div class="hero-text-container text-start">
-            <h1 class="fw-bold hero-title mb-5">Make every taste count.</h1>
-            <a href="noacchome.php" class="btn hero-btn">Order Now</a>
+    <div class="tleft-section">
+        <div class="tleft-text-container text-start">
+            <h1 class="fw-bold tleft-title mb-5">Make every taste count.</h1>
+            <a href="noacchome.php" class="btn tleft-btn">Order Now</a>
         </div>
     </div>
 

@@ -1,3 +1,7 @@
+<?php
+    require_once 'db_ohayo_conn.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

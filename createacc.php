@@ -1,3 +1,7 @@
+<?php
+    require_once 'db_ohayo_conn.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +26,7 @@
             flex-direction: column; 
         }
 
+        /* Navbar Section */
         .navbar {
             display: flex;
             justify-content: space-between; 
@@ -53,14 +58,14 @@
             background: transparent;
         }
 
-        .hero-section {
+        .signup-section {
             flex: 1; 
             display: flex;
             align-items: center;
             margin-top: -150px; 
         }
 
-        .hero-text-container {
+        .signup-text-container {
             margin-left: 150px;   
             width: 100%;
             max-width: 520px;
@@ -125,7 +130,7 @@
             font-weight: 600;
         }
 
-        .hero-btn {
+        .signup-btn {
             background-color: #1A365D;
             color: white;
             border: none;
@@ -139,7 +144,7 @@
             margin-left: 75px;
         }
 
-        .hero-btn:hover {
+        .signup-btn:hover {
             background-color: #2A4365;
             color: white;
         }
@@ -160,8 +165,8 @@
     </div>
 
     
-    <div class="hero-section">
-        <div class="hero-text-container text-start">
+    <div class="signup-section">
+        <div class="signup-text-container text-start">
             
             <a href="landing.php" class="back-btn">&#8592;</a>
 
@@ -195,7 +200,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <input type="submit" name="sub" class="hero-btn" value="Create Account">
+                        <input type="submit" name="sub" class="signup-btn" value="Create Account">
                     </div>
                 </div>
                 

@@ -1,6 +1,5 @@
 <?php
     require_once 'db_ohayo_conn.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -21,22 +20,26 @@
         .navbar {
             display: flex;
             justify-content: space-between; 
-            align-items: center;           
-            padding: 20px 20px;            
+            align-items: center;          
+            padding: 10px 20px;            
+        }
+
+        /* Group container for keeping checkout and profile items together */
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 60px;         /* Adjust this value to change space between checkout and profile */
+            margin-right: 50px; /* Keeps the right side margin consistent with the original design */
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 100px;
-            margin-right: 50px;                    
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;                                                                                  
+        .nav-links img {
+            width: 30px; /* Set an explicit size for your checkout image if needed */
+            height: auto;
         }
 
         #btn {
@@ -50,14 +53,15 @@
         }
 
         .profile-icon {
-            width: 52px;
-            height: 52px;
+            width: 40px;
+            height: auto;
             border-radius: 50%;
             border: 2px solid #2b2b2b;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            /* margin-right: 50px; <-- Removed from here and moved to .navbar-right */
         }
 
         .profile-icon img {
@@ -68,7 +72,8 @@
 
         /* STICKY SIDEBAR NAV ALIGNMENT FIX (Mockup #2) */
         .sidebar-nav-container {
-            padding-top: 40px; 
+            padding-top: 40px;
+            border-right: 1px solid #e0e0e0; 
         }
         
         .sidebar-nav {
@@ -208,7 +213,7 @@
 
         /* Footer Logo Image Formatting */
         .footer-logo-img {
-            max-width: 140px; /* I-adjust depende sa laki ng logo ninyo */
+            max-width: 130px;
             height: auto;
             margin-bottom: 12px;
         }
@@ -221,8 +226,14 @@
             <div class="logo">
                 <img src="images/logo.png" alt="Ohayo Brew Logo" style="width: 200px; height: auto; margin-left: 50px;">
             </div>
-            <div class="profile-icon">
-                <img src="" alt="Profile">
+            
+            <div class="navbar-right">
+                <div class="nav-links">
+                    <a href="checkout.php"><img src="images/checkout.png" alt="Checkout"></a>
+                </div>
+                <div class="profile-icon">
+                    <a href="settings_customer/custoaccount.php"><img src="images/user.png" alt="Profile"></a>
+                </div>
             </div>
         </div>
     </div>
@@ -295,7 +306,7 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br>
+                <br><br>
 
 
                 <div class="mb-5">
@@ -321,7 +332,7 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br>
+                <br><br>
 
 
                 <div class="mb-5">
@@ -347,7 +358,7 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br>
+                <br><br>
 
 
                 <div class="mb-5">
@@ -382,7 +393,7 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br>
+                <br><br>
 
                 <div class="mb-5">
                     <h2 class="category-title" id="matcha">Matcha Crafts</h2>
