@@ -33,12 +33,31 @@ session_start();
             background-color: #ffffff;
             padding: 16px 40px;
         }
-
-       .logo-img {
+  .logo-img {
             height: 100px;
             width: auto;
         }
-        
+        .btn{
+            font-size: 10px;
+        }
+
+        .view{
+            background-color: #2b2b2b;
+            color: white;
+        }
+        .view:hover{
+            background-color: #2b2b2b;
+            color: white;
+        }
+
+        .complete{
+            background-color: #a7794b;
+            color: white;
+        }
+        .complete:hover{
+            background-color: #a7794b;
+            color: white;
+        }
 
         .profile-icon {
             width: 52px;
@@ -58,58 +77,96 @@ session_start();
         }
 </style> 
 <body class = "text-dark">
-
+    <!-- Navbar for name -->
     <div class="header-bar d-flex justify-content-between align-items-center">
         <div>
-            <img src="../../images/logo.png" alt="" class="logo-img">
+            <img src="../../images/logo.png" alt="" width="auto" height="100">
         </div>
         <div class="profile-icon">
             <img src="../../images/PROFILE SYMBOL.png" alt="">
         </div>
-    </div>
+</div>
 
-    <div class="container" id = "menu">
+    <div class="container border-2">
         <div class="row">
             <div class="col">
                   <div class="container">
-                    <div class="row">
+                    <div class="row ">
                         <h2>Hello, Employee!</h2>
                     </div>
                      <div class="row text-center rounded-4 p-4 my-4" id="orders">
                         <h5><a href="employeedash.php" class="link-underline link-underline-opacity-0 text-dark">Order List</a></h5>
                     </div>
                      <div class="row text-center p-4 my-4 ">
-                        <h5><a href="products.php" class="link-underline link-underline-opacity-0 text-dark">Products List</a></h5>
+                        <h5><a href="products.php" class="link-underline link-underline-opacity-0 text-dark">Product Availability</a></h5>
                     </div>
                     <div class="row text-center p-4 my-4">
                         <h5>&nbsp</h5>
                     </div>
-                    <div class="row text-center p-4 my-4">
+                     <div class="row text-center p-4 my-4">
                         <h5>&nbsp</h5>
                     </div>
                   </div>
             </div>
             <div class="col-9">
                 <div class="container rounded-4 " id = "orders-content">
-                    <div class="row p-3" id ="orders-content-title">
-                        <h4>Orders</h4>
-                    </div>
-                     <div class="row bg-white rounded border mx-3 my-2 px-3 py-2" id ="orders-content-title">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <p>Order ID</p>
-                                </div>
-                                <div class="col text-end">
-                                    <p>Time</p>
-                                </div>
+                    <div class="row">
+                        <div class="col container">
+                            <div class="row p-3" id ="orders-content-title">
+                                  <h4>Pending Orders</h4>
                             </div>
-                              <div class="row">
-                                <div class="col">
-                                    <p>Username</p>
+                            <div class="row bg-white rounded-3 border mx-3 my-2 px-3 py-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                            <h5 class="card-title">Customer Name</h5>
+                                            <h6 class="card-subtitle mt-1 mb-2 text-muted">&nbsp Order
+                                                <br> &nbsp Add-ons:
+                                                <br> &nbsp example     
+                                                <br> &nbsp Note:
+                                                <br> &nbsp - </h6>                
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>&nbsp</p>
+                                    </div>
+                                    <div class="col-9 text-end d-flex align-items-center justify-content-end gap-3">
+                                        <button type="button" class = "btn rounded-3 view">View Full Order</button>
+                                    
+                                       <button type="button" class = "btn rounded-3 complete">Complete Order</button>
+
+                                    </div>
+                                 </div>
+                             </div>
+                         </div>
+                       </div>
+                       <div class="col container">
+                            <div class="row p-3" id ="orders-content-title">
+                                  <h4>Order History</h4>
                             </div>
-                        </div>
+                            <div class="row bg-white rounded-3 border mx-3 my-2 px-3 py-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                            <h5 class="card-title">Customer Name</h5>
+                                            <h6 class="card-subtitle mt-1 mb-2 text-muted">&nbsp Order
+                                                <br> &nbsp Add-ons:
+                                                <br> &nbsp example     
+                                                <br> &nbsp Note:
+                                                <br> &nbsp - </h6>        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>&nbsp</p>
+                                    </div>
+                                    <div class="col-9 text-end d-flex align-items-center justify-content-end gap-2">
+                                        <button type="button" class = "btn rounded-3 view">View Full Order</button>
+                                    </div>
+                                 </div>
+                             </div>
+                       </div>
                     </div>
                 </div>
             </div>

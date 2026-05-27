@@ -6,8 +6,8 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Dashboard</title>
-     <link rel="stylesheet" href="../../font-family.css">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../font-family.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
  </head>
 <style>
@@ -56,20 +56,37 @@ session_start();
             height: 100%;
             object-fit: cover;
         }
-        .btn, #status{
+        .end-button{
             font-size: 12px;
-            font-family: "New York Medium Regular";
         }
         .Edit{
-            background-color: #2b2b2b;
+             background-color: #a7794b;
             color: white;
         }
         .Edit:hover{
-            background-color: #2b2b2b;
+             background-color: #a7794b;
             color: white;
         }
-        .Status::disabled{
-             background-color: #2b2b2b;
+
+        .Remove{
+            background-color: #a36a6a;
+            color: white;
+        }
+        .Remove:hover{
+            background-color: #a36a6a;
+            color: white;
+        }
+        .Status{
+            color: white;
+        }
+       #content{
+            width: 70%;
+        }
+        textarea{
+            resize: none;
+        }
+        .edit-content{
+            border-color: #a7794b;
         }
 </style> 
 <body class = "text-dark">
@@ -98,41 +115,58 @@ session_start();
                     <div class="row text-center p-4 my-4">
                         <h5>&nbsp</h5>
                     </div>
+                      <div class="row text-center p-4 my-4">
+                        <h5>&nbsp</h5>
+                    </div>
                   </div>
             </div>
             <div class="col-9">
                 <div class="container rounded-4 " id="products-content">
-                    <div class="row p-3">
-                        <h4 class = "products-content-title">Products</h4>
+                    <div class="row p-3 products-content-title">
+                        <h4>Change Product Price</h4>
                     </div>
-                     <div class="row bg-white rounded-3 border mx-3 my-2 px-3 py-2">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-2 border bg-dark p-5 rounded-3 text-center">
+                     <div class="row bg-white h-100 w-auto rounded-3 border mx-3 my-2 mb-4 p-5">
+                        <form class="container">
+                            <div class="row mx-auto d-flex align-items-stretch" id = "content">
+                                <div class="col container d-flex flex-column">
+                                    <div class="row border bg-dark p-5 rounded-3 text-center flex-grow-1 d-flex align-items-center justify-content-center">
+
+                                    </div>
+                                     <div class="row text-center">
+                                        <p>Change Picture</p>
+                                    </div>
+                                    <div class="row">
+                                    <div class="input-group">
+                                    <input type="file" class="form-control text-transparent" id="inputGroupFile">
+                                    </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="col container px-4 pt-3 d-flex flex-column gap-3">
+                                    <div class="row">
+                                        <label  class="form-label">Price</label>
+                                        <input type="number" class="form-control edit-content">
+                                    </div>
+                                    <div class="row">
+                                        &nbsp
+                                    </div>
+                                     <div class="row">
+                                        &nbsp
+                                    </div>
                                     
                                 </div>
-                                <div class="col container px-4 pt-3">
-                                    <div class="row">
-                                        <h5>Product Name</h5>
-                                    </div>
-                                     <div class="row">
-                                        <p class="text-muted">Description: Lorem Ipsum 
-                                            <br>Price: $19.99</p>
-                                    </div>
-                                     <div class="row">
-                                        <div class="col d-flex align-items-center justify-content-end gap-4">
-                                                <a href="editproduct.php" class="btn rounded-3 Edit">Change Price</a>
-                                                <div class = "rounded-3 p-2 bg-success text-white" id = "status">Status</div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
+                            <div class="row pt-5">
+                                    <div class="col d-flex align-items-center justify-content-center gap-4">
+                                            <button type="button" class = "btn end-button rounded-3 Edit px-4">Edit</button>
+                                            <button type="button" class = "btn end-button rounded-3 Remove font-white">Remove</button>
+                                    </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        
     </div>
   
 

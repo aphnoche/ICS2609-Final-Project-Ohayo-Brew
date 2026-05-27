@@ -65,7 +65,7 @@ session_start();
         </div>
 </div>
 
-    <div class="container" id = "menu">
+    <div class="container">
         <div class="row">
             <div class="col">
                   <div class="container">

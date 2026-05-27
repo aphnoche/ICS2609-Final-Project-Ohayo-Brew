@@ -28,6 +28,7 @@ session_start();
     #orders-content-title{
         font-family: "New York Large Bold";
     }
+
     .header-bar {
             background-color: #ffffff;
             padding: 16px 40px;
@@ -36,7 +37,27 @@ session_start();
             height: 100px;
             width: auto;
         }
-        
+        .btn{
+            font-size: 10px;
+        }
+
+        .view{
+            background-color: #2b2b2b;
+            color: white;
+        }
+        .view:hover{
+            background-color: #2b2b2b;
+            color: white;
+        }
+
+        .complete{
+            background-color: #a7794b;
+            color: white;
+        }
+        .complete:hover{
+            background-color: #a7794b;
+            color: white;
+        }
 
         .profile-icon {
             width: 52px;
@@ -89,25 +110,63 @@ session_start();
             </div>
             <div class="col-9">
                 <div class="container rounded-4 " id = "orders-content">
-                    <div class="row p-3" id ="orders-content-title">
-                        <h4>Orders</h4>
-                    </div>
-                     <div class="row bg-white rounded border mx-3 my-2 px-3 py-2" id ="orders-content-title">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <p>Order ID</p>
-                                </div>
-                                <div class="col text-end">
-                                    <p>Time</p>
-                                </div>
+                    <div class="row">
+                        <div class="col container">
+                            <div class="row p-3" id ="orders-content-title">
+                                  <h4>Pending Orders</h4>
                             </div>
-                              <div class="row">
-                                <div class="col">
-                                    <p>Username</p>
+                            <div class="row bg-white rounded-3 border mx-3 my-2 px-3 py-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                            <h5 class="card-title">Customer Name</h5>
+                                            <h6 class="card-subtitle mt-1 mb-2 text-muted">&nbsp Order
+                                                <br> &nbsp Add-ons:
+                                                <br> &nbsp example     
+                                                <br> &nbsp Note:
+                                                <br> &nbsp - </h6>                
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>&nbsp</p>
+                                    </div>
+                                    <div class="col-9 text-end d-flex align-items-center justify-content-end gap-3">
+                                        <button type="button" class = "btn rounded-3 view">View Full Order</button>
+                                    
+                                       <button type="button" class = "btn rounded-3 complete">Complete Order</button>
+
+                                    </div>
+                                 </div>
+                             </div>
+                         </div>
+                       </div>
+                       <div class="col container">
+                            <div class="row p-3" id ="orders-content-title">
+                                  <h4>Order History</h4>
                             </div>
-                        </div>
+                            <div class="row bg-white rounded-3 border mx-3 my-2 px-3 py-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                            <h5 class="card-title">Customer Name</h5>
+                                            <h6 class="card-subtitle mt-1 mb-2 text-muted">&nbsp Order
+                                                <br> &nbsp Add-ons:
+                                                <br> &nbsp example     
+                                                <br> &nbsp Note:
+                                                <br> &nbsp - </h6>        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>&nbsp</p>
+                                    </div>
+                                    <div class="col-9 text-end d-flex align-items-center justify-content-end gap-2">
+                                        <button type="button" class = "btn rounded-3 view">View Full Order</button>
+                                    </div>
+                                 </div>
+                             </div>
+                       </div>
                     </div>
                 </div>
             </div>
