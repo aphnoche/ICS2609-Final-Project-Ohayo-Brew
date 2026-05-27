@@ -54,6 +54,82 @@ session_start();
             height: 100%;
             object-fit: cover;
         }
+          .account-panel {
+            background-color: #ede8e0;
+            border-radius: 16px;
+            padding: 40px 50px;
+            max-width: 900px;
+        }
+
+        .account-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #2b2b2b;
+            margin-bottom: 28px;
+        }
+
+        .col-section-title {
+            font-size: 16px;
+            color: #2b2b2b;
+            margin-bottom: 12px;
+        }
+
+        .form-control {
+            border: 1.5px solid #bbb;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #ffffff;
+        }
+
+        .form-control:focus {
+            border-color: #a07840;
+            box-shadow: none;
+        }
+
+        .position-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2b2b2b;
+            margin-top: 8px;
+        }
+
+        .btn-gold-lg {
+            background-color: #a07840;
+            color: #ffffff;
+            border-radius: 24px;
+            font-size: 16px;
+            padding: 12px 40px;
+            border: none;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        .logout-banner {
+            background-color: #b89464;
+            border-radius: 12px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 28px;
+        }
+
+        .logout-text {
+            font-size: 16px;
+            color: #f5f0e8;
+            font-style: italic;
+        }
+
+        .btn-logout {
+            background-color: #7a4f28;
+            color: #ffffff;
+            border-radius: 20px;
+            font-size: 15px;
+            padding: 10px 28px;
+            border: none;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+    </style>
 </style> 
 <body class = "text-dark">
   <div class="header-bar d-flex justify-content-between align-items-center">
@@ -65,7 +141,7 @@ session_start();
         </div>
 </div>
 
-    <div class="container" id = "menu">
+    <div class="container">
         <div class="row">
             <div class="col">
                   <div class="container">
@@ -90,25 +166,50 @@ session_start();
                   </div>
             </div>
             <div class="col-9">
-                <div class="container rounded-4 " id = "orders-content">
-                    <div class="row p-3" id ="orders-content-title">
-                        <h4>Accounts</h4>
-                    </div>
-                     <div class="row bg-white rounded border mx-3 my-2 px-3 py-2" id ="orders-content-title">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <p>Order ID</p>
+                   <div class="container rounded-4" id = "orders-content">
+                    <div class="account-panel">
+                        <div class="account-title">Manage Account</div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="col-section-title">Change Username</div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input type="text" name="new_username" placeholder="Username" class="form-control">
+                                    </div>
                                 </div>
-                                <div class="col text-end">
-                                    <p>Time</p>
-                                </div>
-                            </div>
-                              <div class="row">
-                                <div class="col">
-                                    <p>Username</p>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input type="password" name="current_password_username" placeholder="Password" class="form-control">
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-6">
+                                <div class="col-section-title">Change Password</div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input type="password" name="current_password" placeholder="Current Password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input type="password" name="new_password" placeholder="New Password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input type="password" name="confirm_password" placeholder="Confirm Password" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col d-flex justify-content-center">
+                                <div class="btn-gold-lg">Apply Changes</div>
+                            </div>
+                        </div>
+                        <div class="logout-banner">
+                            <div class="logout-text">Want to log-out of the account?</div>
+                            <div class="btn-logout">Log-out</div>
                         </div>
                     </div>
                 </div>

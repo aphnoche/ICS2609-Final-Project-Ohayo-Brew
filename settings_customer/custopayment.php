@@ -57,7 +57,7 @@
             background-color: #ede8e0;
             border-radius: 16px;
             padding: 30px 34px;
-            min-height: 560px;
+            min-height: 100%;
         }
 
         .section-heading {
