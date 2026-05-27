@@ -32,7 +32,7 @@
             display: flex;
             justify-content: space-between; 
             align-items: center;           
-            padding: 20px 20px;            
+            padding: 10px 20px;            
         }
 
         .nav-links {
@@ -64,7 +64,7 @@
             flex: 1; 
             display: flex;
             align-items: center;
-            margin-top: -150px; 
+            margin-top: -50px;
         }
 
         .login-text-container {
@@ -78,20 +78,19 @@
             font-size: 40px;
             color: #333;
             text-decoration: none;
-            margin-bottom: 20px;
         }
 
         .login-title {
             font-family: 'New York Large Bold', serif;
             color: #2D3748; 
-            font-size: 4rem;
+            font-size: 3.8rem;
             font-weight: bold;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             margin-left: 75px;
         }
 
         .custom-form-group {            /*div for the input*/
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             margin-left: 75px;
         }
 
@@ -142,10 +141,10 @@
             font-family: 'New York Medium Regular', sans-serif;
             font-style: italic;
             padding: 14px 50px; 
-            font-size: 24px;  
+            font-size: 20px;  
             cursor: pointer;
             transition: background-color 0.2s;
-            margin-left: 75px;
+            margin-left: 85px;
         }
 
         .login-btn:hover {
