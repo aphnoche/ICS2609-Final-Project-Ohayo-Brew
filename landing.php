@@ -27,7 +27,7 @@
             display: flex;
             justify-content: space-between; 
             align-items: center;           
-            padding: 20px 20px;            
+            padding: 10px 20px;            
         }
 
         .nav-links {
@@ -64,14 +64,14 @@
 
         .tleft-text-container {
             margin-left: 150px;   
-            max-width: 900px;    
+            max-width: 780px;    
         }
 
         .tleft-title {
             font-family: 'New York Large Bold', serif;
             color: #2D3748; 
             line-height: 1.1; 
-            font-size: 7.8rem; 
+            font-size: 6.7rem; 
         }
 
         .tleft-btn {
@@ -82,10 +82,10 @@
             font-family: 'New York Medium Regular', sans-serif;
             font-style: italic;
             padding: 14px 45px; 
-            font-size: 21px;  
+            font-size: 18px;  
             text-decoration: none;
             display: inline-block;
-            margin-top: 40px;
+            margin-top: 25px;
         }
 
         .tleft-btn:hover {
