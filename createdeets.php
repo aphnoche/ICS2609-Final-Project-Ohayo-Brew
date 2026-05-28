@@ -234,12 +234,14 @@
 </html>
 
 <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sub'])) {
+    if (isset($_POST['sub'])) {
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $address = $_POST['address'];
         $contact = $_POST['contact'];
         $email = $_POST['email'];
+        $otp_no = rand(000000, 999999);
+        $full_name = $first_name . ' ' . $last_name;
         
         // Pull identity safely from current session hook
         $user_id = $_SESSION['user_id'];
@@ -249,13 +251,17 @@
                              first_name='$first_name', 
                              last_name='$last_name', 
                              address='$address', 
-                             contact='$contact', 
+                             contact_no='$contact', 
                              email='$email', 
+                             otp='$otp_no',
                              otp_status='Pending' 
                              WHERE user_id='$user_id'";
 
         // EXECUTE QUERY USING MYSQLI_QUERY
-        if(mysqli_query($conn, $update_recordsql)) {
+        $update_result = $conn->query($update_recordsql);
+
+        if($update_result == true) {
+            send_verification($full_name, $email, $otp_no); // CALL THE EMAIL FUNCTION TO SEND OTP
             echo "
             <script>
                 Swal.fire({

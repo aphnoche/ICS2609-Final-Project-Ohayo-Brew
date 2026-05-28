@@ -1,4 +1,6 @@
 <?php
+    ob_start();
+    session_start();
     require_once 'db_ohayo_conn.php';
 ?>
 
@@ -180,13 +182,13 @@
                 
                 <div class="row custom-form-group">
                     <div class="col">
-                        <input type="text" class="custom-input" id="email" name="email" placeholder="Username" required>
+                        <input type="text" class="custom-input" name="username" placeholder="Username" required>
                     </div>
                 </div>
                 
                 <div class="row custom-form-group">
                     <div class="col">
-                        <input type="password" class="custom-input" id="password" name="password" placeholder="Password" required>
+                        <input type="password" class="custom-input" name="password" placeholder="Password" required>
                     </div>
                 </div>
                 
@@ -213,21 +215,19 @@
 <?php
 
     if(isset($_POST['sub'])) {
-
-        $email = $_POST['email'];
+        $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $login_sql = "SELECT * FROM tb_user WHERE email='$email' AND password='$password'";
-        $login_result = mysqli_query($conn, $login_sql);
-        if($login_result && mysqli_num_rows($login_result) > 0) {
-            $user_data = mysqli_fetch_assoc($login_result);
-            $user_id = $user_data['id'];
-            $user_email = $user_data['email'];
+        $login_sql = "SELECT * FROM tb_user WHERE username='$username' AND password='$password'";
+        $login_result = $conn->query($login_sql);
+        if($login_result->num_rows == 1) {
+            $user_data = $login_result->fetch_assoc();
+            $user_id = $user_data['user_id'];
+            $user_username = $user_data['username'];
             $user_role = $user_data['role'];
 
-            session_start();
             $_SESSION['user_id'] = $user_id;
-            $_SESSION['email'] = $user_email;
+            $_SESSION['username'] = $user_username;
             $_SESSION['role'] = $user_role;
 
             if($user_role == 'admin') {
@@ -246,7 +246,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Login Failed!',
-                    text: 'Invalid email or password. Please try again.',
+                    text: 'Invalid username or password. Please try again.',
                     confirmButtonText: 'OK'
                 });
             </script>
@@ -255,5 +255,7 @@
 
 
     }
+
+    ob_end_flush();
 
 ?>

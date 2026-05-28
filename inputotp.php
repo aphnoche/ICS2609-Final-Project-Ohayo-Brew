@@ -10,6 +10,7 @@
     <title>Almost there!</title>
     <link rel="stylesheet" href="font-family.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         html, body {
             height: 100%;
@@ -44,7 +45,7 @@
             text-decoration: none;
             color: #333;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;                                                   
+            font-size: 20px;                                                                                   
         }
 
         #btn {
@@ -173,7 +174,7 @@
             <h2 class="form-title">Verify your email</h2>
             <p class="form-subtitle">We sent an email in your inbox. Please check your spam folder if you don't see it.</p>
 
-            <form action="register_process.php" method="post">
+            <form action="inputotp.php" method="post">
                 
                 <div class="row g-3 custom-form-group">
                     <div class="col-md-6">
@@ -181,7 +182,7 @@
                     </div>
                 </div>
 
-                <input type="submit" class="hero-btn" value="Verify">
+                <input type="submit" name="ver" class="hero-btn" value="Verify">
                 
             </form>
         </div>
@@ -196,14 +197,14 @@
 
     if(isset($_POST['ver'])){
         //user input
-        $an_userotp = $_POST['otp'];
+        $user_otp = $_POST['otp'];
 
-        $an_otpsql = "SELECT * FROM tbl_userdetails_ahn WHERE otp = '$an_userotp'";
-        $an_otpresult = $conn->query($an_otpsql);
+        $otp_sql = "SELECT * FROM tb_user WHERE otp = '$user_otp'";
+        $otp_result = $conn->query($otp_sql);
     
-        if ($an_otpresult->num_rows == 1) {
-            $an_otpverifysql = "UPDATE tbl_userdetails_ahn SET otp = NULL, otp_status = 'Active' WHERE otp = '$an_userotp'";
-            $conn->query($an_otpverifysql);
+        if ($otp_result->num_rows == 1) {
+            $otp_verifysql = "UPDATE tb_user SET otp = NULL, otp_status = 'Active' WHERE otp = '$user_otp'";
+            $conn->query($otp_verifysql);
 
             ?>
             <script>
@@ -231,8 +232,5 @@
             </script>
             <?php
         }
-                
-        
     }
-
 ?>

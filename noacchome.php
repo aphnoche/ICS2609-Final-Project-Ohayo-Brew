@@ -130,6 +130,17 @@
             transform: translateY(-5px);
         }
 
+        .menu-link {
+            text-decoration: none; 
+            color: inherit;        
+            display: block;       
+        }
+
+        .menu-link:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
         /* Background Palettes para sa bawat Category Box */
         .bg-espresso { background-color: #9C6644; }
         .bg-milk { background-color: #7794a3; }
@@ -189,7 +200,6 @@
             opacity: 0.9;
         }
 
-        /* Footer Logo Image Formatting */
         .footer-logo-img {
             max-width: 130px;
             height: auto;
@@ -239,6 +249,7 @@
                     <h2 class="category-title" id="espresso">Espresso Crafts</h2>
                     <div class="row g-4">
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-espresso">
                                 <div class="card-img-box">
                                     <img src="images/americano.jpg" alt="Americano">
@@ -248,8 +259,12 @@
                                 ?></div>
                                 <div class="product-price">₱120.00</div>
                             </div>
+                            </a>
                         </div>
+                        
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-espresso">
                                 <div class="card-img-box">
                                     <img src="images/latte.jpg" alt="Cafe Latte">
@@ -259,8 +274,11 @@
                                 ?></div>
                                 <div class="product-price">₱130.00</div>
                             </div>
+                            </a>
                         </div>
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-espresso">
                                 <div class="card-img-box">
                                     <img src="images/spanish-latte.jpg" alt="Spanish Latte">
@@ -268,8 +286,11 @@
                                 <div class="product-title">Spanish Latte</div>
                                 <div class="product-price">₱140.00</div>
                             </div>
+                            </a>
                         </div>
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-espresso">
                                 <div class="card-img-box">
                                     <img src="images/dark-mocha.jpg" alt="Dark Mocha">
@@ -277,6 +298,7 @@
                                 <div class="product-title">Dark Mocha</div>
                                 <div class="product-price">₱150.00</div>
                             </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -286,7 +308,9 @@
                 <div class="mb-5">
                     <h2 class="category-title" id="milk">Milk Crafts</h2>
                     <div class="row g-4">
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-milk">
                                 <div class="card-img-box">
                                     <img src="images/strawberry-milk.jpg" alt="Strawberry Milk">
@@ -294,8 +318,11 @@
                                 <div class="product-title">Strawberry Milk</div>
                                 <div class="product-price">₱120.00</div>
                             </div>
+                            </a>
                         </div>
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-milk">
                                 <div class="card-img-box">
                                     <img src="images/white-chocolate.jpg" alt="White Chocolate">
@@ -303,7 +330,9 @@
                                 <div class="product-title">White Chocolate</div>
                                 <div class="product-price">₱130.00</div>
                             </div>
+                            </a>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <br><br>
@@ -312,7 +341,9 @@
                 <div class="mb-5">
                     <h2 class="category-title" id="tea">Tea Crafts</h2>
                     <div class="row g-4">
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-tea">
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
@@ -320,8 +351,11 @@
                                 <div class="product-title">Yoghurt Peach Tea</div>
                                 <div class="product-price">₱130.00</div>
                             </div>
+                            </a>
                         </div>
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-tea">
                                 <div class="card-img-box">
                                     <img src="images/strawberry-black-tea.jpg" alt="Strawberry Black Tea">
@@ -329,7 +363,9 @@
                                 <div class="product-title">Strawberry Black Tea</div>
                                 <div class="product-price">₱130.00</div>
                             </div>
+                            </a>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <br><br>
@@ -338,7 +374,9 @@
                 <div class="mb-5">
                     <h2 class="category-title" id="ice-blended">Ice Blended Crafts</h2>
                     <div class="row g-4">
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-ice-blended">
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
@@ -346,8 +384,11 @@
                                 <div class="product-title">Yoghurt Peach Tea</div>
                                 <div class="product-price">₱130.00</div>
                             </div>
+                            </a>
                         </div>
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-ice-blended">
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
@@ -355,8 +396,11 @@
                                 <div class="product-title">Yoghurt Peach Tea</div>
                                 <div class="product-price">₱130.00</div>
                             </div>
+                            </a>
                         </div>
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-ice-blended">
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
@@ -364,7 +408,9 @@
                                 <div class="product-title">Strawberry Black Tea</div>
                                 <div class="product-price">₱130.00</div>
                             </div>
+                            </a>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <br><br>
@@ -372,7 +418,9 @@
                 <div class="mb-5">
                     <h2 class="category-title" id="matcha">Matcha Crafts</h2>
                     <div class="row g-4">
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-matcha">
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
@@ -380,8 +428,11 @@
                                 <div class="product-title"><?php echo "Matcha 1"?></div>
                                 <div class="product-price"><?php echo "₱130.00"?></div>
                             </div>
+                            </a>
                         </div>
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-matcha">
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
@@ -389,8 +440,11 @@
                                 <div class="product-title"><?php echo "Matcha 2"?></div>
                                 <div class="product-price"><?php echo "₱130.00"?></div>
                             </div>
+                            </a>
                         </div>
+                        
                         <div class="col-6 col-sm-4 col-md-3">
+                            <a href="login.php" class="menu-link">
                             <div class="menu-card bg-matcha">
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
@@ -398,7 +452,9 @@
                                 <div class="product-title"><?php echo "Matcha 3"?></div>
                                 <div class="product-price"><?php echo "₱130.00"?></div>
                             </div>
+                            </a>
                         </div>
+                        
                     </div>
                 </div>
 

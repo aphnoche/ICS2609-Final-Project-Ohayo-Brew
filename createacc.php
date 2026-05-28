@@ -214,8 +214,8 @@
 <?php
     if (isset($_POST['sub'])) {
         $username = $_POST['username'];
-        $password = $_POST['password'];
-        $confirm_password = $_POST['confirm_password'];
+        $password = md5($_POST['password']);
+        $confirm_password = md5($_POST['confirm_password']);
 
         if($password !== $confirm_password) {
             echo "
