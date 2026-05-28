@@ -59,6 +59,25 @@ session_start();
         .subtitle{
             font-size: 12px;
         }
+
+        .btn-add-info {
+            background-color: #a07840;
+            color: #ffffff;
+            border-radius: 10px;
+            font-size: 15px;
+            padding: 10px 22px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family:"New York Medium Regular";
+            margin-bottom: 20px;
+        }
+
+        .btn-add-info:hover {
+            background-color: #8b6530;
+            color: #ffffff;
+        }
 </style> 
 <body class = "text-dark">
    <div class="header-bar d-flex justify-content-between align-items-center">
@@ -95,11 +114,23 @@ session_start();
                   </div>
             </div>
             <div class="col-9">
-                <div class="container rounded-4 " id = "orders-content">
-                    <div class="row p-3" id ="orders-content-title">
-                        <h4>Customer Information</h4>
+                <div class="container rounded-4" id = "orders-content">
+                    <div class="row pt-4 px-4 " id ="orders-content-title">
+                        <div class="col-9">
+                        <h1>Customer Information</h1>
+                        </div>
+                        <div class="col pt-3 text-end">
+                          <button class="btn-add-info">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="12" y1="8" x2="12" y2="16"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                Add Information
+                            </button>
+                        </div>
                     </div>
-                     <div class="row bg-white rounded border mx-3 my-2 px-3 py-3">
+                     <div class="row bg-white rounded border mx-5 my-5 px-3 py-3">
                         <div class="container pb-5">
                             <div class="row">
                                 <div class="col">

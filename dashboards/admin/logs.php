@@ -1,4 +1,5 @@
 <?php
+require_once '../../db_ohayo_conn.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -81,6 +82,9 @@ session_start();
                     </div>
                      <div class="row text-center  rounded-4  p-4 my-4 " id="logs">
                         <h5>Logs</h5>
+                    </div>
+                    <div class="row text-center p-4 my-4">
+                        <h5>&nbsp</h5>
                     </div>
                     <div class="row text-center p-4 my-4">
                         <h5>&nbsp</h5>

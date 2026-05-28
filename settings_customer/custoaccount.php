@@ -1,5 +1,7 @@
 <?php
+require_once '../db_ohayo_conn.php';
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,5 @@
 <?php
+require_once '../../db_ohayo_conn.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -102,6 +103,9 @@ session_start();
                     </div>
                      <div class="row text-center p-4 my-4 ">
                         <h5><a href="logs.php" class = "link-underline link-underline-opacity-0 text-dark">Logs</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-4">
+                        <h5>&nbsp</h5>
                     </div>
                     <div class="row text-center p-4 my-4">
                         <h5>&nbsp</h5>

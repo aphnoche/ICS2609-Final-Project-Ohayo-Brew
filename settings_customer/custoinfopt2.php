@@ -201,10 +201,12 @@
                 </div>
             <div class="col-9">
                 <div class="container rounded-4" id="orders-content">
-                    <div class="row p-3" id="orders-content-title">
-                        <div class="d-flex justify-content-between align-items-center w-100">
-                            <h4 class="mb-0">Customer Information</h4>
-                            <button class="btn-add-info">
+                    <div class="row pt-4 px-4" id ="orders-content-title">
+                        <div class="col-9">
+                        <h1>Customer Information</h1>
+                        </div>
+                        <div class="col pt-3 text-end">
+                          <button class="btn-add-info">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="12" cy="12" r="10"/>
                                     <line x1="12" y1="8" x2="12" y2="16"/>
@@ -214,7 +216,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="row bg-white rounded border m-4 px-3 py-3">
+                    <div class="row bg-white rounded mx-5 mb-5 px-3 py-3">
                         <div class="container pb-5">
                             <div class="row">
                                 <div class="col">
