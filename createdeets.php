@@ -2,6 +2,7 @@
     // RESUME THE SESSION TO READ THE ACCOUNT ID
     session_start();
     require_once 'db_ohayo_conn.php';
+    require_once 'otpverification.php';
 
     // SECURITY CHECK: If someone manually types this URL without registering first, kick them back
     if (!isset($_SESSION['user_id'])) {

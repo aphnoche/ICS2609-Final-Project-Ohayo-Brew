@@ -60,6 +60,9 @@ session_start();
             font-family: "New York Medium Regular";
             background-color: #a7794b;
         }
+        .sticky-top{
+            top: 60px;
+        }
 </style> 
 <body>
     <div class="header-bar d-flex justify-content-between align-items-center">
@@ -74,7 +77,7 @@ session_start();
     <div class="container" id = "menu">
         <div class="row">
             <div class="col">
-                  <div class="container">
+                  <div class="container sticky-top">
                     <div class="row ">
                         <h2><b>Settings</b></h2>
                     </div>

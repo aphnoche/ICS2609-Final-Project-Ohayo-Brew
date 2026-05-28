@@ -17,6 +17,7 @@ session_start();
     }
     body{
         font-family: "New York Medium Regular";
+        
     }
 
     #orders{
@@ -78,6 +79,9 @@ session_start();
             background-color: #8b6530;
             color: #ffffff;
         }
+        .sticky-top{
+            top: 60px;
+        }
 </style> 
 <body class = "text-dark">
    <div class="header-bar d-flex justify-content-between align-items-center">
@@ -92,8 +96,8 @@ session_start();
     <div class="container">
         <div class="row">
             <div class="col">
-                  <div class="container">
-                    <div class="row">
+                  <div class="container sticky-top ">
+                    <div class="row ">
                         <h2><b>Settings</b></h2>
                     </div>
                      <div class="row text-center p-4 my-3">
@@ -114,7 +118,7 @@ session_start();
                   </div>
             </div>
             <div class="col-9">
-                <div class="container rounded-4" id = "orders-content">
+                <div class="container fixed rounded-4 overflow-auto" id = "orders-content">
                     <div class="row pt-4 px-4 " id ="orders-content-title">
                         <div class="col-9">
                         <h1>Customer Information</h1>
@@ -130,7 +134,7 @@ session_start();
                             </button>
                         </div>
                     </div>
-                     <div class="row bg-white rounded border mx-5 my-5 px-3 py-3">
+                     <div class="row bg-white rounded border mx-5 mb-5 px-3 py-3">
                         <div class="container pb-5">
                             <div class="row">
                                 <div class="col">
