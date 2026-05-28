@@ -87,7 +87,6 @@
         .section-heading {
             font-size: 40px;
             color: #3a3f4b;
-            margin-bottom: 20px;
             font-family: "New York Medium Bold";
         }
 
@@ -102,7 +101,6 @@
             align-items: center;
             gap: 8px;
             font-family:"New York Medium Regular";
-            margin-top: 60px;
             margin-bottom: 20px;
         }
 
@@ -124,7 +122,7 @@
             margin-bottom: 22px;
         }
 
-       .edit-card .row {
+        .form{
             width:65%;
         }
 
@@ -176,7 +174,7 @@
         </div>
     </div>
 
-    <div class="container px-4 py-3">
+    <div class="container">
         <div class="row">
             <div class="col">
                  <div class="container">
@@ -202,39 +200,46 @@
                   </div>
                 </div>
             <div class="col-9">
-                <div class="content-panel px-5 pb-3">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="section-heading mb-0">Customer Information</div>
-                        <button class="btn-add-info">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="12" y1="8" x2="12" y2="16"/>
-                                <line x1="8" y1="12" x2="16" y2="12"/>
-                            </svg>
-                            Add Information
-                        </button>
+                <div class="container rounded-4" id="orders-content">
+                    <div class="row p-3" id="orders-content-title">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <h4 class="mb-0">Customer Information</h4>
+                            <button class="btn-add-info">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="12" y1="8" x2="12" y2="16"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                Add Information
+                            </button>
+                        </div>
                     </div>
-
-                    <div class="edit-card">
-                        <div class="edit-card-heading">Edit Information</div>
-                        <div class="row g-3 mx-auto">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control-custom" placeholder="First Name">
+                    <div class="row bg-white rounded border m-4 px-3 py-3">
+                        <div class="container pb-5">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="edit-card-heading">Edit Information</div>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control-custom" placeholder="Last Name">
-                            </div>
-                            <div class="col-12">
-                                <input type="text" class="form-control-custom" placeholder="Address">
-                            </div>
-                            <div class="col-12">
-                                <input type="text" class="form-control-custom" placeholder="Contact Number">
-                            </div>
-                            <div class="col-12">
-                                <input type="email" class="form-control-custom" placeholder="Email Address">
-                            </div>
-                            <div class="col-12 d-flex justify-content-center mt-2">
-                                <button class="btn-apply">Apply Changes</button>
+                            <div class="row g-3 form mx-auto">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control-custom" placeholder="First Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control-custom" placeholder="Last Name">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control-custom" placeholder="Address">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control-custom" placeholder="Contact Number">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control-custom" placeholder="Email Address">
+                                </div>
+                                <div class="col-12 d-flex justify-content-center mt-4">
+                                    <button class="btn-apply">Apply Changes</button>
+                                </div>
                             </div>
                         </div>
                     </div>

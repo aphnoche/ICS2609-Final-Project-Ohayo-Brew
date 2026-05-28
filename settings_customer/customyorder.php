@@ -54,6 +54,12 @@ session_start();
             height: 100%;
             object-fit: cover;
         }
+
+        #status{
+            font-size: 12px;
+            font-family: "New York Medium Regular";
+            background-color: #a7794b;
+        }
 </style> 
 <body>
     <div class="header-bar d-flex justify-content-between align-items-center">
@@ -94,20 +100,32 @@ session_start();
                     <div class="row p-3" id ="orders-content-title">
                         <h4>My Orders</h4>
                     </div>
-                     <div class="row bg-white rounded border mx-3 my-2 px-3 py-2" id ="orders-content-title">
+                     <div class="row bg-white rounded border mx-3 my-2 px-3 py-2">
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <p>Order ID</p>
+                                    <h5>Product Name</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">&nbsp Order</h6>
                                 </div>
-                                <div class="col text-end">
-                                    <p>Time</p>
-                                </div>
+                              <div class="col d-flex align-items-center justify-content-end gap-4">
+                                        <div class = "rounded-3 p-2 text-white" id = "status">Pending</div>
+                                        </div>
                             </div>
                               <div class="row">
                                 <div class="col">
-                                    <p>Username</p>
+                                    <h5>Iced Expresso</h5>
                                 </div>
+                            </div>
+                            <div class="row mt-5">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class = "text-muted align-text-bottom">Order Date: 2023-10-10</td>
+                                            <td>&nbsp</td>
+                                            <td class = "text-end align-text-bottom">Total: ₱255.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
