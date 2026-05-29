@@ -108,7 +108,7 @@ $reslogs = $conn->query($showlogs);
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <p><?php echo $_SESSION['username']; ?></p>
+                                            <p><?php $logname = "SELECT * FROM tb_user WHERE user_id = " . $log['user_id']; $logname_result = $conn->query($logname); echo $logname_result->fetch_assoc()['username']; ?></p>
                                         </div>
                                         <div class="col text-end">
                                             <p><?php echo $log['datetime']; ?></p>
