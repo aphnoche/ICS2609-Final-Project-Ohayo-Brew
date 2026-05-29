@@ -72,6 +72,9 @@ session_start();
         .Status::disabled{
              background-color: #2b2b2b;
         }
+        .sticky-top{
+            top: 60px;
+        }
 </style> 
 <body class = "text-dark">
     <!-- Navbar for name -->
@@ -83,10 +86,16 @@ session_start();
             <img src="../../images/PROFILE SYMBOL.png" alt="">
         </div>
 </div>
+<?php
+$show_ac = "SELECT * FROM tb_product";
+
+$res_ac = $conn->query($show_ac);
+?>
+
    <div class="container">
         <div class="row">
             <div class="col">
-                  <div class="container">
+                  <div class="container sticky-top">
                     <div class="row ">
                         <h2>Hello, Admin!</h2>
                     </div>
@@ -107,35 +116,44 @@ session_start();
                     </div>
                   </div>
             </div>
+
             <div class="col-9">
-                <div class="container rounded-4 " id="products-content">
-                    <div class="row p-3">
-                        <h4 class = "products-content-title">Products</h4>
-                    </div>
-                     <div class="row bg-white rounded-3 border mx-3 my-2 px-3 py-2">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-2 border bg-dark p-5 rounded-3 text-center">
-                                    
-                                </div>
-                                <div class="col container px-4 pt-3">
-                                    <div class="row">
-                                        <h5>Product Name</h5>
+                    <div class="container rounded-4 " id="products-content">
+                        <div class="row p-3">
+                            <h4 class = "products-content-title">Products</h4>
+                        </div>
+                            <?php
+                                if($res_ac -> num_rows > 0){
+                                    foreach($res_ac as $fieldname_ac){
+                            ?>
+                        <div class="row bg-white rounded-3 border mx-3 my-2 px-3 py-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-2 border bg-dark p-5 rounded-3 text-center">
                                     </div>
-                                     <div class="row">
-                                        <p class="text-muted">Description: Lorem Ipsum 
-                                            <br>Price: $19.99</p>
-                                    </div>
-                                     <div class="row">
-                                        <div class="col d-flex align-items-center justify-content-end gap-4">
-                                                <a href="editproduct.php" class="btn rounded-3 Edit">Edit/Remove</a>
+                                    <div class="col container px-4 pt-3">
+                                        <div class="row">
+                                            <h5><?php echo ($fieldname_ac['product_name']); ?></h5>
+                                        </div>
+                                        <div class="row">
+                                            <p class="text-muted">Description: <?php echo ($fieldname_ac['description']); ?><br>Price: <?php echo ($fieldname_ac['price']); ?></p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-flex align-items-center justify-content-end gap-4">
+                                                <a href="editproduct.php?id=<?php echo $fieldname_ac['product_id']; ?>&name=<?php echo ($fieldname_ac['product_name']); ?>" class="btn rounded-3 Edit">Edit/Remove</a>
                                                 <div class = "rounded-3 p-2 bg-success text-white" id = "status">Status</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <?php
+                                }
+                            } else {
+                                echo "<div class='row mx-3 my-2'><div class='col'>No record found</div></div>";
+                            }
+                        ?>
                 </div>
             </div>
         </div>

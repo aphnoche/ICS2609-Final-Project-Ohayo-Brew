@@ -57,6 +57,12 @@ session_start();
             object-fit: cover;
         }
 </style> 
+
+<?php
+$showlogs = "SELECT * FROM tb_logs ORDER BY datetime";
+$reslogs = $conn->query($showlogs);
+
+?>
 <body class = "text-dark">
     <!-- Navbar for name -->
     <div class="header-bar d-flex justify-content-between align-items-center">
@@ -96,23 +102,29 @@ session_start();
                     <div class="row p-3 logs-content-title">
                         <h4>Logs</h4>
                     </div>
-                     <div class="row bg-white rounded border mx-3 my-2 px-3 py-2 logs-content-title">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <p>Log ID</p>
-                                </div>
-                                <div class="col text-end">
-                                    <p>Time</p>
+                    <?php if($reslogs && $reslogs->num_rows > 0){?>
+                        <?php foreach($reslogs as $log) { ?>
+                            <div class="row bg-white rounded border mx-3 my-2 px-3 py-2 logs-content-title">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p><?php echo $_SESSION['username']; ?></p>
+                                        </div>
+                                        <div class="col text-end">
+                                            <p><?php echo $log['datetime']; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p><?php echo $log['action']; ?></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                              <div class="row">
-                                <div class="col">
-                                    <p>Username</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php }
+                            } else {
+                                echo "<div class='row mx-3 my-2'><div class='col'>No record found</div></div>";
+                            } ?>
                 </div>
             </div>
         </div>

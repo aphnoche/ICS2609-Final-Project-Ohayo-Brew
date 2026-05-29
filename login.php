@@ -2,6 +2,41 @@
     ob_start();
     session_start();
     require_once 'db_ohayo_conn.php';
+
+    if(isset($_POST['sub'])) {
+        $username = $_POST['username'];
+        $password = md5($_POST['password']);
+
+        $login_sql = "SELECT * FROM tb_user WHERE username='".$username."' AND password='".$password."'";
+        $login_result = $conn->query($login_sql);
+        if($login_result->num_rows == 1) {
+            $user_data = $login_result->fetch_assoc();
+            $user_id = $user_data['user_id'];
+            $user_username = $user_data['username'];
+            $user_role = $user_data['role'];
+            $user_address = $user_data['address'];
+            $user_contact_no = $user_data['contact_no'];
+
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['username'] = $user_username;
+            $_SESSION['role'] = $user_role;
+            $_SESSION['address'] = $user_address;
+            $_SESSION['contact_no'] = $user_contact_no;
+            $logsql ="Insert into tb_logs(user_id, action, datetime) 
+            values ('".$_SESSION['user_id']."', 'Logged In', NOW())";
+            $conn->query($logsql);
+            if($user_role == 'admin') {
+                header("Location: dashboards/admin/admindash.php");
+                exit;
+            } elseif($user_role == 'employee') {
+                header("Location: dashboards/employee/employeedash.php");
+                exit;
+            } else {
+                header("Location: home.php");
+                exit;
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -210,52 +245,19 @@
 
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
-</html>
-
 <?php
-
     if(isset($_POST['sub'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $login_sql = "SELECT * FROM tb_user WHERE username='$username' AND password='$password'";
-        $login_result = $conn->query($login_sql);
-        if($login_result->num_rows == 1) {
-            $user_data = $login_result->fetch_assoc();
-            $user_id = $user_data['user_id'];
-            $user_username = $user_data['username'];
-            $user_role = $user_data['role'];
-
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['username'] = $user_username;
-            $_SESSION['role'] = $user_role;
-
-            if($user_role == 'admin') {
-                header("Location: dashboards/admin/adminhome.php");
-                exit();
-            } elseif($user_role == 'employee') {
-                header("Location: dashboards/employee/employeehome.php");
-                exit();
-            } else {
-                header("Location: home.php");
-                exit();
-            }
-        } else {
-            echo "
-            <script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Login Failed!',
-                    text: 'Invalid username or password. Please try again.',
-                    confirmButtonText: 'OK'
-                });
-            </script>
-            ";
-        }
-
-
+        echo "
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Login Failed!',
+                text: 'Invalid username or password. Please try again.',
+                confirmButtonText: 'OK'
+            });
+        </script>
+        ";
     }
-
     ob_end_flush();
-
 ?>
+</html>

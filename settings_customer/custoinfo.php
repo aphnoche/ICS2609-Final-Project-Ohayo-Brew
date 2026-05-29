@@ -1,4 +1,5 @@
 <?php
+require_once '../db_ohayo_conn.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -138,7 +139,7 @@ session_start();
                         <div class="container pb-5">
                             <div class="row">
                                 <div class="col">
-                                    <h5>Name</h5>
+                                    <h5><?php echo $_SESSION['username']; ?></h5>
                                 </div>
                                 <div class="col text-end">
                                     <a href="custoinfopt2.php" class="link-underline link-underline-opacity-0 text-dark"><span class="material-symbols-outlined">edit</span></a>
@@ -146,12 +147,12 @@ session_start();
                             </div>
                               <div class="row subtitle">
                                 <div class="col">
-                                    <p class="text-muted">Address</p>
+                                    <p class="text-muted"><?php echo $_SESSION['address']; ?></p>
                                 </div>
                             </div>
                              <div class="row subtitle">
                                 <div class="col">
-                                    <p class=" text-muted">Contact No.</p>
+                                    <p class=" text-muted"><?php echo $_SESSION['contact_no']; ?></p>
                                 </div>
                             </div>
                         </div>

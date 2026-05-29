@@ -1,6 +1,13 @@
 <?php
 require_once '../../db_ohayo_conn.php';
 session_start();
+
+if(isset($_GET['id'])) {
+    $_SESSION['product_id'] = $_GET['id'];
+}
+if(isset($_GET['name'])) {
+    $_SESSION['product_name'] = $_GET['name'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,6 +131,16 @@ session_start();
                     </div>
                   </div>
             </div>
+        <?php
+        if(isset($_SESSION['product_id'])) {
+            $searchpro = "SELECT * FROM tb_product WHERE product_id = '".$_SESSION['product_id']. "'";
+            $res_pro = $conn->query($searchpro);
+            $row_pro = $res_pro->fetch_assoc();
+            if($row_pro) {
+                $_SESSION['product_name'] = $row_pro['product_name'];
+            }
+        }
+        ?>
             <div class="col-9">
                 <div class="container rounded-4 " id="products-content">
                     <div class="row p-3 products-content-title">
@@ -148,23 +165,23 @@ session_start();
                                 </div>
                                 <div class="col container px-4 pt-3 d-flex flex-column gap-3">
                                     <div class="row">
-                                        <label  class="form-label">Product Name</label>
-                                        <input type="text" class="form-control edit-content">
+                                        <label class="form-label">Product Name</label>
+                                        <input type="text" name = "Product" class="form-control edit-content" value="<?php echo $row_pro['product_name']; ?>">
                                     </div>
                                      <div class="row">
                                         <label  class="form-label">Description</label>
-                                        <textarea class="form-control edit-content" rows="3"></textarea>
+                                        <textarea class="form-control edit-content" name ="Description" rows="3"><?php echo $row_pro['description']; ?></textarea>
                                     </div>
                                     <div class="row">
                                         <label  class="form-label">Price</label>
-                                        <input type="number" class="form-control edit-content">
+                                        <input type="number" name = "Price" class="form-control edit-content" value="<?php echo $row_pro['price']; ?>">
                                     </div>
                                 </div>
                             </div>
                             <div class="row pt-5">
                                     <div class="col d-flex align-items-center justify-content-center gap-4">
-                                            <button type="button" class = "btn end-button rounded-3 Edit px-4">Edit</button>
-                                            <button type="button" class = "btn end-button rounded-3 Remove font-white">Remove</button>
+                                            <button type="button" name ="Edit" class = "btn end-button rounded-3 Edit px-4">Edit</button>
+                                            <button type="button" name ="Remove" class = "btn end-button rounded-3 Remove font-white">Remove</button>
                                     </div>
                             </div>
                         </form>
@@ -179,3 +196,4 @@ session_start();
 
 </body>
 </html>
+
