@@ -1,4 +1,10 @@
-<?php ?>
+<?php
+/*
+DOING THE PHP WORKS FOR THIS PAGE IS BEYOND THE SCOPE OF WHAT WE TACKLED, LAYOUT IS THE ONLY THING CODED FOR THIS PAGE, NO PHP
+- AlY, AJ, AND WILL
+*/
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,10 +47,10 @@
             object-fit: cover;
         }
 
-
          #orders{
         background-color: #eee8e0;
-    }
+        }
+        
     #orders-content{
         height: 100%;
         background-color: #eee8e0;
@@ -152,7 +158,7 @@
             <img src="../images/logo.png" alt="" width = auto height = 100>
         </div>
         <div class="profile-icon">
-            <img src="" alt="">
+            <img src="../images/user.png" alt="">
         </div>
     </div>
 
