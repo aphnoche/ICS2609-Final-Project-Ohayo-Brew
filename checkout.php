@@ -312,7 +312,7 @@
             font-weight: 500;
         }
         .btn-checkout-master {
-            background-color: #A3734E; /* Exact warm brown color match */
+            background-color: #A3734E; 
             color: #ffffff;
             border: none;
             border-radius: 6px;
