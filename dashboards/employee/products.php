@@ -72,6 +72,9 @@ session_start();
         .Status::disabled{
              background-color: #2b2b2b;
         }
+        #status{
+            padding: 5px 10px;
+        }
         .sticky-top{
             top: 60px;
         }
@@ -133,10 +136,13 @@ $res_ac = $conn->query($show_ac);
                                         <div class="row">
                                             <p class="text-muted">Description: <?php echo ($fieldname_ac['description']); ?><br>Price: <?php echo ($fieldname_ac['price']); ?></p>
                                         </div>
-                                        <div class="row">
-                                            <div class="col d-flex align-items-center justify-content-end gap-4">
-                                                <a href="editproduct.php?id=<?php echo ($fieldname_ac['product_id']); ?>" class="btn rounded-3 Edit">Edit/Remove</a>
-                                                <div class = "rounded-3 p-2 bg-success text-white" id = "status">Status</div>
+                                          <div class="row">
+                                            <div class="col-8"></div>
+                                            <div class="col-2 text-end">
+                                                <a href="editproduct.php?id=<?php echo $fieldname_ac['product_id']; ?>&name=<?php echo ($fieldname_ac['product_name']); ?>" class="btn rounded-3 Edit">Edit/Remove</a>
+                                            </div>
+                                            <div class="col-2 text-end">
+                                                <button class = "rounded-3 bg-success text-white" id = "status">Available</button>
                                             </div>
                                         </div>
                                     </div>
@@ -151,13 +157,27 @@ $res_ac = $conn->query($show_ac);
                         ?>
                 </div>
             </div>
-            </div>
         </div>
         
     </div>
   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script>
+        const button = document.querySelectorAll('#status');
+        button.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.textContent === 'Available') {
+                    btn.textContent = 'Unavailable';
+                    btn.classList.remove('bg-success');
+                    btn.classList.add('bg-danger');
+                } else {
+                    btn.textContent = 'Available';
+                    btn.classList.remove('bg-danger');
+                    btn.classList.add('bg-success');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
