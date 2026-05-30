@@ -37,33 +37,41 @@ if(isset($_GET['name'])) {
         font-family: "New York Large Bold";
     }
     
-        .header-bar {
-            background-color: #ffffff;
-            padding: 16px 40px;
-        }
+    .navbar {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;          
+            padding: 10px 20px;            
+    }
+    
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        margin-right: 65px; 
+    }
+
+    .profile-icon {
+        width: 40px;
+        height: auto;
+        border-radius: 50%;
+        border: 2px solid #2b2b2b;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
        .logo-img {
             height: 100px;
             width: auto;
         }
-        
 
-        .profile-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            border: 2px solid #2b2b2b;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
         .end-button{
             font-size: 12px;
         }
@@ -99,14 +107,21 @@ if(isset($_GET['name'])) {
 </style> 
 <body class = "text-dark">
     <!-- Navbar for name -->
-    <div class="header-bar d-flex justify-content-between align-items-center">
-        <div>
-            <img src="../../images/logo.png" alt="" class="logo-img">
+    <!-- Navbar for name -->
+    <div class="container-navbar">
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Ohayo Brew Logo" style="width: 200px; height: auto; margin-left: 50px;">
+            </div>
+            
+            <div class="navbar-right">
+                <div class="profile-icon">
+                    <a href="settings_customer/custoaccount.php"><img src="images/user.png" alt="Profile"></a>
+                </div>
+            </div>
         </div>
-        <div class="profile-icon">
-            <img src="../../images/PROFILE SYMBOL.png" alt="">
-        </div>
-</div>
+    </div>
+
    <div class="container">
         <div class="row">
             <div class="col">

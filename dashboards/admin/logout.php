@@ -25,22 +25,35 @@ session_start();
             width: auto;
         }
 
-        .profile-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            border: 2px solid #2b2b2b;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .navbar {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;          
+        padding: 10px 20px;            
+    }
+    
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        margin-right: 65px; 
+    }
 
-        .profile-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .profile-icon {
+        width: 40px;
+        height: auto;
+        border-radius: 50%;
+        border: 2px solid #2b2b2b;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
         .account-panel {
             background-color: #ede8e0;
@@ -121,14 +134,21 @@ session_start();
     </style>
 </head>
 <body>
-    <div class="header-bar d-flex justify-content-between align-items-center">
-        <div>
-            <img src="../images/logo.png" alt="" class="logo-img">
+
+    <div class="container-navbar">
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Ohayo Brew Logo" style="width: 200px; height: auto; margin-left: 50px;">
+            </div>
+            
+            <div class="navbar-right">
+                <div class="profile-icon">
+                    <a href="settings_customer/custoaccount.php"><img src="images/user.png" alt="Profile"></a>
+                </div>
+            </div>
         </div>
-        <div class="profile-icon">
-            <img src="" alt="">
-        </div>
-    </div>
+    </div>    
+
     <div class="container">
         <div class="account-panel">
             <div class="account-title">Manage Account</div>
