@@ -255,9 +255,17 @@
                                     <img src="images/americano.jpg" alt="Americano">
                                 </div>
                                 <div class="product-title"><?php 
-                    
+                                    $americano_sql = "SELECT product_name FROM tb_product WHERE product_id = 1";
+                                    $americano_result = mysqli_query($conn, $americano_sql);
+                                    $americano_row = mysqli_fetch_assoc($americano_result);
+                                    echo $americano_row['product_name'];
                                 ?></div>
-                                <div class="product-price">₱120.00</div>
+                                <div class="product-price"><?php 
+                                    $americano_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 1 && size_name = 'Regular'";
+                                    $americano_price_result = mysqli_query($conn, $americano_price_sql);
+                                    $americano_price_row = mysqli_fetch_assoc($americano_price_result);
+                                    echo '₱' . number_format($americano_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -270,9 +278,17 @@
                                     <img src="images/latte.jpg" alt="Cafe Latte">
                                 </div>
                                 <div class="product-title"><?php 
-                                
+                                    $latte_sql = "SELECT product_name FROM tb_product WHERE product_id = 2";
+                                    $latte_result = mysqli_query($conn, $latte_sql);
+                                    $latte_row = mysqli_fetch_assoc($latte_result);
+                                    echo $latte_row['product_name'];
                                 ?></div>
-                                <div class="product-price">₱130.00</div>
+                                <div class="product-price"><?php 
+                                    $latte_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 2 && size_name = 'Regular'";
+                                    $latte_price_result = mysqli_query($conn, $latte_price_sql);
+                                    $latte_price_row = mysqli_fetch_assoc($latte_price_result);
+                                    echo '₱' . number_format($latte_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -283,8 +299,18 @@
                                 <div class="card-img-box">
                                     <img src="images/spanish-latte.jpg" alt="Spanish Latte">
                                 </div>
-                                <div class="product-title">Spanish Latte</div>
-                                <div class="product-price">₱140.00</div>
+                                <div class="product-title"><?php 
+                                    $spanish_latte_sql = "SELECT product_name FROM tb_product WHERE product_id = 3";
+                                    $spanish_latte_result = mysqli_query($conn, $spanish_latte_sql);
+                                    $spanish_latte_row = mysqli_fetch_assoc($spanish_latte_result);
+                                    echo $spanish_latte_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $spanish_latte_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 3 && size_name = 'Regular'";
+                                    $spanish_latte_price_result = mysqli_query($conn, $spanish_latte_price_sql);
+                                    $spanish_latte_price_row = mysqli_fetch_assoc($spanish_latte_price_result);
+                                    echo '₱' . number_format($spanish_latte_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -295,8 +321,18 @@
                                 <div class="card-img-box">
                                     <img src="images/dark-mocha.jpg" alt="Dark Mocha">
                                 </div>
-                                <div class="product-title">Dark Mocha</div>
-                                <div class="product-price">₱150.00</div>
+                                <div class="product-title"><?php 
+                                    $dark_mocha_sql = "SELECT product_name FROM tb_product WHERE product_id = 4";
+                                    $dark_mocha_result = mysqli_query($conn, $dark_mocha_sql);
+                                    $dark_mocha_row = mysqli_fetch_assoc($dark_mocha_result);
+                                    echo $dark_mocha_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $dark_mocha_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 4 && size_name = 'Regular'";
+                                    $dark_mocha_price_result = mysqli_query($conn, $dark_mocha_price_sql);
+                                    $dark_mocha_price_row = mysqli_fetch_assoc($dark_mocha_price_result);
+                                    echo '₱' . number_format($dark_mocha_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -315,8 +351,18 @@
                                 <div class="card-img-box">
                                     <img src="images/strawberry-milk.jpg" alt="Strawberry Milk">
                                 </div>
-                                <div class="product-title">Strawberry Milk</div>
-                                <div class="product-price">₱120.00</div>
+                                <div class="product-title"><?php 
+                                    $strawberry_milk_sql = "SELECT product_name FROM tb_product WHERE product_id = 5";
+                                    $strawberry_milk_result = mysqli_query($conn, $strawberry_milk_sql);
+                                    $strawberry_milk_row = mysqli_fetch_assoc($strawberry_milk_result);
+                                    echo $strawberry_milk_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $strawberry_milk_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 5 && size_name = 'Regular'";
+                                    $strawberry_milk_price_result = mysqli_query($conn, $strawberry_milk_price_sql);
+                                    $strawberry_milk_price_row = mysqli_fetch_assoc($strawberry_milk_price_result);
+                                    echo '₱' . number_format($strawberry_milk_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -327,8 +373,18 @@
                                 <div class="card-img-box">
                                     <img src="images/white-chocolate.jpg" alt="White Chocolate">
                                 </div>
-                                <div class="product-title">White Chocolate</div>
-                                <div class="product-price">₱130.00</div>
+                                <div class="product-title"><?php 
+                                    $white_chocolate_sql = "SELECT product_name FROM tb_product WHERE product_id = 6";
+                                    $white_chocolate_result = mysqli_query($conn, $white_chocolate_sql);
+                                    $white_chocolate_row = mysqli_fetch_assoc($white_chocolate_result);
+                                    echo $white_chocolate_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $white_chocolate_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 6 && size_name = 'Regular'";
+                                    $white_chocolate_price_result = mysqli_query($conn, $white_chocolate_price_sql);
+                                    $white_chocolate_price_row = mysqli_fetch_assoc($white_chocolate_price_result);
+                                    echo '₱' . number_format($white_chocolate_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -348,8 +404,18 @@
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
                                 </div>
-                                <div class="product-title">Yoghurt Peach Tea</div>
-                                <div class="product-price">₱130.00</div>
+                                <div class="product-title"><?php 
+                                    $yoghurt_peach_sql = "SELECT product_name FROM tb_product WHERE product_id = 7";
+                                    $yoghurt_peach_result = mysqli_query($conn, $yoghurt_peach_sql);
+                                    $yoghurt_peach_row = mysqli_fetch_assoc($yoghurt_peach_result);
+                                    echo $yoghurt_peach_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $yoghurt_peach_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 7 && size_name = 'Regular'";
+                                    $yoghurt_peach_price_result = mysqli_query($conn, $yoghurt_peach_price_sql);
+                                    $yoghurt_peach_price_row = mysqli_fetch_assoc($yoghurt_peach_price_result);
+                                    echo '₱' . number_format($yoghurt_peach_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -360,8 +426,18 @@
                                 <div class="card-img-box">
                                     <img src="images/strawberry-black-tea.jpg" alt="Strawberry Black Tea">
                                 </div>
-                                <div class="product-title">Strawberry Black Tea</div>
-                                <div class="product-price">₱130.00</div>
+                                <div class="product-title"><?php 
+                                    $strawberry_black_tea_sql = "SELECT product_name FROM tb_product WHERE product_id = 8";
+                                    $strawberry_black_tea_result = mysqli_query($conn, $strawberry_black_tea_sql);
+                                    $strawberry_black_tea_row = mysqli_fetch_assoc($strawberry_black_tea_result);
+                                    echo $strawberry_black_tea_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $strawberry_black_tea_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 8 && size_name = 'Regular'";
+                                    $strawberry_black_tea_price_result = mysqli_query($conn, $strawberry_black_tea_price_sql);
+                                    $strawberry_black_tea_price_row = mysqli_fetch_assoc($strawberry_black_tea_price_result);
+                                    echo '₱' . number_format($strawberry_black_tea_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -381,8 +457,18 @@
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
                                 </div>
-                                <div class="product-title">Yoghurt Peach Tea</div>
-                                <div class="product-price">₱130.00</div>
+                                <div class="product-title"><?php 
+                                    $peach_mango_sql = "SELECT product_name FROM tb_product WHERE product_id = 9";
+                                    $peach_mango_result = mysqli_query($conn, $peach_mango_sql);
+                                    $peach_mango_row = mysqli_fetch_assoc($peach_mango_result);
+                                    echo $peach_mango_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $peach_mango_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 9 && size_name = 'Regular'";
+                                    $peach_mango_price_result = mysqli_query($conn, $peach_mango_price_sql);
+                                    $peach_mango_price_row = mysqli_fetch_assoc($peach_mango_price_result);
+                                    echo '₱' . number_format($peach_mango_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -393,8 +479,18 @@
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
                                 </div>
-                                <div class="product-title">Yoghurt Peach Tea</div>
-                                <div class="product-price">₱130.00</div>
+                                <div class="product-title"><?php 
+                                    $mixed_berries_sql = "SELECT product_name FROM tb_product WHERE product_id = 10";
+                                    $mixed_berries_result = mysqli_query($conn, $mixed_berries_sql);
+                                    $mixed_berries_row = mysqli_fetch_assoc($mixed_berries_result);
+                                    echo $mixed_berries_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $mixed_berries_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 10 && size_name = 'Regular'";
+                                    $mixed_berries_price_result = mysqli_query($conn, $mixed_berries_price_sql);
+                                    $mixed_berries_price_row = mysqli_fetch_assoc($mixed_berries_price_result);
+                                    echo '₱' . number_format($mixed_berries_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -405,8 +501,18 @@
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
                                 </div>
-                                <div class="product-title">Strawberry Black Tea</div>
-                                <div class="product-price">₱130.00</div>
+                                <div class="product-title"><?php 
+                                    $double_choco_sql = "SELECT product_name FROM tb_product WHERE product_id = 11";
+                                    $double_choco_result = mysqli_query($conn, $double_choco_sql);
+                                    $double_choco_row = mysqli_fetch_assoc($double_choco_result);
+                                    echo $double_choco_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $double_choco_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 11 && size_name = 'Regular'";
+                                    $double_choco_price_result = mysqli_query($conn, $double_choco_price_sql);
+                                    $double_choco_price_row = mysqli_fetch_assoc($double_choco_price_result);
+                                    echo '₱' . number_format($double_choco_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -425,8 +531,18 @@
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
                                 </div>
-                                <div class="product-title"><?php echo "Matcha 1"?></div>
-                                <div class="product-price"><?php echo "₱130.00"?></div>
+                                <div class="product-title"><?php 
+                                    $ohayo_uji_sql = "SELECT product_name FROM tb_product WHERE product_id = 12";
+                                    $ohayo_uji_result = mysqli_query($conn, $ohayo_uji_sql);
+                                    $ohayo_uji_row = mysqli_fetch_assoc($ohayo_uji_result);
+                                    echo $ohayo_uji_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $ohayo_uji_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 12 && size_name = 'Regular'";
+                                    $ohayo_uji_price_result = mysqli_query($conn, $ohayo_uji_price_sql);
+                                    $ohayo_uji_price_row = mysqli_fetch_assoc($ohayo_uji_price_result);
+                                    echo '₱' . number_format($ohayo_uji_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -437,8 +553,18 @@
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
                                 </div>
-                                <div class="product-title"><?php echo "Matcha 2"?></div>
-                                <div class="product-price"><?php echo "₱130.00"?></div>
+                                <div class="product-title"><?php 
+                                    $ohayo_hojicha_sql = "SELECT product_name FROM tb_product WHERE product_id = 13";
+                                    $ohayo_hojicha_result = mysqli_query($conn, $ohayo_hojicha_sql);
+                                    $ohayo_hojicha_row = mysqli_fetch_assoc($ohayo_hojicha_result);
+                                    echo $ohayo_hojicha_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $ohayo_hojicha_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 13 && size_name = 'Regular'";
+                                    $ohayo_hojicha_price_result = mysqli_query($conn, $ohayo_hojicha_price_sql);
+                                    $ohayo_hojicha_price_row = mysqli_fetch_assoc($ohayo_hojicha_price_result);
+                                    echo '₱' . number_format($ohayo_hojicha_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>
@@ -449,8 +575,18 @@
                                 <div class="card-img-box">
                                     <img src="images/yoghurt-peach.jpg" alt="Yoghurt Peach Tea">
                                 </div>
-                                <div class="product-title"><?php echo "Matcha 3"?></div>
-                                <div class="product-price"><?php echo "₱130.00"?></div>
+                                <div class="product-title"><?php 
+                                    $matcha_kokuto_sql = "SELECT product_name FROM tb_product WHERE product_id = 14";
+                                    $matcha_kokuto_result = mysqli_query($conn, $matcha_kokuto_sql);
+                                    $matcha_kokuto_row = mysqli_fetch_assoc($matcha_kokuto_result);
+                                    echo $matcha_kokuto_row['product_name'];
+                                ?></div>
+                                <div class="product-price"><?php 
+                                    $matcha_kokuto_price_sql = "SELECT price FROM tb_product_size WHERE product_id = 14 && size_name = 'Regular'";
+                                    $matcha_kokuto_price_result = mysqli_query($conn, $matcha_kokuto_price_sql);
+                                    $matcha_kokuto_price_row = mysqli_fetch_assoc($matcha_kokuto_price_result);
+                                    echo '₱' . number_format($matcha_kokuto_price_row['price'], 2);
+                                ?></div>
                             </div>
                             </a>
                         </div>

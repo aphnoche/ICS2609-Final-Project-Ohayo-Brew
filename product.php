@@ -1,5 +1,25 @@
-<?php
+<?php 
     require_once 'db_ohayo_conn.php';
+
+    // 1. Check if product_id exists in the URL link
+    if (isset($_GET['product_id'])) {
+        
+        // 2. Turn the ID into a strict integer to prevent SQL Injection
+        $product_id = (int)$_GET['product_id'];
+        
+        // 3. Run a standard class-friendly query
+        $product_sql = "SELECT * FROM tb_product WHERE product_id = $product_id";
+        $product_result = $conn->query($product_sql);
+
+        // 4. Check if the product was found and extract the array
+        if ($product_result->num_rows == 1) {
+            $product = $product_result->fetch_assoc();
+        } else {
+
+            header("Location: home.php");
+            exit();
+        }
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +27,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Ohayo Brew</title>
+    <title><?php echo $product['product_name']; ?> - Ohayo Brew</title>
     <link rel="stylesheet" href="font-family.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     
@@ -25,12 +45,11 @@
             padding: 10px 20px;            
         }
 
-        /* Group container for keeping checkout and profile items together */
         .navbar-right {
             display: flex;
             align-items: center;
-            gap: 60px;         /* Adjust this value to change space between checkout and profile */
-            margin-right: 50px; /* Keeps the right side margin consistent with the original design */
+            gap: 60px;         
+            margin-right: 50px; 
         }
 
         .nav-links {
@@ -39,7 +58,7 @@
         }
 
         .nav-links img {
-            width: 30px; /* Set an explicit size for your checkout image if needed */
+            width: 30px; 
             height: auto;
         }
 
@@ -60,7 +79,6 @@
             object-fit: cover;
         }
 
-        /* PRODUCT DETAIL PAGE STYLES */
         .back-button {
             display: inline-block;
             margin-left: 50px;
@@ -80,11 +98,10 @@
             padding: 0 50px;
         }
 
-        /* Dark Charcoal Image Canvas Box */
         .product-image-box {
             width: 100%;
             height: 520px;
-            background-color: #383A42; /* Exact color swatch match from mockup */
+            background-color: #383A42; 
             border-radius: 12px;
             overflow: hidden;
         }
@@ -115,7 +132,6 @@
             margin-bottom: 25px;
         }
 
-        /* Hot & Iced Segmented Toggles */
         .temperature-toggle {
             display: flex;
             gap: 12px;
@@ -140,7 +156,6 @@
             border: 1px solid #2F323A;
         }
 
-        /* Quantity Counter Incrementer Block */
         .quantity-controller {
             display: flex;
             align-items: center;
@@ -157,6 +172,7 @@
             justify-content: center;
             font-size: 16px;
             cursor: pointer;
+            user-select: none;
         }
         .qty-btn-minus {
             border-top-left-radius: 6px;
@@ -179,7 +195,6 @@
             font-weight: bold;
         }
 
-        /* Add-ons List Section */
         .section-label {
             font-family: 'New York Medium Regular', Georgia, serif;
             font-size: 18px;
@@ -216,7 +231,6 @@
             margin-left: 10px;
         }
 
-        /* Textarea Notes Frame */
         .notes-textarea {
             width: 100%;
             height: 110px;
@@ -229,7 +243,6 @@
             outline: none;
         }
 
-        /* Bottom Action Buttons alignment layout */
         .action-buttons-group {
             display: flex;
             justify-content: flex-end;
@@ -265,7 +278,6 @@
             opacity: 0.9;
         }
 
-        /* Footer Logo Image Formatting */
         .footer-logo-img {
             max-width: 130px;
             height: auto;
@@ -292,23 +304,33 @@
         </div>
     </div>
 
-    <a href="javascript:history.back()" class="back-button">←</a>
+    <a href="home.php" class="back-button">←</a>
 
     <div class="container-fluid product-container">
         <div class="row g-5">
             
             <div class="col-12 col-md-5">
                 <div class="product-image-box">
-                    <img src="" alt=""> 
+                    <?php if (!empty($product['product_image'])) { ?>
+                        <img src="images/<?php echo $product['product_image']; ?>" alt="<?php echo $product['product_name']; ?>">
+                    <?php } else { ?>
+                        <div class="d-flex h-100 justify-content-center align-items-center text-white-50">No Image Available</div>
+                    <?php } ?>
                 </div>
             </div>
 
             <div class="col-12 col-md-7">
                 
-                <h1 class="product-title-detail">Product Name</h1>
-                <p class="product-description">Lorem Ipsum Description</p>
+                <h1 class="product-title-detail"><?php echo $product['product_name']; ?></h1>
                 
-                <div class="product-price-detail">P120.00</div>
+                <p class="product-description"><?php echo $product['description']; ?></p>
+                
+                <div class="product-price-detail">₱<?php
+                    $product_price_sql = "SELECT price FROM tb_product_size WHERE product_id = $product_id";
+                    $product_price_result = mysqli_query($conn, $product_price_sql);
+                    $product_price = mysqli_fetch_assoc($product_price_result)['price'];
+                    echo number_format($product_price, 2);
+                ?></div>
 
                 <div class="temperature-toggle">
                     <button type="button" class="btn-temp btn-temp-outline">Hot</button>
@@ -342,7 +364,7 @@
                 </div>
 
                 <div class="section-label">Notes:</div>
-                <textarea class="notes-textarea" placeholder=""></textarea>
+                <textarea class="notes-textarea" placeholder="Any specifications? (e.g., less sweet, more ice)"></textarea>
 
                 <div class="action-buttons-group">
                     <button type="button" class="btn-action-cart">Add to Cart</button>
@@ -358,9 +380,31 @@
         <div class="mb-2">
             <img src="images/logo.png" class="footer-logo-img" alt="OHAYO BREW">
         </div>
-        <div class="text-muted small" style="font-size: 11px;">Copyright Infringement. All Rights Reserved. 2026.</div>
+        <div class="text-muted small" style="font-size: 11px;">&copy; Ohayo Brew. All Rights Reserved. 2026.</div>
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const minusBtn = document.querySelector('.qty-btn-minus');
+            const plusBtn = document.querySelector('.qty-btn-plus');
+            const qtyInput = document.querySelector('.qty-input');
+
+            minusBtn.addEventListener('click', function() {
+                let currentVal = parseInt(qtyInput.value);
+                if (!isNaN(currentVal) && currentVal > 1) {
+                    qtyInput.value = currentVal - 1;
+                }
+            });
+
+            plusBtn.addEventListener('click', function() {
+                let currentVal = parseInt(qtyInput.value);
+                if (!isNaN(currentVal)) {
+                    qtyInput.value = currentVal + 1;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

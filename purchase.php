@@ -18,7 +18,7 @@
             font-family: sans-serif;
         }
 
-        /* NAVBAR ARRANGEMENT */
+        /* NAVBAR FUNCTIONALITY */
         .navbar {
             display: flex;
             justify-content: space-between; 
@@ -37,6 +37,7 @@
             display: flex;
             align-items: center;
         }
+
         .nav-links img {
             width: 30px; 
             height: auto;
@@ -52,6 +53,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .profile-icon img {
             width: 100%;
             height: 100%;
@@ -349,3 +351,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+<?php
+
+?>
