@@ -77,9 +77,6 @@ session_start();
             background-color: #2b2b2b;
             color: white;
         }
-        .Status::disabled{
-             background-color: #2b2b2b;
-        }
         .sticky-top{
             top: 60px;
         }
@@ -155,7 +152,7 @@ $res_ac = $conn->query($show_ac);
                                         <div class="row">
                                             <div class="col d-flex align-items-center justify-content-end gap-4">
                                                 <a href="editproduct.php?id=<?php echo $fieldname_ac['product_id']; ?>&name=<?php echo ($fieldname_ac['product_name']); ?>" class="btn rounded-3 Edit">Edit/Remove</a>
-                                                <div class = "rounded-3 p-2 bg-success text-white" id = "status">Status</div>
+                                                <button class = "rounded-3 p-1 bg-success text-white" id = "status">Available</button>
                                             </div>
                                         </div>
                                     </div>
@@ -176,6 +173,21 @@ $res_ac = $conn->query($show_ac);
   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script>
+        const button = document.querySelectorAll('#status');
+        button.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.textContent === 'Available') {
+                    btn.textContent = 'Unavailable';
+                    btn.classList.remove('bg-success');
+                    btn.classList.add('bg-danger');
+                } else {
+                    btn.textContent = 'Available';
+                    btn.classList.remove('bg-danger');
+                    btn.classList.add('bg-success');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
