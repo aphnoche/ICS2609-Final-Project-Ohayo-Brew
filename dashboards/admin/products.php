@@ -69,6 +69,10 @@ session_start();
             font-size: 12px;
             font-family: "New York Medium Regular";
         }
+
+        #status{
+            padding: 5px 10px;
+        }
         .Edit{
             background-color: #2b2b2b;
             color: white;
@@ -150,9 +154,12 @@ $res_ac = $conn->query($show_ac);
                                             <p class="text-muted">Description: <?php echo ($fieldname_ac['description']); ?><br>Price: <?php echo ($fieldname_ac['price']); ?></p>
                                         </div>
                                         <div class="row">
-                                            <div class="col d-flex align-items-center justify-content-end gap-4">
+                                            <div class="col-8"></div>
+                                            <div class="col-2 text-end">
                                                 <a href="editproduct.php?id=<?php echo $fieldname_ac['product_id']; ?>&name=<?php echo ($fieldname_ac['product_name']); ?>" class="btn rounded-3 Edit">Edit/Remove</a>
-                                                <button class = "rounded-3 p-1 bg-success text-white" id = "status">Available</button>
+                                            </div>
+                                            <div class="col-2 text-end">
+                                                <button class = "rounded-3 bg-success text-white" id = "status">Available</button>
                                             </div>
                                         </div>
                                     </div>
