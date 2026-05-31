@@ -13,10 +13,10 @@ $error_message = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
     // Advanced escape functions REMOVED - direct assignment from $_POST
     $first_name = $_POST['first_name'];
-    $last_name  = $_POST['last_name'];
-    $address    = $_POST['address'];
-    $contact    = $_POST['contact_number'];
-    $email      = $_POST['email_address'];
+    $last_name = $_POST['last_name'];
+    $address = $_POST['address'];
+    $contact = $_POST['contact_number'];
+    $email = $_POST['email_address'];
 
     $update_sql = "UPDATE tb_user SET 
                     first_name = '$first_name', 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
                     contact_no = '$contact', 
                     email = '$email' 
                   WHERE user_id = $user_id";
-    
+
     $update_result = $conn->query($update_sql);
 
     if ($update_result == TRUE) {
@@ -47,13 +47,14 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Customer Information</title>
     <link rel="stylesheet" href="../font-family.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
@@ -84,14 +85,16 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
             justify-content: center;
         }
 
-        #orders{
+        #orders {
             background-color: #eee8e0;
         }
-        #orders-content{
+
+        #orders-content {
             height: 100%;
             background-color: #eee8e0;
         }
-        #orders-content-title{
+
+        #orders-content-title {
             font-family: "New York Large Bold";
         }
 
@@ -105,7 +108,7 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family:"New York Medium Regular";
+            font-family: "New York Medium Regular";
             margin-bottom: 20px;
         }
 
@@ -121,8 +124,8 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
             margin-bottom: 22px;
         }
 
-        .form-container-wrapper{
-            width:65%;
+        .form-container-wrapper {
+            width: 65%;
         }
 
         .form-control-custom {
@@ -163,6 +166,7 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
         }
     </style>
 </head>
+
 <body>
     <div class="header-bar d-flex justify-content-between align-items-center">
         <div>
@@ -176,26 +180,31 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                 <div class="container">
+                <div class="container">
                     <div class="row">
                         <h2><b>Settings</b></h2>
                     </div>
-                     <div class="row text-center rounded-4 p-4 my-3">
-                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My Order</a></h5>
-                    </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoaccount.php" class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
-                    </div>
-                     <div class="row text-center p-4 my-3 rounded-4" id="orders">
-                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer Information</a></h5>
+                    <div class="row text-center rounded-4 p-4 my-3">
+                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My
+                                Order</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment Method</a></h5>
+                        <h5><a href="custoaccount.php"
+                                class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3 rounded-4" id="orders">
+                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer
+                                Information</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of Service</a></h5>
+                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment
+                                Method</a></h5>
                     </div>
-                  </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of
+                                Service</a></h5>
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-9">
@@ -218,24 +227,25 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
 
                             <form method="POST" action="" class="row g-3 form-container-wrapper mx-auto">
                                 <div class="col-md-6">
-                                    <input type="text" name="first_name" class="form-control-custom" placeholder="First Name" 
-                                           value="<?php echo $user_data['first_name'] ?? ''; ?>">
+                                    <input type="text" name="first_name" class="form-control-custom"
+                                        placeholder="First Name" value="<?php echo $user_data['first_name'] ?? ''; ?>">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="last_name" class="form-control-custom" placeholder="Last Name" 
-                                           value="<?php echo $user_data['last_name'] ?? ''; ?>">
+                                    <input type="text" name="last_name" class="form-control-custom"
+                                        placeholder="Last Name" value="<?php echo $user_data['last_name'] ?? ''; ?>">
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" name="address" class="form-control-custom" placeholder="Address" 
-                                           value="<?php echo $user_data['address'] ?? ''; ?>">
+                                    <input type="text" name="address" class="form-control-custom" placeholder="Address"
+                                        value="<?php echo $user_data['address'] ?? ''; ?>">
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" name="contact_number" class="form-control-custom" placeholder="Contact Number" 
-                                           value="<?php echo $user_data['contact_number'] ?? ''; ?>">
+                                    <input type="text" name="contact_number" class="form-control-custom"
+                                        placeholder="Contact Number"
+                                        value="<?php echo $user_data['contact_number'] ?? ''; ?>">
                                 </div>
                                 <div class="col-12">
-                                    <input type="email" name="email_address" class="form-control-custom" placeholder="Email Address" 
-                                           value="<?php echo $user_data['email'] ?? ''; ?>">
+                                    <input type="email" name="email_address" class="form-control-custom"
+                                        placeholder="Email Address" value="<?php echo $user_data['email'] ?? ''; ?>">
                                 </div>
                                 <div class="col-12 d-flex justify-content-center mt-4">
                                     <button type="submit" name="apply_changes" class="btn-apply">Apply Changes</button>
@@ -248,7 +258,7 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <?php if ($alert_status === "success"): ?>
@@ -258,7 +268,7 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
                 text: 'Changes applied successfully!',
                 icon: 'success',
                 confirmButtonColor: '#a07840'
-            }).then(function() {
+            }).then(function () {
                 // Redirects back to custoinfo.php upon clicking OK
                 window.location.href = 'custoinfo.php';
             });
@@ -275,4 +285,5 @@ if ($user_result && mysqli_num_rows($user_result) > 0) {
     <?php endif; ?>
 
 </body>
+
 </html>

@@ -1,18 +1,19 @@
 <?php
-    // RESUME THE SESSION TO READ THE ACCOUNT ID
-    session_start();
-    require_once 'db_ohayo_conn.php';
-    require_once 'otpverification.php';
+// RESUME THE SESSION TO READ THE ACCOUNT ID
+session_start();
+require_once 'db_ohayo_conn.php';
+require_once 'otpverification.php';
 
-    // SECURITY CHECK: If someone manually types this URL without registering first, kick them back
-    if (!isset($_SESSION['user_id'])) {
-        header("Location: createacc.php");
-        exit();
-    }
+// SECURITY CHECK: If someone manually types this URL without registering first, kick them back
+if (!isset($_SESSION['user_id'])) {
+    header("Location: createacc.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,11 +22,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
         body {
@@ -33,28 +35,28 @@
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
         }
 
         .navbar {
             display: flex;
-            justify-content: space-between; 
-            align-items: center;           
-            padding: 10px 20px;            
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             gap: 100px;
-            margin-right: 50px;                                        
+            margin-right: 50px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;                                                   
+            font-size: 20px;
         }
 
         #btn {
@@ -62,21 +64,21 @@
             border-radius: 10px;
             padding: 10px 20px;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;            
+            font-size: 20px;
             cursor: pointer;
             background: transparent;
         }
 
         .hero-section {
-            flex: 1; 
+            flex: 1;
             display: flex;
-            align-items: center; 
+            align-items: center;
         }
 
         .hero-text-container {
-            margin-left: 150px;   
+            margin-left: 150px;
             width: 100%;
-            max-width: 650px; 
+            max-width: 650px;
             margin-top: -50px;
         }
 
@@ -89,7 +91,7 @@
 
         .form-title {
             font-family: 'New York Large Bold', serif;
-            color: #2D3748; 
+            color: #2D3748;
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 5px;
@@ -114,10 +116,10 @@
             font-family: 'New York Medium Regular', sans-serif;
             font-size: 15px;
             border: 1px solid #ccc;
-            border-radius: 15px; 
+            border-radius: 15px;
             background-color: #fff;
             outline: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
             transition: all 0.2s ease-in-out;
             margin-left: 85px;
         }
@@ -144,7 +146,7 @@
             width: 25px;
             height: 25px;
             cursor: pointer;
-            border-radius: 6px; 
+            border-radius: 6px;
             accent-color: #1A365D;
         }
 
@@ -162,8 +164,8 @@
             border: none;
             border-radius: 12px;
             font-family: 'New York Medium Regular', sans-serif;
-            padding: 14px 50px; 
-            font-size: 18px;  
+            padding: 14px 50px;
+            font-size: 18px;
             cursor: pointer;
             transition: background-color 0.2s;
             margin-left: 85px;
@@ -175,6 +177,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container-navbar">
@@ -193,12 +196,12 @@
         <div class="hero-text-container text-start">
 
             <a href="landing.php" class="back-btn">&#8592;</a>
-            
+
             <h2 class="form-title">Almost there!</h2>
             <p class="form-subtitle">Fill the necessary information to proceed with ordering.</p>
 
             <form action="createdeets.php" method="post">
-                
+
                 <div class="row g-3 custom-form-group">
                     <div class="col-md-6">
                         <input type="text" class="custom-input" name="first_name" placeholder="First Name" required>
@@ -207,11 +210,11 @@
                         <input type="text" class="custom-input" name="last_name" placeholder="Last Name" required>
                     </div>
                 </div>
-                
+
                 <div class="custom-form-group">
                     <input type="text" class="custom-input" name="address" placeholder="Address" required>
                 </div>
-                
+
                 <div class="custom-form-group">
                     <input type="text" class="custom-input" name="contact" placeholder="Contact Number" required>
                 </div>
@@ -219,36 +222,37 @@
                 <div class="custom-form-group">
                     <input type="email" class="custom-input" name="email" placeholder="Email Address" required>
                 </div>
-                
+
                 <div class="checkbox-container">
                     <input type="checkbox" id="terms" name="terms" class="custom-checkbox" required>
                     <label for="terms" class="checkbox-label">I agree to the terms and conditions.</label>
                 </div>
 
-                <input type="submit" name="sub" class="hero-btn" value="Proceed">       
+                <input type="submit" name="sub" class="hero-btn" value="Proceed">
             </form>
         </div>
     </div>
 
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
+
 </html>
 
 <?php
-    if (isset($_POST['sub'])) {
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $address = $_POST['address'];
-        $contact = $_POST['contact'];
-        $email = $_POST['email'];
-        $otp_no = rand(000000, 999999);
-        $full_name = $first_name . ' ' . $last_name;
-        
-        // Pull identity safely from current session hook
-        $user_id = $_SESSION['user_id'];
+if (isset($_POST['sub'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $address = $_POST['address'];
+    $contact = $_POST['contact'];
+    $email = $_POST['email'];
+    $otp_no = rand(000000, 999999);
+    $full_name = $first_name . ' ' . $last_name;
 
-        // FIXED: Table name changed to tb_user, query formatted properly to avoid syntax crash
-        $update_recordsql = "UPDATE tb_user SET 
+    // Pull identity safely from current session hook
+    $user_id = $_SESSION['user_id'];
+
+    // FIXED: Table name changed to tb_user, query formatted properly to avoid syntax crash
+    $update_recordsql = "UPDATE tb_user SET 
                              first_name='$first_name', 
                              last_name='$last_name', 
                              address='$address', 
@@ -258,12 +262,12 @@
                              otp_status='Pending' 
                              WHERE user_id='$user_id'";
 
-        // EXECUTE QUERY USING MYSQLI_QUERY
-        $update_result = $conn->query($update_recordsql);
+    // EXECUTE QUERY USING MYSQLI_QUERY
+    $update_result = $conn->query($update_recordsql);
 
-        if($update_result == true) {
-            send_verification($full_name, $email, $otp_no); // CALL THE EMAIL FUNCTION TO SEND OTP
-            echo "
+    if ($update_result == true) {
+        send_verification($full_name, $email, $otp_no); // CALL THE EMAIL FUNCTION TO SEND OTP
+        echo "
             <script>
                 Swal.fire({
                     icon: 'success',
@@ -275,16 +279,16 @@
                 });
             </script>
             ";
-        } else {
-            echo "
+    } else {
+        echo "
             <script>
                 Swal.fire({
                     icon: 'error',
                     title: 'Error!',
                     text: 'Could not save profile details.',
-                    footer: '".mysqli_error($conn)."'
+                    footer: '" . mysqli_error($conn) . "'
                 });
             </script>";
-        }
     }
+}
 ?>

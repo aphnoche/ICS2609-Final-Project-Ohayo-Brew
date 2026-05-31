@@ -26,36 +26,43 @@ $contact_no = $contactno_row['contact_no'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Settings</title>
     <link rel="stylesheet" href="../font-family.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=edit" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=edit" />
 </head>
 <style>
-    img{
-        object-fit:cover;
+    img {
+        object-fit: cover;
     }
-    body{
+
+    body {
         font-family: "New York Medium Regular";
     }
 
-    #orders{
+    #orders {
         background-color: #eee8e0;
     }
-    #orders-content{
+
+    #orders-content {
         height: 100%;
         background-color: #eee8e0;
     }
-    #orders-content-title{
+
+    #orders-content-title {
         font-family: "New York Large Bold";
     }
+
     .header-bar {
         background-color: #ffffff;
         padding: 16px 40px;
     }
+
     .logo-img {
         height: 100px;
         width: auto;
@@ -84,7 +91,7 @@ $contact_no = $contactno_row['contact_no'];
         margin-bottom: 20px;
     }
 
-    .subtitle{
+    .subtitle {
         font-size: 15px;
     }
 
@@ -98,7 +105,7 @@ $contact_no = $contactno_row['contact_no'];
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        font-family:"New York Medium Regular";
+        font-family: "New York Medium Regular";
         margin-bottom: 20px;
     }
 
@@ -106,45 +113,52 @@ $contact_no = $contactno_row['contact_no'];
         background-color: #8b6530;
         color: #ffffff;
     }
-    .sticky-top{
+
+    .sticky-top {
         top: 60px;
     }
-</style> 
+</style>
+
 <body class="text-dark">
-   <div class="header-bar d-flex justify-content-between align-items-center">
-      <div>
+    <div class="header-bar d-flex justify-content-between align-items-center">
+        <div>
             <img src="../images/logo.png" alt="" class="logo-img">
         </div>
         <div class="profile-icon">
             <img src="../images/user.png" alt="Profile">
         </div>
-   </div>
+    </div>
 
     <div class="container">
         <div class="row">
             <div class="col">
-                  <div class="container sticky-top">
+                <div class="container sticky-top">
                     <div class="row">
                         <h2><b>Settings</b></h2>
                     </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My Order</a></h5>
-                    </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoaccount.php" class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
-                    </div>
-                     <div class="row text-center rounded-4 p-4 my-3" id="orders">
-                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer Information</a></h5>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My
+                                Order</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment Method</a></h5>
+                        <h5><a href="custoaccount.php"
+                                class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
+                    </div>
+                    <div class="row text-center rounded-4 p-4 my-3" id="orders">
+                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer
+                                Information</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of Service</a></h5>
+                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment
+                                Method</a></h5>
                     </div>
-                  </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of
+                                Service</a></h5>
+                    </div>
+                </div>
             </div>
-            
+
             <div class="col-9">
                 <div class="container fixed rounded-4 overflow-auto" id="orders-content">
                     <div class="row pt-4 px-4" id="orders-content-title">
@@ -154,25 +168,26 @@ $contact_no = $contactno_row['contact_no'];
                         <div class="col pt-3 text-end">
                         </div>
                     </div>
-                     <div class="row bg-white rounded border mx-5 mb-3 px-3 py-3">
+                    <div class="row bg-white rounded border mx-5 mb-3 px-3 py-3">
                         <div class="container pb-4">
                             <div class="row">
                                 <div class="col">
                                     <h5 class="big-username"><?php echo $first_name; ?> <?php echo $last_name; ?></h5>
                                 </div>
                                 <div class="col text-end">
-                                    <a href="custoinfoedit.php" class="link-underline link-underline-opacity-0 text-dark">
+                                    <a href="custoinfoedit.php"
+                                        class="link-underline link-underline-opacity-0 text-dark">
                                         <span class="material-symbols-outlined">edit</span>
                                     </a>
                                 </div>
                             </div>
-                            
+
                             <div class="row subtitle">
                                 <div class="col">
                                     <p class="text-muted"><?php echo $address; ?></p>
                                 </div>
                             </div>
-                            
+
                             <div class="row subtitle">
                                 <div class="col">
                                     <p class="text-muted"><?php echo $contact_no; ?></p>
@@ -187,4 +202,5 @@ $contact_no = $contactno_row['contact_no'];
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

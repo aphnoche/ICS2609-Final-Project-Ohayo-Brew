@@ -7,6 +7,7 @@ DOING THE PHP WORKS FOR THIS PAGE IS BEYOND THE SCOPE OF WHAT WE TACKLED, LAYOUT
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@ DOING THE PHP WORKS FOR THIS PAGE IS BEYOND THE SCOPE OF WHAT WE TACKLED, LAYOUT
     <style>
         body {
             background-color: #ffffff;
-            font-family:  "New York Medium Regular";
+            font-family: "New York Medium Regular";
         }
 
         .header-bar {
@@ -47,17 +48,18 @@ DOING THE PHP WORKS FOR THIS PAGE IS BEYOND THE SCOPE OF WHAT WE TACKLED, LAYOUT
             object-fit: cover;
         }
 
-         #orders{
-        background-color: #eee8e0;
+        #orders {
+            background-color: #eee8e0;
         }
-        
-    #orders-content{
-        height: 100%;
-        background-color: #eee8e0;
-    }
-    #orders-content-title{
-        font-family: "New York Large Bold";
-    }
+
+        #orders-content {
+            height: 100%;
+            background-color: #eee8e0;
+        }
+
+        #orders-content-title {
+            font-family: "New York Large Bold";
+        }
 
         .content-panel {
             background-color: #ede8e0;
@@ -152,10 +154,11 @@ DOING THE PHP WORKS FOR THIS PAGE IS BEYOND THE SCOPE OF WHAT WE TACKLED, LAYOUT
         }
     </style>
 </head>
+
 <body>
     <div class="header-bar d-flex justify-content-between align-items-center">
         <div>
-            <img src="../images/logo.png" alt="" width = auto height = 100>
+            <img src="../images/logo.png" alt="" width=auto height=100>
         </div>
         <div class="profile-icon">
             <img src="../images/user.png" alt="">
@@ -169,22 +172,27 @@ DOING THE PHP WORKS FOR THIS PAGE IS BEYOND THE SCOPE OF WHAT WE TACKLED, LAYOUT
                     <div class="row ">
                         <h2><b>Settings</b></h2>
                     </div>
-                     <div class="row text-center rounded-4 p-4 my-3">
-                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My Order</a></h5>
-                    </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoaccount.php" class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
-                    </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoinfo.php" class = "link-underline link-underline-opacity-0 text-dark">Customer Information</a></h5>
-                    </div>
-                    <div class="row text-center p-4 my-3 rounded-4" id="orders">
-                        <h5><a href="custopayment.php" class = "link-underline link-underline-opacity-0 text-dark">Payment Method</a></h5>
+                    <div class="row text-center rounded-4 p-4 my-3">
+                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My
+                                Order</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoTOS.php" class = "link-underline link-underline-opacity-0 text-dark">Terms of Service</a></h5>
+                        <h5><a href="custoaccount.php"
+                                class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
                     </div>
-                  </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer
+                                Information</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3 rounded-4" id="orders">
+                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment
+                                Method</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of
+                                Service</a></h5>
+                    </div>
+                </div>
             </div>
 
             <div class="col-9">
@@ -221,4 +229,5 @@ DOING THE PHP WORKS FOR THIS PAGE IS BEYOND THE SCOPE OF WHAT WE TACKLED, LAYOUT
         </div>
     </div>
 </body>
+
 </html>

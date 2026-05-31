@@ -11,7 +11,7 @@ $alert_message = "";
 
 // --- HANDLE FORM SUBMISSION ---
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
-    
+
     // 1. Fetch current database record for password verification
     $query = "SELECT * FROM tb_user WHERE user_id = $user_id";
     $result = mysqli_query($conn, $query);
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
     // 2. Grab inputs directly from POST (No advanced functions)
     $new_username = $_POST['new_username'];
     $current_password_username = $_POST['current_password_username'];
-    
+
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
@@ -79,38 +79,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Settings</title>
     <link rel="stylesheet" href="../font-family.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- SweetAlert2 CDN Library Link -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <style>
-    img{
-        object-fit:cover;
+    img {
+        object-fit: cover;
     }
-    body{
+
+    body {
         font-family: "New York Medium Regular";
     }
 
-    #orders{
+    #orders {
         background-color: #eee8e0;
     }
-    #orders-content{
+
+    #orders-content {
         height: 100%;
         background-color: #eee8e0;
     }
-    #orders-content-title{
+
+    #orders-content-title {
         font-family: "New York Large Bold";
     }
+
     .header-bar {
         background-color: #ffffff;
         padding: 16px 40px;
     }
+
     .logo-img {
         height: 100px;
         width: auto;
@@ -132,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
         height: 100%;
         object-fit: cover;
     }
+
     .account-panel {
         background-color: #ede8e0;
         border-radius: 16px;
@@ -209,41 +216,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
         font-family: Georgia, 'Times New Roman', serif;
         text-decoration: none;
     }
-</style> 
+</style>
+
 <body class="text-dark">
-  <div class="header-bar d-flex justify-content-between align-items-center">
-         <div>
+    <div class="header-bar d-flex justify-content-between align-items-center">
+        <div>
             <img src="../images/logo.png" alt="" class="logo-img">
         </div>
         <div class="profile-icon">
             <img src="../images/user.png" alt="Profile">
         </div>
-  </div>
+    </div>
 
     <div class="container">
         <div class="row">
             <!-- Sidebar Selection Menu -->
             <div class="col-md-3">
-                  <div class="container">
+                <div class="container">
                     <div class="row ">
                         <h2><b>Settings</b></h2>
                     </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My Order</a></h5>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My
+                                Order</a></h5>
                     </div>
-                     <div class="row text-center rounded-4 p-4 my-3" id="orders">
-                        <h5><a href="custoaccount.php" class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
-                    </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer Information</a></h5>
+                    <div class="row text-center rounded-4 p-4 my-3" id="orders">
+                        <h5><a href="custoaccount.php"
+                                class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment Method</a></h5>
+                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer
+                                Information</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of Service</a></h5>
+                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment
+                                Method</a></h5>
                     </div>
-                  </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of
+                                Service</a></h5>
+                    </div>
+                </div>
             </div>
 
             <!-- Main Interactive Account Panel Column -->
@@ -251,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
                 <div class="container rounded-4" id="orders-content">
                     <div class="account-panel">
                         <div class="account-title">Manage Account</div>
-                        
+
                         <!-- Form wrapper mapped directly with layout inputs -->
                         <form method="POST" action="">
                             <div class="row">
@@ -260,41 +273,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
                                     <div class="col-section-title">Change Username</div>
                                     <div class="row mb-3">
                                         <div class="col">
-                                            <input type="text" name="new_username" placeholder="Username" class="form-control">
+                                            <input type="text" name="new_username" placeholder="Username"
+                                                class="form-control">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col">
-                                            <input type="password" name="current_password_username" placeholder="Password" class="form-control">
+                                            <input type="password" name="current_password_username"
+                                                placeholder="Password" class="form-control">
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Change Password side -->
                                 <div class="col-6">
                                     <div class="col-section-title">Change Password</div>
                                     <div class="row mb-3">
                                         <div class="col">
-                                            <input type="password" name="current_password" placeholder="Current Password" class="form-control">
+                                            <input type="password" name="current_password"
+                                                placeholder="Current Password" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col">
-                                            <input type="password" name="new_password" placeholder="New Password" class="form-control">
+                                            <input type="password" name="new_password" placeholder="New Password"
+                                                class="form-control">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col">
-                                            <input type="password" name="confirm_password" placeholder="Confirm Password" class="form-control">
+                                            <input type="password" name="confirm_password"
+                                                placeholder="Confirm Password" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Submit Button -->
                             <div class="row mt-3">
                                 <div class="col d-flex justify-content-center">
-                                    <button type="submit" name="apply_changes" class="btn-gold-lg">Apply Changes</button>
+                                    <button type="submit" name="apply_changes" class="btn-gold-lg">Apply
+                                        Changes</button>
                                 </div>
                             </div>
                         </form>
@@ -308,7 +327,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
             </div>
         </div>
     </div>
-  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- SweetAlert Interactive Dynamic Script Output -->
@@ -342,4 +361,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
     <?php endif; ?>
 
 </body>
+
 </html>

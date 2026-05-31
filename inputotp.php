@@ -1,9 +1,10 @@
 <?php
-    require_once 'db_ohayo_conn.php';
+require_once 'db_ohayo_conn.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
         body {
@@ -24,28 +26,28 @@
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
         }
 
         .navbar {
             display: flex;
-            justify-content: space-between; 
-            align-items: center;           
-            padding: 20px 20px;            
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             gap: 100px;
-            margin-right: 50px;                    
+            margin-right: 50px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;                                                                                   
+            font-size: 20px;
         }
 
         #btn {
@@ -53,26 +55,26 @@
             border-radius: 10px;
             padding: 10px 20px;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;            
+            font-size: 20px;
             cursor: pointer;
             background: transparent;
         }
 
         .hero-section {
-            flex: 1; 
+            flex: 1;
             display: flex;
-            align-items: center; 
+            align-items: center;
         }
 
         .hero-text-container {
-            margin-left: 150px;   
+            margin-left: 150px;
             width: 100%;
-            max-width: 650px; 
+            max-width: 650px;
         }
 
         .form-title {
             font-family: 'New York Large Bold', serif;
-            color: #2D3748; 
+            color: #2D3748;
             font-size: 3.2rem;
             font-weight: bold;
             margin-bottom: 5px;
@@ -95,10 +97,10 @@
             font-family: 'New York Medium Regular', sans-serif;
             font-size: 20px;
             border: 1px solid #ccc;
-            border-radius: 15px; 
+            border-radius: 15px;
             background-color: #fff;
             outline: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
             transition: all 0.2s ease-in-out;
         }
 
@@ -123,8 +125,8 @@
             width: 28px;
             height: 28px;
             cursor: pointer;
-            border-radius: 6px; 
-            accent-color: #1A365D; 
+            border-radius: 6px;
+            accent-color: #1A365D;
         }
 
         .checkbox-label {
@@ -142,8 +144,8 @@
             border-radius: 12px;
             font-family: 'New York Medium Regular', sans-serif;
             font-style: italic;
-            padding: 14px 50px; 
-            font-size: 24px;  
+            padding: 14px 50px;
+            font-size: 24px;
             cursor: pointer;
             transition: background-color 0.2s;
         }
@@ -154,6 +156,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container-navbar">
@@ -170,12 +173,13 @@
 
     <div class="hero-section">
         <div class="hero-text-container text-start">
-            
+
             <h2 class="form-title">Verify your email</h2>
-            <p class="form-subtitle">We sent an email in your inbox. Please check your spam folder if you don't see it.</p>
+            <p class="form-subtitle">We sent an email in your inbox. Please check your spam folder if you don't see it.
+            </p>
 
             <form action="inputotp.php" method="post">
-                
+
                 <div class="row g-3 custom-form-group">
                     <div class="col-md-6">
                         <input type="text" class="custom-input" name="otp" placeholder="One-time Password" required>
@@ -183,54 +187,55 @@
                 </div>
 
                 <input type="submit" name="ver" class="hero-btn" value="Verify">
-                
+
             </form>
         </div>
     </div>
 
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
+
 </html>
 
 <?php
-    require_once 'db_ohayo_conn.php';
+require_once 'db_ohayo_conn.php';
 
-    if(isset($_POST['ver'])){
-        //user input
-        $user_otp = $_POST['otp'];
+if (isset($_POST['ver'])) {
+    //user input
+    $user_otp = $_POST['otp'];
 
-        $otp_sql = "SELECT * FROM tb_user WHERE otp = '$user_otp'";
-        $otp_result = $conn->query($otp_sql);
-    
-        if ($otp_result->num_rows == 1) {
-            $otp_verifysql = "UPDATE tb_user SET otp = NULL, otp_status = 'Active' WHERE otp = '$user_otp'";
-            $conn->query($otp_verifysql);
+    $otp_sql = "SELECT * FROM tb_user WHERE otp = '$user_otp'";
+    $otp_result = $conn->query($otp_sql);
 
-            ?>
-            <script>
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "OTP Verified Successfully.",
-                    showConfirmButton: false,
-                    timer: 1500
-                }).then(() => {
-                    window.location.href = "login.php";
-                });
-            </script>
-            <?php
-        } else {
-            ?>
-            <script>
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: "Invalid OTP.",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            </script>
-            <?php
-        }
+    if ($otp_result->num_rows == 1) {
+        $otp_verifysql = "UPDATE tb_user SET otp = NULL, otp_status = 'Active' WHERE otp = '$user_otp'";
+        $conn->query($otp_verifysql);
+
+        ?>
+        <script>
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "OTP Verified Successfully.",
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                window.location.href = "login.php";
+            });
+        </script>
+        <?php
+    } else {
+        ?>
+        <script>
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Invalid OTP.",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+        <?php
     }
+}
 ?>

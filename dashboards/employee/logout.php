@@ -11,7 +11,7 @@ $alert_message = "";
 
 // --- HANDLE FORM SUBMISSION ---
 if (isset($_POST['apply_changes'])) {
-    
+
     // 1. Fetch current database record for password verification
     $query = "SELECT * FROM tb_user WHERE user_id = $user_id";
     $result = mysqli_query($conn, $query);
@@ -20,7 +20,7 @@ if (isset($_POST['apply_changes'])) {
     // 2. Grab inputs directly from POST (No advanced sanitization functions)
     $new_username = $_POST['new_username'];
     $current_password_username = $_POST['current_password_username'];
-    
+
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
@@ -79,12 +79,13 @@ if (isset($_POST['apply_changes'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee - Manage Account</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
@@ -105,15 +106,15 @@ if (isset($_POST['apply_changes'])) {
 
         .navbar {
             display: flex;
-            justify-content: space-between; 
-            align-items: center;          
-            padding: 10px 20px;            
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
-        
+
         .navbar-right {
             display: flex;
             align-items: center;
-            margin-right: 65px; 
+            margin-right: 65px;
         }
 
         .profile-icon {
@@ -143,20 +144,20 @@ if (isset($_POST['apply_changes'])) {
             margin-right: auto;
         }
 
-        .back-button { 
-            display: inline-block; 
-            margin-left: 50px; 
-            margin-top: 5px; 
-            margin-bottom: 10px; 
-            text-decoration: none; 
-            color: #333333; 
-            font-size: 28px; 
-            transition: transform 0.2s ease; 
+        .back-button {
+            display: inline-block;
+            margin-left: 50px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333333;
+            font-size: 28px;
+            transition: transform 0.2s ease;
         }
 
         .back-button:hover {
-             transform: translateX(-5px); 
-             color: #000000; 
+            transform: translateX(-5px);
+            color: #000000;
         }
 
         .account-title {
@@ -231,28 +232,30 @@ if (isset($_POST['apply_changes'])) {
         }
     </style>
 </head>
+
 <body>
 
     <div class="container-navbar">
         <div class="navbar">
             <div class="logo">
-                <img src="../../images/logo.png" alt="Ohayo Brew Logo" style="width: 200px; height: auto; margin-left: 50px;">
+                <img src="../../images/logo.png" alt="Ohayo Brew Logo"
+                    style="width: 200px; height: auto; margin-left: 50px;">
             </div>
-            
+
             <div class="navbar-right">
                 <div class="profile-icon">
                     <a href="logout.php"><img src="../../images/user.png" alt="Profile"></a>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 
     <div class="container">
         <a href="employeedash.php" class="back-button">←</a>
         <div class="account-panel">
-            
+
             <div class="account-title">Manage Account</div>
-            
+
             <form method="POST" action="">
                 <div class="row">
                     <div class="col-6">
@@ -264,7 +267,8 @@ if (isset($_POST['apply_changes'])) {
                         </div>
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="password" name="current_password_username" placeholder="Password" class="form-control">
+                                <input type="password" name="current_password_username" placeholder="Password"
+                                    class="form-control">
                             </div>
                         </div>
                         <div class="row">
@@ -273,27 +277,30 @@ if (isset($_POST['apply_changes'])) {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-6">
                         <div class="col-section-title">Change Password</div>
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="password" name="current_password" placeholder="Current Password" class="form-control">
+                                <input type="password" name="current_password" placeholder="Current Password"
+                                    class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="password" name="new_password" placeholder="New Password" class="form-control">
+                                <input type="password" name="new_password" placeholder="New Password"
+                                    class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="password" name="confirm_password" placeholder="Confirm Password" class="form-control">
+                                <input type="password" name="confirm_password" placeholder="Confirm Password"
+                                    class="form-control">
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row mt-3">
                     <div class="col d-flex justify-content-center">
                         <button type="submit" name="apply_changes" class="btn-gold-lg">Apply Changes</button>
@@ -340,4 +347,5 @@ if (isset($_POST['apply_changes'])) {
     <?php endif; ?>
 
 </body>
+
 </html>

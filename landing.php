@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     <link rel="stylesheet" href="font-family.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
         body {
@@ -19,29 +21,29 @@
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
         }
 
         /* Navbar Section */
         .navbar {
             display: flex;
-            justify-content: space-between; 
-            align-items: center;           
-            padding: 10px 20px;            
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             gap: 100px;
-            margin-right: 50px;                    
+            margin-right: 50px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;                                  
+            font-size: 20px;
         }
 
         #btn {
@@ -49,29 +51,29 @@
             border-radius: 8px;
             padding: 10px 20px;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;            
+            font-size: 20px;
             cursor: pointer;
             background: transparent;
         }
 
-        
+
         /* Text on the Left Section */
         .tleft-section {
-            flex: 1; 
+            flex: 1;
             display: flex;
-            align-items: center; 
+            align-items: center;
         }
 
         .tleft-text-container {
-            margin-left: 150px;   
-            max-width: 780px;    
+            margin-left: 150px;
+            max-width: 780px;
         }
 
         .tleft-title {
             font-family: 'New York Large Bold', serif;
-            color: #2D3748; 
-            line-height: 1.1; 
-            font-size: 6.7rem; 
+            color: #2D3748;
+            line-height: 1.1;
+            font-size: 6.7rem;
         }
 
         .tleft-btn {
@@ -81,8 +83,8 @@
             border-radius: 8px;
             font-family: 'New York Medium Regular', sans-serif;
             font-style: italic;
-            padding: 14px 45px; 
-            font-size: 18px;  
+            padding: 14px 45px;
+            font-size: 18px;
             text-decoration: none;
             display: inline-block;
             margin-top: 25px;
@@ -94,6 +96,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container-navbar">
@@ -110,7 +113,7 @@
         </div>
     </div>
 
-    
+
     <div class="tleft-section">
         <div class="tleft-text-container text-start">
             <h1 class="fw-bold tleft-title mb-5">Make every taste count.</h1>
@@ -122,4 +125,5 @@
 
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
+
 </html>

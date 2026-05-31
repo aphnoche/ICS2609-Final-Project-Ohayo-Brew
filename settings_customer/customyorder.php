@@ -11,6 +11,7 @@ $orders_result = mysqli_query($conn, $orders_sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,28 +20,33 @@ $orders_result = mysqli_query($conn, $orders_sql);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-    img{
-        object-fit:cover;
+    img {
+        object-fit: cover;
     }
-    body{
+
+    body {
         font-family: "New York Medium Regular";
     }
 
-    #orders{
+    #orders {
         background-color: #eee8e0;
     }
-    #orders-content{
+
+    #orders-content {
         height: 100%;
         min-height: 500px;
         background-color: #eee8e0;
     }
-    #orders-content-title{
+
+    #orders-content-title {
         font-family: "New York Large Bold";
     }
+
     .header-bar {
         background-color: #ffffff;
         padding: 16px 40px;
     }
+
     .logo-img {
         height: 100px;
         width: auto;
@@ -68,17 +74,18 @@ $orders_result = mysqli_query($conn, $orders_sql);
         font-family: "New York Medium Regular";
         font-weight: bold;
     }
-    .sticky-top{
+
+    .sticky-top {
         top: 60px;
     }
 
     .orders-scrollview {
-            max-height: 400px; 
-            overflow-y: auto;
-            padding-bottom: 15px;
-        }
+        max-height: 400px;
+        overflow-y: auto;
+        padding-bottom: 15px;
+    }
+</style>
 
-</style> 
 <body>
     <div class="header-bar d-flex justify-content-between align-items-center">
         <div>
@@ -97,20 +104,25 @@ $orders_result = mysqli_query($conn, $orders_sql);
                     <div class="row">
                         <h2><b>Settings</b></h2>
                     </div>
-                     <div class="row text-center rounded-4 p-4 my-3" id="orders">
-                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My Order</a></h5>
-                    </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoaccount.php" class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
-                    </div>
-                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer Information</a></h5>
+                    <div class="row text-center rounded-4 p-4 my-3" id="orders">
+                        <h5><a href="customyorder.php" class="link-underline link-underline-opacity-0 text-dark">My
+                                Order</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment Method</a></h5>
+                        <h5><a href="custoaccount.php"
+                                class="link-underline link-underline-opacity-0 text-dark">Accounts</a></h5>
                     </div>
                     <div class="row text-center p-4 my-3">
-                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of Service</a></h5>
+                        <h5><a href="custoinfo.php" class="link-underline link-underline-opacity-0 text-dark">Customer
+                                Information</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custopayment.php" class="link-underline link-underline-opacity-0 text-dark">Payment
+                                Method</a></h5>
+                    </div>
+                    <div class="row text-center p-4 my-3">
+                        <h5><a href="custoTOS.php" class="link-underline link-underline-opacity-0 text-dark">Terms of
+                                Service</a></h5>
                     </div>
                 </div>
             </div>
@@ -121,80 +133,85 @@ $orders_result = mysqli_query($conn, $orders_sql);
                     <div class="row p-3" id="orders-content-title">
                         <h4>My Orders</h4>
                     </div>
-                    
+
                     <!-- NEW: Scrollview wrapper element starts here -->
                     <div class="orders-scrollview">
-                        <?php 
-                        if (mysqli_num_rows($orders_result) > 0): 
-                            while ($order = mysqli_fetch_assoc($orders_result)): 
+                        <?php
+                        if (mysqli_num_rows($orders_result) > 0):
+                            while ($order = mysqli_fetch_assoc($orders_result)):
                                 $order_id = $order['order_id'];
-                                
+
                                 // Determine status badge background colors safely
                                 $status = htmlspecialchars($order['order_status']);
                                 $bg_color = '#a7794b'; // Default template brown for Pending
-                                if ($status == 'Processing') $bg_color = '#2574A9'; // Blue
-                                if ($status == 'Completed') $bg_color = '#27AE60';  // Green
-                                if ($status == 'Cancelled') $bg_color = '#96281B';  // Red
-
+                                if ($status == 'Processing')
+                                    $bg_color = '#2574A9'; // Blue
+                                if ($status == 'Completed')
+                                    $bg_color = '#27AE60';  // Green
+                                if ($status == 'Cancelled')
+                                    $bg_color = '#96281B';  // Red
+                        
                                 // Query all individual menu item details mapped inside this order structure
                                 $items_sql = "SELECT oi.quantity, p.product_name 
                                               FROM tb_order_item oi 
                                               JOIN tb_product p ON oi.product_id = p.product_id 
                                               WHERE oi.order_id = $order_id";
                                 $items_result = mysqli_query($conn, $items_sql);
-                        ?>
-                         <!-- Render dynamic container card for each historical transaction -->
-                         <div class="row bg-white rounded border mx-3 my-2 px-3 py-3">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="fw-bold text-dark">Order Reference #<?php echo $order_id; ?></h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Tracking Reference</h6>
-                                    </div>
-                                    <div class="col d-flex align-items-center justify-content-end gap-4">
-                                        <div class="rounded-3 p-2 text-white status-badge" style="background-color: <?php echo $bg_color; ?>;">
-                                            <?php echo $status; ?>
+                                ?>
+                                <!-- Render dynamic container card for each historical transaction -->
+                                <div class="row bg-white rounded border mx-3 my-2 px-3 py-3">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h5 class="fw-bold text-dark">Order Reference #<?php echo $order_id; ?></h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Tracking Reference</h6>
+                                            </div>
+                                            <div class="col d-flex align-items-center justify-content-end gap-4">
+                                                <div class="rounded-3 p-2 text-white status-badge"
+                                                    style="background-color: <?php echo $bg_color; ?>;">
+                                                    <?php echo $status; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product Breakdown Row -->
+                                        <div class="row my-2">
+                                            <div class="col">
+                                                <?php
+                                                if ($items_result && mysqli_num_rows($items_result) > 0) {
+                                                    while ($item = mysqli_fetch_assoc($items_result)) {
+                                                        echo "<h5 class='mb-1'>" . htmlspecialchars($item['product_name']) . " <span class='text-muted small'>x" . $item['quantity'] . "</span></h5>";
+                                                    }
+                                                } else {
+                                                    echo "<h5 class='text-muted italic'>Custom Brew Blend Details</h5>";
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+
+                                        <!-- Footer Row containing Timestamps and Totals -->
+                                        <div class="row mt-4">
+                                            <table class="w-100">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-muted align-text-bottom small">
+                                                            Order Date:
+                                                            <?php echo isset($order['order_date']) ? date('Y-m-d H:i', strtotime($order['order_date'])) : date('Y-m-d'); ?>
+                                                        </td>
+                                                        <td>&nbsp;</td>
+                                                        <td class="text-end align-text-bottom fw-bold text-dark fs-5">
+                                                            Total: ₱<?php echo number_format($order['total_price'], 2); ?>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <!-- Product Breakdown Row -->
-                                <div class="row my-2">
-                                    <div class="col">
-                                        <?php 
-                                        if ($items_result && mysqli_num_rows($items_result) > 0) {
-                                            while ($item = mysqli_fetch_assoc($items_result)) {
-                                                echo "<h5 class='mb-1'>" . htmlspecialchars($item['product_name']) . " <span class='text-muted small'>x" . $item['quantity'] . "</span></h5>";
-                                            }
-                                        } else {
-                                            echo "<h5 class='text-muted italic'>Custom Brew Blend Details</h5>";
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-
-                                <!-- Footer Row containing Timestamps and Totals -->
-                                <div class="row mt-4">
-                                    <table class="w-100">
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-muted align-text-bottom small">
-                                                    Order Date: <?php echo isset($order['order_date']) ? date('Y-m-d H:i', strtotime($order['order_date'])) : date('Y-m-d'); ?>
-                                                </td>
-                                                <td>&nbsp;</td>
-                                                <td class="text-end align-text-bottom fw-bold text-dark fs-5">
-                                                    Total: ₱<?php echo number_format($order['total_price'], 2); ?>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                         </div>
-                        <?php 
-                            endwhile; 
-                        else: 
-                        ?>
+                            <?php
+                            endwhile;
+                        else:
+                            ?>
                             <!-- Fallback visual state if transaction history is clean -->
                             <div class="text-center py-5">
                                 <h5 class="text-muted">You haven't placed any orders yet.</h5>
@@ -208,7 +225,8 @@ $orders_result = mysqli_query($conn, $orders_sql);
             </div>
         </div>
     </div>
-  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

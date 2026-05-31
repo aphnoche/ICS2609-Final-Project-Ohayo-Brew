@@ -1,16 +1,17 @@
 <?php
-    require_once 'db_ohayo_conn.php';
+require_once 'db_ohayo_conn.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Successful - Ohayo Brew</title>
     <link rel="stylesheet" href="font-family.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    
+
     <style>
         body {
             background-color: #ffffff;
@@ -24,16 +25,16 @@
         /* NAVBAR FUNCTIONALITY */
         .navbar {
             display: flex;
-            justify-content: space-between; 
-            align-items: center;          
-            padding: 10px 20px;            
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .navbar-right {
             display: flex;
             align-items: center;
-            gap: 60px;         
-            margin-right: 50px; 
+            gap: 60px;
+            margin-right: 50px;
         }
 
         .nav-links {
@@ -42,7 +43,7 @@
         }
 
         .nav-links img {
-            width: 30px; 
+            width: 30px;
             height: auto;
         }
 
@@ -66,7 +67,7 @@
         /*"Complete Purchase"*/
         .main-content-wrapper {
             max-width: 850px;
-            margin: 150px auto auto 10%; 
+            margin: 150px auto auto 10%;
             padding: 20px;
         }
 
@@ -124,13 +125,14 @@
             text-decoration: none;
             transition: opacity 0.2s ease;
         }
-        
+
         .btn-track-order:hover {
             opacity: 0.9;
             color: #ffffff;
         }
     </style>
 </head>
+
 <body>
 
     <div class="container-navbar">
@@ -138,7 +140,7 @@
             <div class="logo">
                 <img src="images/logo.png" alt="Ohayo Brew Logo" style="width: 200px; height: auto; margin-left: 50px;">
             </div>
-            
+
             <div class="navbar-right">
                 <div class="profile-icon">
                     <a href="settings_customer/custoaccount.php"><img src="images/user.png" alt="Profile"></a>
@@ -152,7 +154,7 @@
         <p class="main-subtext">
             Kindly wait for your order. You may track your order by pressing the “Track My Order” button.
         </p>
-        
+
         <div class="buttons-row">
             <a href="home.php" class="btn-back-home">Back to Home</a>
             <a href="settings_customer/customyorder.php" class="btn-track-order">Track My Order</a>
@@ -161,4 +163,5 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

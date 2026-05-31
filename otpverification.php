@@ -6,7 +6,8 @@ use PHPMailer\PHPMailer\Exception;
 // Load Composer's autoloader
 require 'vendor/autoload.php';
 
-function send_verification($fullname, $email, $otp){
+function send_verification($fullname, $email, $otp)
+{
 
     $mail = new PHPMailer(true);
 
@@ -14,12 +15,12 @@ function send_verification($fullname, $email, $otp){
 
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'alyssapauline.noche.cics@ust.edu.ph'; // Your Gmail
-        $mail->Password   = 'bkhr cezg vjsh ouco'; // Your App Password
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'alyssapauline.noche.cics@ust.edu.ph'; // Your Gmail
+        $mail->Password = 'bkhr cezg vjsh ouco'; // Your App Password
         $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
+        $mail->Port = 587;
 
         // Recipients
         $mail->setFrom('alyssapauline.noche.cics@ust.edu.ph', 'Ohayo Brew Manila');
@@ -28,12 +29,12 @@ function send_verification($fullname, $email, $otp){
         // Content
         $mail->isHTML(true);
         $mail->Subject = "OTP Verification";
-        $mail->Body    = '<h3 style="color: #004aad; margin-bottom: 20px;">Hello, '.$fullname.'</h3>
+        $mail->Body = '<h3 style="color: #004aad; margin-bottom: 20px;">Hello, ' . $fullname . '</h3>
 <p>Thank you for signing up at <strong>Ohayo Brew Manila</strong>.</p>
 <p style="margin-top: 20px;">To complete your registration, please proceed to the OTP verification page and enter the code below to verify your email address.</p>
 <p>Verification code:</p>
 <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; text-align: center; font-size: 24px; color: #004aad; font-weight: bold;">
-        '.$otp.' </div>
+        ' . $otp . ' </div>
 <p style="margin-top:10px;font-size: 14px; color: #6c757d;">— Ohayo Brew Manila Team</p>';
 
         $mail->send();
@@ -57,7 +58,7 @@ function send_verification($fullname, $email, $otp){
                 icon: 'error',
                 title: 'Email Failed!',
                 text: 'Message could not be sent.',
-                footer: '".$mail->ErrorInfo."'
+                footer: '" . $mail->ErrorInfo . "'
             });
         </script>
         ";

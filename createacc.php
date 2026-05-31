@@ -1,10 +1,11 @@
 <?php
-    session_start(); 
-    require_once 'db_ohayo_conn.php';
+session_start();
+require_once 'db_ohayo_conn.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +14,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
         body {
@@ -25,29 +27,29 @@
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
         }
 
         /* Navbar Section */
         .navbar {
             display: flex;
-            justify-content: space-between; 
-            align-items: center;           
-            padding: 10px 20px;            
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             gap: 100px;
-            margin-right: 50px;                                        
+            margin-right: 50px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;                                                                                                                                                 
+            font-size: 20px;
         }
 
         #btn {
@@ -55,20 +57,20 @@
             border-radius: 8px;
             padding: 10px 20px;
             font-family: 'New York Medium Regular', sans-serif;
-            font-size: 20px;            
+            font-size: 20px;
             cursor: pointer;
             background: transparent;
         }
 
         .signup-section {
-            flex: 1; 
+            flex: 1;
             display: flex;
             align-items: center;
-            margin-top: -50px; 
+            margin-top: -50px;
         }
 
         .signup-text-container {
-            margin-left: 150px;   
+            margin-left: 150px;
             width: 100%;
             max-width: 500px;
         }
@@ -82,7 +84,7 @@
 
         .login-title {
             font-family: 'New York Large Bold', serif;
-            color: #2D3748; 
+            color: #2D3748;
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 20px;
@@ -103,7 +105,7 @@
             border-radius: 15px;
             background-color: #fff;
             outline: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
             transition: all 0.2s ease-in-out;
         }
 
@@ -137,8 +139,8 @@
             border: none;
             border-radius: 12px;
             font-family: 'New York Medium Regular', sans-serif;
-            padding: 14px 50px; 
-            font-size: 18px;  
+            padding: 14px 50px;
+            font-size: 18px;
             cursor: pointer;
             transition: background-color 0.2s;
             margin-left: 90px;
@@ -150,6 +152,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container-navbar">
@@ -166,31 +169,32 @@
 
     <div class="signup-section">
         <div class="signup-text-container text-start">
-            
+
             <a href="landing.php" class="back-btn">&#8592;</a>
 
             <h2 class="login-title">Create your account</h2>
 
             <form action="createacc.php" method="post">
-                
+
                 <div class="row custom-form-group">
                     <div class="col">
                         <input type="text" class="custom-input" name="username" placeholder="Username" required>
                     </div>
                 </div>
-                
+
                 <div class="row custom-form-group">
                     <div class="col">
                         <input type="password" class="custom-input" name="password" placeholder="Password" required>
                     </div>
                 </div>
-                
+
                 <div class="row custom-form-group">
                     <div class="col">
-                        <input type="password" class="custom-input" name="confirm_password" placeholder="Confirm Password" required>
+                        <input type="password" class="custom-input" name="confirm_password"
+                            placeholder="Confirm Password" required>
                     </div>
                 </div>
-                
+
                 <div class="row signup-text">
                     <div class="col">
                         <p class="m-0">Log-in <a href="login.php">here</a> if you already have an account.</p>
@@ -202,23 +206,24 @@
                         <input type="submit" name="sub" class="signup-btn" value="Create Account">
                     </div>
                 </div>
-                
+
             </form>
         </div>
     </div>
 
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
+
 </html>
 
 <?php
-    if (isset($_POST['sub'])) {
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
-        $confirm_password = md5($_POST['confirm_password']);
+if (isset($_POST['sub'])) {
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
+    $confirm_password = md5($_POST['confirm_password']);
 
-        if($password !== $confirm_password) {
-            echo "
+    if ($password !== $confirm_password) {
+        echo "
             <script>
                 Swal.fire({
                     icon: 'error',
@@ -227,14 +232,14 @@
                 });
             </script>
             ";
-        } else {
-            $insert_sql = "INSERT INTO tb_user (username, password) VALUES ('$username', '$password')";
-            if(mysqli_query($conn, $insert_sql)) {
-                
-                // SAVE THE ASSIGNED USER ID INTO THE SESSION HOOK
-                $_SESSION["user_id"] = mysqli_insert_id($conn);
+    } else {
+        $insert_sql = "INSERT INTO tb_user (username, password) VALUES ('$username', '$password')";
+        if (mysqli_query($conn, $insert_sql)) {
 
-                echo "
+            // SAVE THE ASSIGNED USER ID INTO THE SESSION HOOK
+            $_SESSION["user_id"] = mysqli_insert_id($conn);
+
+            echo "
                 <script>
                     Swal.fire({
                         icon: 'success',
@@ -246,17 +251,17 @@
                     });
                 </script>
                 ";
-            } else {
-                echo "
+        } else {
+            echo "
                 <script>
                     Swal.fire({
                         icon: 'error',
                         title: 'Error!',
                         text: 'There was an error creating your account. Please try again.',
-                        footer: '".mysqli_error($conn)."'
+                        footer: '" . mysqli_error($conn) . "'
                     });
                 </script>";
-            }
         }
     }
+}
 ?>
