@@ -129,7 +129,7 @@ $reslogs = $conn->query($showlogs);
                     </form>
                     <?php 
                     if(isset($_POST["btnsearch"])){
-                        $search_ac = $_POST["searchinput"];
+                        $search_ac = isset($_POST["searchinput"]) ? $_POST["searchinput"] : '';
                         $showlogs =" ";
                         if ($search_ac  != NULL) {
                             $showlogs = "SELECT * FROM tb_logs WHERE user_id IN (SELECT user_id FROM tb_user WHERE username LIKE '$search_ac%')";

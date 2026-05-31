@@ -47,6 +47,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
         $update_price = "UPDATE tb_product_size SET price = '$price' WHERE product_id = '$product_id' AND size_name = 'Regular'";
 
         if($conn->query($update_product) && $conn->query($update_price)) {
+            if (isset($_SESSION['user_id'])) {
+                $user_id = $_SESSION['user_id'];
+                $logsql ="Insert into tb_logs(user_id, action, datetime) 
+                values ('".$user_id."', ' Edited a Product', NOW())";
+                $conn->query($logsql);
+            }
             echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
@@ -72,6 +78,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
         $delete_product = "DELETE FROM tb_product WHERE product_id = '$product_id'";
         
         if($conn->query($delete_sizes) && $conn->query($delete_product)) {
+            if (isset($_SESSION['user_id'])) {
+                $user_id = $_SESSION['user_id'];
+                $logsql ="Insert into tb_logs(user_id, action, datetime) 
+                values ('".$user_id."', 'Removed a Product', NOW())";
+                $conn->query($logsql);
+            }
             unset($_SESSION['product_id']);
             unset($_SESSION['product_name']);
             echo "<script>
@@ -92,6 +104,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
             exit();
         }
     }
+
 }
 ?>
 <!DOCTYPE html>
