@@ -12,21 +12,21 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
  </head>
 <style>
-    img{
-        object-fit:cover;
+    img {
+        object-fit: cover;
     }
-    body{
+    body {
         font-family: "New York Medium Regular";
     }
 
-    #logs{
+    #logs {
         background-color: #eee8e0;
     }
-    #logs-content{
+    #logs-content {
         height: 100%;
         background-color: #eee8e0;
     }
-    .logs-content-title{
+    .logs-content-title {
         font-family: "New York Large Bold";
     }   
 
@@ -60,19 +60,14 @@ session_start();
         object-fit: cover;
     }
 
-       .logo-img {
-            height: 100px;
-            width: auto;
-        }
-        
+    .logo-img {
+        height: 100px;
+        width: auto;
+    }
+
 </style> 
 
-<?php
-$showlogs = "SELECT * FROM tb_logs ORDER BY datetime";
-$reslogs = $conn->query($showlogs);
-
-?>
-<body class = "text-dark">
+<body class="text-dark">
 
     <div class="container-navbar">
         <div class="navbar">
@@ -112,69 +107,71 @@ $reslogs = $conn->query($showlogs);
                     </div>
                   </div>
             </div>
+            
             <div class="col-9">
                 <div class="container rounded-4 " id="logs-content">
                     <div class="row p-3 logs-content-title">
                         <h4>Logs</h4>
                     </div>
+                    
                     <form action="logs.php" method="post">
-                    <div class="row p-3">
-                        <div class="col-10">
-                            <input type="search" name="searchinput" placeholder="Search" class="form-control">
+                        <div class="row p-3">
+                            <div class="col-10">
+                                <input type="search" name="searchinput" placeholder="Search" class="form-control" style="background-color: #FBFBFB; border: 1px solid #8B5A2B;">
+                            </div>
+                            <div class="col">
+                                <input type="submit" name="btnsearch" value="Search" class="btn text-white w-100" style="background-color: #8B5A2B; border: 1px solid #8B5A2B;">
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="submit" name="btnsearch" value="Search" class="btn btn-primary">
-                        </div>
-                    </div>
                     </form>
+
                     <?php 
                     if(isset($_POST["btnsearch"])){
                         $search_ac = isset($_POST["searchinput"]) ? $_POST["searchinput"] : '';
                         $showlogs =" ";
                         if ($search_ac  != NULL) {
-                            $showlogs = "SELECT * FROM tb_logs WHERE user_id IN (SELECT user_id FROM tb_user WHERE username LIKE '$search_ac%')";
+                            $showlogs = "SELECT * FROM tb_logs WHERE user_id IN (SELECT user_id FROM tb_user WHERE username LIKE '$search_ac%') ORDER BY datetime DESC";
                         }
                         else{
-                            $showlogs = "SELECT * FROM tb_logs";
+                            $showlogs = "SELECT * FROM tb_logs ORDER BY datetime DESC";
                         }
                         $reslogs = $conn->query($showlogs);
                     }
-
                     else{
-                        $showlogs = "SELECT * FROM tb_logs";
+                        $showlogs = "SELECT * FROM tb_logs ORDER BY datetime DESC";
                         $reslogs = $conn->query($showlogs);
-
                     }
+                    ?>
                     
-                    if($reslogs && $reslogs->num_rows > 0){?>
-                        <?php foreach($reslogs as $log) { ?>
-                            <div class="row bg-white rounded border mx-3 my-2 px-3 py-2 logs-content-title">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p><?php $logname = "SELECT * FROM tb_user WHERE user_id = " .$log['user_id']; $logname_result = $conn->query($logname); echo $logname_result->fetch_assoc()['username']; ?></p>
+                    <div class="scrollable-logs" style="height: 450px; overflow-y: auto; overflow-x: hidden; padding-right: 10px;">
+                        <?php if($reslogs && $reslogs->num_rows > 0){ ?>
+                            <?php foreach($reslogs as $log) { ?>
+                                <div class="row bg-white rounded border mx-3 my-2 px-3 py-2 logs-content-title">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p><?php $logname = "SELECT * FROM tb_user WHERE user_id = " .$log['user_id']; $logname_result = $conn->query($logname); echo $logname_result->fetch_assoc()['username']; ?></p>
+                                            </div>
+                                            <div class="col text-end">
+                                                <p><?php echo date('M d, Y - h:i A', strtotime($log['datetime'])); ?></p>
+                                            </div>
                                         </div>
-                                        <div class="col text-end">
-                                            <p><?php echo $log['datetime']; ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <p><?php echo $log['action']; ?></p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: 'New York Medium Regular'; font-size: 14px;"><?php echo $log['action']; ?></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                    <?php }
-                            } else {
-                                echo "<div class='row mx-3 my-2'><div class='col'>No record found</div></div>";
-                            } ?>
-                </div>
+                            <?php }
+                        } else {
+                            echo "<div class='row mx-3 my-2'><div class='col'>No record found</div></div>";
+                        } ?>
+                    </div> </div>
             </div>
         </div>
     </div>
   
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
