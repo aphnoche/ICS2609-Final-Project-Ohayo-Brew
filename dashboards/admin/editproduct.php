@@ -2,39 +2,39 @@
 require_once '../../db_ohayo_conn.php';
 session_start();
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $_SESSION['product_id'] = $_GET['id'];
 }
 
 // 1. Traditional fetch joining tb_product and tb_product_size for the "Regular" price
-if(isset($_SESSION['product_id'])) {
+if (isset($_SESSION['product_id'])) {
     $searchpro = "SELECT p.*, s.price FROM tb_product p 
                   LEFT JOIN tb_product_size s ON p.product_id = s.product_id AND s.size_name = 'Regular' 
-                  WHERE p.product_id = '".$_SESSION['product_id']. "'";
+                  WHERE p.product_id = '" . $_SESSION['product_id'] . "'";
     $res_pro = $conn->query($searchpro);
     $row_pro = $res_pro->fetch_assoc();
-    if($row_pro) {
+    if ($row_pro) {
         $_SESSION['product_name'] = $row_pro['product_name'];
     }
 }
 
 // 2. Traditional Form Handler (Edit / Remove)
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && isset($_POST['action'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && isset($_POST['action'])) {
     $product_id = $_SESSION['product_id'];
 
-    if($_POST['action'] === 'edit') {
+    if ($_POST['action'] === 'edit') {
 
-    // I used the mysqli_real_escape_string for the text inputs to prevent errors from special characters 
-    // like apostrophes, but I left the price as is since it's a number input and will be validated by HTML5 
+        // I used the mysqli_real_escape_string for the text inputs to prevent errors from special characters 
+        // like apostrophes, but I left the price as is since it's a number input and will be validated by HTML5 
         $name = mysqli_real_escape_string($conn, $_POST['Product']);
         $description = mysqli_real_escape_string($conn, $_POST['Description']);
         $price = $_POST['Price'];
 
         // Handle Image Upload if a file is chosen
-        if(isset($_FILES['Product_Image']) && $_FILES['Product_Image']['error'] == 0) {
-            $image_path = "images/".$_FILES['Product_Image']['name']; 
+        if (isset($_FILES['Product_Image']) && $_FILES['Product_Image']['error'] == 0) {
+            $image_path = "images/" . $_FILES['Product_Image']['name'];
 
-            if(move_uploaded_file($_FILES['Product_Image']['tmp_name'], $image_path)) {
+            if (move_uploaded_file($_FILES['Product_Image']['tmp_name'], $image_path)) {
                 // Traditional Update - saving file name into the 'image' column
                 $update_product = "UPDATE tb_product SET product_name = '$name', description = '$description', image = '$image_path' WHERE product_id = '$product_id'";
             }
@@ -46,11 +46,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
         // Update the Regular price in the product size table
         $update_price = "UPDATE tb_product_size SET price = '$price' WHERE product_id = '$product_id' AND size_name = 'Regular'";
 
-        if($conn->query($update_product) && $conn->query($update_price)) {
+        if ($conn->query($update_product) && $conn->query($update_price)) {
             if (isset($_SESSION['user_id'])) {
                 $user_id = $_SESSION['user_id'];
-                $logsql ="Insert into tb_logs(user_id, action, datetime) 
-                values ('".$user_id."', ' Edited a Product', NOW())";
+                $logsql = "Insert into tb_logs(user_id, action, datetime) 
+                values ('" . $user_id . "', ' Edited a Product', NOW())";
                 $conn->query($logsql);
             }
             echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
@@ -72,16 +72,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
             exit();
         }
 
-    } elseif($_POST['action'] === 'remove') {
+    } elseif ($_POST['action'] === 'remove') {
         // Traditional Delete: Clear variations from tb_product_size first to prevent foreign key errors
         $delete_sizes = "DELETE FROM tb_product_size WHERE product_id = '$product_id'";
         $delete_product = "DELETE FROM tb_product WHERE product_id = '$product_id'";
-        
-        if($conn->query($delete_sizes) && $conn->query($delete_product)) {
+
+        if ($conn->query($delete_sizes) && $conn->query($delete_product)) {
             if (isset($_SESSION['user_id'])) {
                 $user_id = $_SESSION['user_id'];
-                $logsql ="Insert into tb_logs(user_id, action, datetime) 
-                values ('".$user_id."', 'Removed a Product', NOW())";
+                $logsql = "Insert into tb_logs(user_id, action, datetime) 
+                values ('" . $user_id . "', 'Removed a Product', NOW())";
                 $conn->query($logsql);
             }
             unset($_SESSION['product_id']);
@@ -109,6 +109,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,35 +118,38 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-    img{
-        object-fit:cover;
+    img {
+        object-fit: cover;
     }
-    body{
+
+    body {
         font-family: "New York Medium Regular";
     }
 
-    #products{
+    #products {
         background-color: #eee8e0;
     }
-    #products-content{
+
+    #products-content {
         min-height: 100%;
         background-color: #eee8e0;
     }
-    .products-content-title{
+
+    .products-content-title {
         font-family: "New York Large Bold";
     }
-    
+
     .navbar {
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;          
-            padding: 10px 20px;            
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
     }
-    
+
     .navbar-right {
         display: flex;
         align-items: center;
-        margin-right: 65px; 
+        margin-right: 65px;
     }
 
     .profile-icon {
@@ -165,51 +169,59 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
         object-fit: cover;
     }
 
-       .logo-img {
-            height: 100px;
-            width: auto;
-        }
+    .logo-img {
+        height: 100px;
+        width: auto;
+    }
 
-        .end-button{
-            font-size: 12px;
-        }
-        .Edit{
-             background-color: #a7794b;
-            color: white;
-        }
-        .Edit:hover{
-             background-color: #a7794b;
-            color: white;
-        }
+    .end-button {
+        font-size: 12px;
+    }
 
-        .Remove{
-            background-color: #a36a6a;
-            color: white;
-        }
-        .Remove:hover{
-            background-color: #a36a6a;
-            color: white;
-        }
-        .Status{
-            color: white;
-        }
-       #content{
-            width: 70%;
-        }
-        textarea{
-            resize: none;
-        }
-        .edit-content{
-            border-color: #a7794b;
-        }
-</style> 
+    .Edit {
+        background-color: #a7794b;
+        color: white;
+    }
+
+    .Edit:hover {
+        background-color: #a7794b;
+        color: white;
+    }
+
+    .Remove {
+        background-color: #a36a6a;
+        color: white;
+    }
+
+    .Remove:hover {
+        background-color: #a36a6a;
+        color: white;
+    }
+
+    .Status {
+        color: white;
+    }
+
+    #content {
+        width: 70%;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .edit-content {
+        border-color: #a7794b;
+    }
+</style>
+
 <body class="text-dark">
     <div class="container-navbar">
         <div class="navbar">
             <div class="logo">
                 <img src="images/logo.png" alt="Ohayo Brew Logo" style="width: 200px; height: auto; margin-left: 50px;">
             </div>
-            
+
             <div class="navbar-right">
                 <div class="profile-icon">
                     <a href="settings_customer/custoaccount.php"><img src="images/user.png" alt="Profile"></a>
@@ -218,7 +230,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
         </div>
     </div>
 
-   <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col">
                 <div class="container">
@@ -226,13 +238,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
                         <h2 style="font-family: 'New York Large Bold'">Hello, Admin!</h2>
                     </div>
                     <div class="row text-center rounded-4 p-4 my-4" id="orders">
-                        <h5><a href="admindash.php" style="font-family: 'New York Large'" class="link-underline link-underline-opacity-0 text-dark">Order List</a></h5>
+                        <h5><a href="admindash.php" style="font-family: 'New York Large'"
+                                class="link-underline link-underline-opacity-0 text-dark">Order List</a></h5>
                     </div>
                     <div class="row text-center p-4 my-4">
-                        <h5><a href="products.php" style="font-family: 'New York Large'" class="link-underline link-underline-opacity-0 text-dark">Products List</a></h5>
+                        <h5><a href="products.php" style="font-family: 'New York Large'"
+                                class="link-underline link-underline-opacity-0 text-dark">Products List</a></h5>
                     </div>
                     <div class="row text-center p-4 my-4">
-                        <h5><a href="logs.php" style="font-family: 'New York Large'" class="link-underline link-underline-opacity-0 text-dark">Logs</a></h5>
+                        <h5><a href="logs.php" style="font-family: 'New York Large'"
+                                class="link-underline link-underline-opacity-0 text-dark">Logs</a></h5>
                     </div>
                 </div>
             </div>
@@ -242,47 +257,60 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
                     <div class="row p-3 products-content-title">
                         <h4>Edit/Remove Product</h4>
                     </div>
-                     <div class="row bg-white h-100 w-auto rounded-3 border mx-3 my-2 mb-4 p-5">
+                    <div class="row bg-white h-100 w-auto rounded-3 border mx-3 my-2 mb-4 p-5">
                         <form class="container" method="POST" enctype="multipart/form-data">
                             <div class="row mx-auto d-flex align-items-stretch" id="content">
                                 <div class="col container d-flex flex-column">
-                                    <div class="row border bg-dark p-3 rounded-3 text-center flex-grow-1 d-flex align-items-center justify-content-center" style="min-height: 200px;">
-                                        <?php if(!empty($row_pro['image'])): ?>
-                                            <span id="placeholderText" class="text-white" style="display: none;">No Image Available</span>
-                                            <img id="preview" src="images/<?php echo $row_pro['image']; ?>" alt="Current Image" style="max-height: 180px; width: auto; object-fit: contain;">
+                                    <div class="row border bg-dark p-3 rounded-3 text-center flex-grow-1 d-flex align-items-center justify-content-center"
+                                        style="min-height: 200px;">
+                                        <?php if (!empty($row_pro['image'])): ?>
+                                            <span id="placeholderText" class="text-white" style="display: none;">No Image
+                                                Available</span>
+                                            <img id="preview" src="images/<?php echo $row_pro['image']; ?>"
+                                                alt="Current Image"
+                                                style="max-height: 180px; width: auto; object-fit: contain;">
                                         <?php else: ?>
                                             <span id="placeholderText" class="text-white">No Image Available</span>
-                                            <img id="preview" src="" alt="Preview" style="max-height: 180px; width: auto; object-fit: contain; display: none;">
+                                            <img id="preview" src="" alt="Preview"
+                                                style="max-height: 180px; width: auto; object-fit: contain; display: none;">
                                         <?php endif; ?>
                                     </div>
-                                     <div class="row text-center">
+                                    <div class="row text-center">
                                         <p class="mt-2">Change Picture</p>
                                     </div>
                                     <div class="row">
                                         <div class="input-group">
-                                            <input type="file" name="Product_Image" class="form-control text-transparent" id="inputGroupFile" onchange="previewImg(event)">
+                                            <input type="file" name="Product_Image"
+                                                class="form-control text-transparent" id="inputGroupFile"
+                                                onchange="previewImg(event)">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col container px-4 pt-3 d-flex flex-column gap-3">
                                     <div class="row">
                                         <label class="form-label">Product Name</label>
-                                        <input type="text" name="Product" class="form-control edit-content" value="<?php echo $row_pro['product_name'] ?? ''; ?>">
+                                        <input type="text" name="Product" class="form-control edit-content"
+                                            value="<?php echo $row_pro['product_name'] ?? ''; ?>">
                                     </div>
-                                     <div class="row">
+                                    <div class="row">
                                         <label class="form-label">Description</label>
-                                        <textarea class="form-control edit-content" name="Description" rows="3"><?php echo $row_pro['description'] ?? ''; ?></textarea>
+                                        <textarea class="form-control edit-content" name="Description"
+                                            rows="3"><?php echo $row_pro['description'] ?? ''; ?></textarea>
                                     </div>
                                     <div class="row">
                                         <label class="form-label">Price</label>
-                                        <input type="number" step="0.01" name="Price" class="form-control edit-content" value="<?php echo $row_pro['price'] ?? ''; ?>">
+                                        <input type="number" step="0.01" name="Price" class="form-control edit-content"
+                                            value="<?php echo $row_pro['price'] ?? ''; ?>">
                                     </div>
                                 </div>
                             </div>
                             <div class="row pt-5">
                                 <div class="col d-flex align-items-center justify-content-center gap-4">
-                                    <button type="submit" name="action" value="edit" class="btn end-button rounded-3 Edit px-4">Edit</button>
-                                    <button type="submit" name="action" value="remove" class="btn end-button rounded-3 Remove font-white" onclick="return confirm('Are you sure you want to delete this product?');">Remove</button>
+                                    <button type="submit" name="action" value="edit"
+                                        class="btn end-button rounded-3 Edit px-4">Edit</button>
+                                    <button type="submit" name="action" value="remove"
+                                        class="btn end-button rounded-3 Remove font-white"
+                                        onclick="return confirm('Are you sure you want to delete this product?');">Remove</button>
                                 </div>
                             </div>
                         </form>
@@ -302,10 +330,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
 
             // Clean-up helper to hide the 'No Image Available' text immediately
             var placeholder = document.getElementById('placeholderText');
-            if(placeholder) {
+            if (placeholder) {
                 placeholder.style.display = 'none';
             }
         }
     </script>
 </body>
+
 </html>
