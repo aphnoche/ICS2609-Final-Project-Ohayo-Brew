@@ -23,8 +23,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
     $product_id = $_SESSION['product_id'];
 
     if($_POST['action'] === 'edit') {
-        $name = $_POST['Product'];
-        $description = $_POST['Description'];
+
+    // I used the mysqli_real_escape_string for the text inputs to prevent errors from special characters 
+    // like apostrophes, but I left the price as is since it's a number input and will be validated by HTML5 
+        $name = mysqli_real_escape_string($conn, $_POST['Product']);
+        $description = mysqli_real_escape_string($conn, $_POST['Description']);
         $price = $_POST['Price'];
 
         // Handle Image Upload if a file is chosen
@@ -44,7 +47,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
         $update_price = "UPDATE tb_product_size SET price = '$price' WHERE product_id = '$product_id' AND size_name = 'Regular'";
 
         if($conn->query($update_product) && $conn->query($update_price)) {
-            echo "<script>alert('Product updated successfully!'); window.location.href='products.php';</script>";
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product updated successfully!',
+                        icon: 'success',
+                        confirmButtonColor: '#8B5A2B', // A nice coffee brown color
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'products.php';
+                        }
+                    });
+                });
+            </script>";
             exit();
         }
 
@@ -56,7 +74,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && iss
         if($conn->query($delete_sizes) && $conn->query($delete_product)) {
             unset($_SESSION['product_id']);
             unset($_SESSION['product_name']);
-            echo "<script>alert('Product removed successfully!'); window.location.href='products.php';</script>";
+            echo "<script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: 'Product removed successfully!',
+                            icon: 'success', // or use 'info' if you prefer
+                            confirmButtonColor: '#d33', // Red color for deletion confirmation
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = 'products.php';
+                            }
+                        });
+                    });
+                </script>";
             exit();
         }
     }

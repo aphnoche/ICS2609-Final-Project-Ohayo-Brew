@@ -321,9 +321,9 @@
                             
                             <?php if ($americano_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-espresso" style="opacity: 0.5;">
-                                    <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($americano_row['image']); ?>" alt="Americano">
-                                    </div>
+                                        <div class="card-img-box">
+                                            <img src="dashboards/admin/<?php echo $americano_row['image']; ?>" alt="Americano">
+                                        </div>
                                     <div class="product-title"><?php echo $americano_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($americano_price_row['price'], 2); ?></div>
                                 </div>
@@ -331,7 +331,7 @@
                                 <a href="product.php?product_id=1" class="menu-link">
                                     <div class="menu-card bg-espresso">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($americano_row['image']); ?>" alt="<?php echo $americano_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($americano_row['image']); ?>" alt="Americano">
                                         </div>
                                         <div class="product-title"><?php echo $americano_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($americano_price_row['price'], 2); ?></div>
@@ -354,7 +354,7 @@
                             <?php if ($latte_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-espresso" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="dashboards/admin/images/<?php echo basename($row['image']); ?>" alt="Americano">
+                                        <img src="dashboards/admin/images/<?php echo basename($latte_row['image']); ?>" alt="Americano">
                                     </div>
                                     <div class="product-title"><?php echo $latte_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($latte_price_row['price'], 2); ?></div>
@@ -363,7 +363,7 @@
                                 <a href="product.php?product_id=2" class="menu-link">
                                     <div class="menu-card bg-espresso">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($latte_row['image']); ?>" alt="<?php echo $latte_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($latte_row['image']); ?>" alt="<?php echo $latte_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $latte_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($latte_price_row['price'], 2); ?></div>
@@ -386,7 +386,7 @@
                             <?php if ($spanish_latte_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-espresso" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($spanish_latte_row['image']); ?>" alt="<?php echo $spanish_latte_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($spanish_latte_row['image']); ?>" alt="<?php echo $spanish_latte_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $spanish_latte_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($spanish_latte_price_row['price'], 2); ?></div>
@@ -395,7 +395,7 @@
                                 <a href="product.php?product_id=3" class="menu-link">
                                     <div class="menu-card bg-espresso">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($spanish_latte_row['image']); ?>" alt="<?php echo $spanish_latte_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($spanish_latte_row['image']); ?>" alt="<?php echo $spanish_latte_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $spanish_latte_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($spanish_latte_price_row['price'], 2); ?></div>
@@ -418,7 +418,7 @@
                             <?php if ($dark_mocha_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-espresso" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($dark_mocha_row['image']); ?>" alt="<?php echo $dark_mocha_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($dark_mocha_row['image']); ?>" alt="<?php echo $dark_mocha_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $dark_mocha_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($dark_mocha_price_row['price'], 2); ?></div>
@@ -427,7 +427,7 @@
                                 <a href="product.php?product_id=4" class="menu-link">
                                     <div class="menu-card bg-espresso">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($dark_mocha_row['image']); ?>" alt="<?php echo $dark_mocha_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($dark_mocha_row['image']); ?>" alt="<?php echo $dark_mocha_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $dark_mocha_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($dark_mocha_price_row['price'], 2); ?></div>
@@ -457,7 +457,7 @@
                             <?php if ($strawberry_milk_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-milk" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($strawberry_milk_row['image']); ?>" alt="<?php echo $strawberry_milk_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($strawberry_milk_row['image']); ?>" alt="<?php echo $strawberry_milk_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $strawberry_milk_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($strawberry_milk_price_row['price'], 2); ?></div>
@@ -466,7 +466,7 @@
                                 <a href="product.php?product_id=5" class="menu-link">
                                     <div class="menu-card bg-milk">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($strawberry_milk_row['image']); ?>" alt="<?php echo $strawberry_milk_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($strawberry_milk_row['image']); ?>" alt="<?php echo $strawberry_milk_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $strawberry_milk_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($strawberry_milk_price_row['price'], 2); ?></div>
@@ -489,7 +489,7 @@
                             <?php if ($white_chocolate_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-milk" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($white_chocolate_row['image']); ?>" alt="<?php echo $white_chocolate_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($white_chocolate_row['image']); ?>" alt="<?php echo $white_chocolate_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $white_chocolate_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($white_chocolate_price_row['price'], 2); ?></div>
@@ -498,7 +498,7 @@
                                 <a href="product.php?product_id=6" class="menu-link">
                                     <div class="menu-card bg-milk">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($white_chocolate_row['image']); ?>" alt="<?php echo $white_chocolate_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($white_chocolate_row['image']); ?>" alt="<?php echo $white_chocolate_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $white_chocolate_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($white_chocolate_price_row['price'], 2); ?></div>
@@ -528,7 +528,7 @@
                             <?php if ($yoghurt_peach_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-tea" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($yoghurt_peach_row['image']); ?>" alt="<?php echo $yoghurt_peach_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($yoghurt_peach_row['image']); ?>" alt="<?php echo $yoghurt_peach_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $yoghurt_peach_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($yoghurt_peach_price_row['price'], 2); ?></div>
@@ -537,7 +537,7 @@
                                 <a href="product.php?product_id=7" class="menu-link">
                                     <div class="menu-card bg-tea">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($yoghurt_peach_row['image']); ?>" alt="<?php echo $yoghurt_peach_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($yoghurt_peach_row['image']); ?>" alt="<?php echo $yoghurt_peach_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $yoghurt_peach_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($yoghurt_peach_price_row['price'], 2); ?></div>
@@ -560,7 +560,7 @@
                             <?php if ($strawberry_black_tea_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-tea" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($strawberry_black_tea_row['image']); ?>" alt="<?php echo $strawberry_black_tea_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($strawberry_black_tea_row['image']); ?>" alt="<?php echo $strawberry_black_tea_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $strawberry_black_tea_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($strawberry_black_tea_price_row['price'], 2); ?></div>
@@ -569,7 +569,7 @@
                                 <a href="product.php?product_id=8" class="menu-link">
                                     <div class="menu-card bg-tea">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($strawberry_black_tea_row['image']); ?>" alt="<?php echo $strawberry_black_tea_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($strawberry_black_tea_row['image']); ?>" alt="<?php echo $strawberry_black_tea_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $strawberry_black_tea_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($strawberry_black_tea_price_row['price'], 2); ?></div>
@@ -599,7 +599,7 @@
                             <?php if ($peach_mango_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-ice-blended" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($peach_mango_row['image']); ?>" alt="<?php echo $peach_mango_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($peach_mango_row['image']); ?>" alt="<?php echo $peach_mango_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $peach_mango_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($peach_mango_price_row['price'], 2); ?></div>
@@ -608,7 +608,7 @@
                                 <a href="product.php?product_id=9" class="menu-link">
                                     <div class="menu-card bg-ice-blended">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($peach_mango_row['image']); ?>" alt="<?php echo $peach_mango_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($peach_mango_row['image']); ?>" alt="<?php echo $peach_mango_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $peach_mango_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($peach_mango_price_row['price'], 2); ?></div>
@@ -631,7 +631,7 @@
                             <?php if ($mixed_berries_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-ice-blended" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($mixed_berries_row['image']); ?>" alt="<?php echo $mixed_berries_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($mixed_berries_row['image']); ?>" alt="<?php echo $mixed_berries_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $mixed_berries_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($mixed_berries_price_row['price'], 2); ?></div>
@@ -640,7 +640,7 @@
                                 <a href="product.php?product_id=10" class="menu-link">
                                     <div class="menu-card bg-ice-blended">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($mixed_berries_row['image']); ?>" alt="<?php echo $mixed_berries_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($mixed_berries_row['image']); ?>" alt="<?php echo $mixed_berries_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $mixed_berries_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($mixed_berries_price_row['price'], 2); ?></div>
@@ -663,7 +663,7 @@
                             <?php if ($double_choco_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-ice-blended" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($double_choco_row['image']); ?>" alt="<?php echo $double_choco_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($double_choco_row['image']); ?>" alt="<?php echo $double_choco_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $double_choco_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($double_choco_price_row['price'], 2); ?></div>
@@ -672,7 +672,7 @@
                                 <a href="product.php?product_id=11" class="menu-link">
                                     <div class="menu-card bg-ice-blended">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($double_choco_row['image']); ?>" alt="<?php echo $double_choco_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($double_choco_row['image']); ?>" alt="<?php echo $double_choco_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $double_choco_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($double_choco_price_row['price'], 2); ?></div>
@@ -702,7 +702,7 @@
                             <?php if ($ohayo_uji_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-matcha" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($ohayo_uji_row['image']); ?>" alt="<?php echo $ohayo_uji_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($ohayo_uji_row['image']); ?>" alt="<?php echo $ohayo_uji_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $ohayo_uji_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($ohayo_uji_price_row['price'], 2); ?></div>
@@ -711,7 +711,7 @@
                                 <a href="product.php?product_id=12" class="menu-link">
                                     <div class="menu-card bg-matcha">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($ohayo_uji_row['image']); ?>" alt="<?php echo $ohayo_uji_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($ohayo_uji_row['image']); ?>" alt="<?php echo $ohayo_uji_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $ohayo_uji_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($ohayo_uji_price_row['price'], 2); ?></div>
@@ -734,7 +734,7 @@
                             <?php if ($ohayo_hojicha_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-matcha" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($ohayo_hojicha_row['image']); ?>" alt="<?php echo $ohayo_hojicha_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($ohayo_hojicha_row['image']); ?>" alt="<?php echo $ohayo_hojicha_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $ohayo_hojicha_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($ohayo_hojicha_price_row['price'], 2); ?></div>
@@ -743,7 +743,7 @@
                                 <a href="product.php?product_id=13" class="menu-link">
                                     <div class="menu-card bg-matcha">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($ohayo_hojicha_row['image']); ?>" alt="<?php echo $ohayo_hojicha_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($ohayo_hojicha_row['image']); ?>" alt="<?php echo $ohayo_hojicha_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $ohayo_hojicha_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($ohayo_hojicha_price_row['price'], 2); ?></div>
@@ -766,7 +766,7 @@
                             <?php if ($matcha_kokuto_row['availability'] == 'Unavailable') { ?>
                                 <div class="menu-card bg-matcha" style="opacity: 0.5;">
                                     <div class="card-img-box">
-                                        <img src="admin/images/<?php echo basename($matcha_kokuto_row['image']); ?>" alt="<?php echo $matcha_kokuto_row['product_name']; ?>">
+                                        <img src="dashboards/admin/images/<?php echo basename($matcha_kokuto_row['image']); ?>" alt="<?php echo $matcha_kokuto_row['product_name']; ?>">
                                     </div>
                                     <div class="product-title"><?php echo $matcha_kokuto_row['product_name']; ?> <span class="text-danger font-weight-bold">(Sold Out)</span></div>
                                     <div class="product-price"><?php echo '₱' . number_format($matcha_kokuto_price_row['price'], 2); ?></div>
@@ -775,7 +775,7 @@
                                 <a href="product.php?product_id=14" class="menu-link">
                                     <div class="menu-card bg-matcha">
                                         <div class="card-img-box">
-                                            <img src="admin/images/<?php echo basename($matcha_kokuto_row['image']); ?>" alt="<?php echo $matcha_kokuto_row['product_name']; ?>">
+                                            <img src="dashboards/admin/images/<?php echo basename($matcha_kokuto_row['image']); ?>" alt="<?php echo $matcha_kokuto_row['product_name']; ?>">
                                         </div>
                                         <div class="product-title"><?php echo $matcha_kokuto_row['product_name']; ?></div>
                                         <div class="product-price"><?php echo '₱' . number_format($matcha_kokuto_price_row['price'], 2); ?></div>
