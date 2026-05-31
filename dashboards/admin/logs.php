@@ -117,13 +117,42 @@ $reslogs = $conn->query($showlogs);
                     <div class="row p-3 logs-content-title">
                         <h4>Logs</h4>
                     </div>
-                    <?php if($reslogs && $reslogs->num_rows > 0){?>
+                    <form action="logs.php" method="post">
+                    <div class="row p-3">
+                        <div class="col-10">
+                            <input type="search" name="searchinput" placeholder="Search" class="form-control">
+                        </div>
+                        <div class="col">
+                            <input type="submit" name="btnsearch" value="Search" class="btn btn-primary">
+                        </div>
+                    </div>
+                    </form>
+                    <?php 
+                    if(isset($_POST["btnsearch"])){
+                        $search_ac = $_POST["searchinput"];
+                        $showlogs =" ";
+                        if ($search_ac  != NULL) {
+                            $showlogs = "SELECT * FROM tb_logs WHERE user_id IN (SELECT user_id FROM tb_user WHERE username LIKE '$search_ac%')";
+                        }
+                        else{
+                            $showlogs = "SELECT * FROM tb_logs";
+                        }
+                        $reslogs = $conn->query($showlogs);
+                    }
+
+                    else{
+                        $showlogs = "SELECT * FROM tb_logs";
+                        $reslogs = $conn->query($showlogs);
+
+                    }
+                    
+                    if($reslogs && $reslogs->num_rows > 0){?>
                         <?php foreach($reslogs as $log) { ?>
                             <div class="row bg-white rounded border mx-3 my-2 px-3 py-2 logs-content-title">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <p><?php $logname = "SELECT * FROM tb_user WHERE user_id = " . $log['user_id']; $logname_result = $conn->query($logname); echo $logname_result->fetch_assoc()['username']; ?></p>
+                                            <p><?php $logname = "SELECT * FROM tb_user WHERE user_id = " .$log['user_id']; $logname_result = $conn->query($logname); echo $logname_result->fetch_assoc()['username']; ?></p>
                                         </div>
                                         <div class="col text-end">
                                             <p><?php echo $log['datetime']; ?></p>
