@@ -12,8 +12,9 @@ if (isset($_SESSION['product_id'])) {
                   LEFT JOIN tb_product_size s ON p.product_id = s.product_id AND s.size_name = 'Regular' 
                   WHERE p.product_id = '" . $_SESSION['product_id'] . "'";
     $res_pro = $conn->query($searchpro);
-    $row_pro = $res_pro->fetch_assoc();
-    if ($row_pro) {
+    
+    if($res_pro && $res_pro->num_rows > 0) {
+        $row_pro = $res_pro->fetch_assoc();
         $_SESSION['product_name'] = $row_pro['product_name'];
     }
 }
@@ -24,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && is
 
     if ($_POST['action'] === 'edit') {
 
-        // I used the mysqli_real_escape_string for the text inputs to prevent errors from special characters 
-        // like apostrophes, but I left the price as is since it's a number input and will be validated by HTML5 
+    // I used the mysqli_real_escape_string for the text inputs to prevent errors from special characters 
+    // like apostrophes, but I left the price as is since it's a number input and will be validated by HTML5 
         $name = mysqli_real_escape_string($conn, $_POST['Product']);
         $description = mysqli_real_escape_string($conn, $_POST['Description']);
         $price = $_POST['Price'];
@@ -46,13 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && is
         // Update the Regular price in the product size table
         $update_price = "UPDATE tb_product_size SET price = '$price' WHERE product_id = '$product_id' AND size_name = 'Regular'";
 
-        if ($conn->query($update_product) && $conn->query($update_price)) {
+        if($conn->query($update_product) && $conn->query($update_price)) {
             if (isset($_SESSION['user_id'])) {
                 $user_id = $_SESSION['user_id'];
-                $logsql = "Insert into tb_logs(user_id, action, datetime) 
-                values ('" . $user_id . "', ' Edited a Product', NOW())";
+                $logsql ="Insert into tb_logs(user_id, action, datetime) 
+                values ('".$user_id."', ' Edited a Product', NOW())";
                 $conn->query($logsql);
             }
+
             echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
@@ -60,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && is
                         title: 'Success!',
                         text: 'Product updated successfully!',
                         icon: 'success',
-                        confirmButtonColor: '#8B5A2B', // A nice coffee brown color
+                        confirmButtonColor: '#8B5A2B', 
                         confirmButtonText: 'OK'
                     }).then((result) => {
                         if (result.isConfirmed) {
@@ -76,23 +78,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && is
         // Traditional Delete: Clear variations from tb_product_size first to prevent foreign key errors
         $delete_sizes = "DELETE FROM tb_product_size WHERE product_id = '$product_id'";
         $delete_product = "DELETE FROM tb_product WHERE product_id = '$product_id'";
-
-        if ($conn->query($delete_sizes) && $conn->query($delete_product)) {
+        
+        if($conn->query($delete_sizes) && $conn->query($delete_product)) {
             if (isset($_SESSION['user_id'])) {
                 $user_id = $_SESSION['user_id'];
-                $logsql = "Insert into tb_logs(user_id, action, datetime) 
-                values ('" . $user_id . "', 'Removed a Product', NOW())";
+                $logsql ="Insert into tb_logs(user_id, action, datetime) 
+                values ('".$user_id."', 'Removed a Product', NOW())";
                 $conn->query($logsql);
             }
+
             unset($_SESSION['product_id']);
             unset($_SESSION['product_name']);
+            
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
             echo "<script>
                     document.addEventListener('DOMContentLoaded', function() {
                         Swal.fire({
                             title: 'Deleted!',
                             text: 'Product removed successfully!',
-                            icon: 'success', // or use 'info' if you prefer
-                            confirmButtonColor: '#d33', // Red color for deletion confirmation
+                            icon: 'success', 
+                            confirmButtonColor: '#d33', 
                             confirmButtonText: 'OK'
                         }).then((result) => {
                             if (result.isConfirmed) {
@@ -104,7 +109,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && is
             exit();
         }
     }
-
 }
 ?>
 <!DOCTYPE html>
@@ -121,29 +125,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && is
     img {
         object-fit: cover;
     }
-
-    body {
+    body{
         font-family: "New York Medium Regular";
     }
 
     #products {
         background-color: #eee8e0;
     }
-
-    #products-content {
+    #products-content{
         min-height: 100%;
         background-color: #eee8e0;
     }
-
-    .products-content-title {
+    .products-content-title{
         font-family: "New York Large Bold";
     }
 
     .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;          
+            padding: 10px 20px;            
     }
 
     .navbar-right {
@@ -174,47 +175,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && is
         width: auto;
     }
 
-    .end-button {
-        font-size: 12px;
-    }
+        .end-button{
+            font-size: 12px;
+        }
+        .Edit{
+             background-color: #a7794b;
+            color: white;
+        }
+        .Edit:hover{
+             background-color: #a7794b;
+            color: white;
+        }
 
-    .Edit {
-        background-color: #a7794b;
-        color: white;
-    }
-
-    .Edit:hover {
-        background-color: #a7794b;
-        color: white;
-    }
-
-    .Remove {
-        background-color: #a36a6a;
-        color: white;
-    }
-
-    .Remove:hover {
-        background-color: #a36a6a;
-        color: white;
-    }
-
-    .Status {
-        color: white;
-    }
-
-    #content {
-        width: 70%;
-    }
-
-    textarea {
-        resize: none;
-    }
-
-    .edit-content {
-        border-color: #a7794b;
-    }
-</style>
-
+        .Remove{
+            background-color: #a36a6a;
+            color: white;
+        }
+        .Remove:hover{
+            background-color: #a36a6a;
+            color: white;
+        }
+        .Status{
+            color: white;
+        }
+       #content{
+            width: 70%;
+        }
+        textarea{
+            resize: none;
+        }
+        .edit-content{
+            border-color: #a7794b;
+        }
+</style> 
 <body class="text-dark">
     <div class="container-navbar">
         <div class="navbar">
@@ -326,9 +319,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['product_id']) && is
         function previewImg(event) {
             var displayImg = document.getElementById('preview');
             displayImg.src = URL.createObjectURL(event.target.files[0]);
-            displayImg.style.display = 'block'; // Ensures it displays cleanly if it was hidden
+            displayImg.style.display = 'block'; 
 
-            // Clean-up helper to hide the 'No Image Available' text immediately
             var placeholder = document.getElementById('placeholderText');
             if (placeholder) {
                 placeholder.style.display = 'none';
