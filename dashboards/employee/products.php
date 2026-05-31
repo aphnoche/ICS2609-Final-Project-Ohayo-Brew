@@ -123,7 +123,7 @@ if (isset($_POST['toggle_availability'])) {
 
             <div class="navbar-right">
                 <div class="profile-icon">
-                    <a href="settings_customer/custoaccount.php"><img src="../../images/user.png" alt="Profile"></a>
+                    <a href="logout.php"><img src="../../images/user.png" alt="Profile"></a>
                 </div>
             </div>
         </div>
