@@ -344,9 +344,11 @@ if (isset($_GET['product_id'])) {
 
             <div class="col-12 col-md-5">
                 <div class="product-image-box">
-                    <?php if (!empty($product['product_image'])) { ?>
-                        <img src="images/<?php echo $product['product_image']; ?>"
+                    <?php if (!empty($product['image'])) { ?>
+                        
+                        <img src="dashboards/admin/<?php echo $product['image']; ?>"
                             alt="<?php echo $product['product_name']; ?>">
+                            
                     <?php } else { ?>
                         <div class="d-flex h-100 justify-content-center align-items-center text-white-50">No Image Available
                         </div>

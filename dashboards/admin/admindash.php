@@ -151,7 +151,7 @@ if (isset($_POST['complete_order'])) {
                             <div class="order-scrollbox">
                                 <?php
                                 // Fetch all Pending orders
-                                $pending_sql = "SELECT * FROM tb_order WHERE order_status = 'Pending' ORDER BY order_date DESC";
+                                $pending_sql = "SELECT * FROM tb_order WHERE order_status = 'Processing' ORDER BY order_date DESC"; 
                                 $pending_result = mysqli_query($conn, $pending_sql);
 
                                 if (mysqli_num_rows($pending_result) == 0) {

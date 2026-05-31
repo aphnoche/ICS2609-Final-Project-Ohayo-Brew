@@ -320,7 +320,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_changes'])) {
 
                         <div class="logout-banner">
                             <div class="logout-text">Want to log-out of the account?</div>
-                            <a href="logout.php" class="btn-logout text-center">Log-out</a>
+                            <a href="../login.php" class="btn-logout text-center">Log-out</a>
                         </div>
                     </div>
                 </div>

@@ -215,7 +215,7 @@ $orders_result = mysqli_query($conn, $orders_sql);
                             <!-- Fallback visual state if transaction history is clean -->
                             <div class="text-center py-5">
                                 <h5 class="text-muted">You haven't placed any orders yet.</h5>
-                                <a href="home.php" class="btn btn-sm btn-outline-dark mt-2">Browse the Menu</a>
+                                <a href="../home.php" class="btn btn-sm btn-outline-dark mt-2">Browse the Menu</a>
                             </div>
                         <?php endif; ?>
                     </div>

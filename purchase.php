@@ -395,9 +395,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['finalize_purchase'])) 
 
 
                             $addon_sql = "SELECT a.addon_name, a.addon_price 
-                                              FROM tb_order_item_addon oia 
-                                              JOIN tb_addon a ON oia.addon_id = a.addon_id 
-                                              WHERE oia.order_item_id = $order_item_id";
+                                            FROM tb_order_item_addon oia 
+                                            JOIN tb_addon a ON oia.addon_id = a.addon_id 
+                                            WHERE oia.order_item_id = $order_item_id";
 
                             $addons_result = mysqli_query($conn, $addon_sql);
                             $addons_list = [];
@@ -409,8 +409,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['finalize_purchase'])) 
                             <div class="order-item-box">
                                 <div class="order-img-box">
                                     <?php if (!empty($item['image'])) { ?>
-                                        <img src="images/<?php echo $item['image']; ?>"
+                                        
+                                        <img src="dashboards/admin/<?php echo $item['image']; ?>"
                                             alt="<?php echo $item['product_name']; ?>">
+                                            
                                     <?php } ?>
                                 </div>
                                 <div class="order-details-text">

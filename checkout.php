@@ -86,7 +86,7 @@ if (isset($_POST['process_checkout']) && !empty($_SESSION['cart'])) {
 
             // Insert sub-entry into tb_order_item using standard procedural syntax
             $item_query = "INSERT INTO tb_order_item (order_id, product_id, quantity, item_price) 
-                               VALUES ($order_id, $p_id, $qty, $item_price)";
+                            VALUES ($order_id, $p_id, $qty, $item_price)";
             $item_result = mysqli_query($conn, $item_query);
 
             if ($item_result) {
@@ -417,9 +417,9 @@ if (isset($_POST['process_checkout']) && !empty($_SESSION['cart'])) {
                     ?>
                     <div class="cart-item-card flex-column flex-md-row">
                         <div class="item-img-box">
-                            <?php if (!empty($product['product_image'])) { ?>
-                                <img src="images/<?php echo $product['product_image']; ?>"
-                                    alt="<?php echo $product['product_name']; ?>">
+                            <?php if (!empty($product['image'])) { ?>
+                                <img src="dashboards/admin/<?php echo $product['image']; ?>"
+                                    alt="<?php echo $product['product_name']; ?>"> 
                             <?php } ?>
                         </div>
                         <div class="item-details">
