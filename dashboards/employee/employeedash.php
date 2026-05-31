@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once '../../db_ohayo_conn.php';
 session_start();
 
@@ -11,7 +12,7 @@ if (isset($_POST['complete_order'])) {
     mysqli_query($conn, $update_sql);
 
     // Refresh page to show the item moved to the other column
-    header("Location: admindash.php");
+    header("Location: employeedash.php");
     exit();
 }
 ?>
@@ -300,6 +301,8 @@ if (isset($_POST['complete_order'])) {
                                     <?php
                                     } // End Completed Orders Loop
                                 }
+
+                                ob_end_flush();
                                 ?>
                             </div>
                         </div>
