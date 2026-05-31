@@ -11,7 +11,6 @@ if (isset($_POST['complete_order'])) {
     $update_sql = "UPDATE tb_order SET order_status = 'Completed' WHERE order_id = '$order_id'";
     mysqli_query($conn, $update_sql);
 
-    // Refresh page to show the item moved to the other column
     header("Location: employeedash.php");
     exit();
 }
@@ -126,7 +125,7 @@ if (isset($_POST['complete_order'])) {
                         <h2 style="font-family: 'New York Large Bold'">Hello, Employee!</h2>
                     </div>
                     <div class="row text-center rounded-4 p-4 my-4" id="orders">
-                        <h5><a href="admindash.php" style="font-family: 'New York Large'"
+                        <h5><a href="employeedash.php" style="font-family: 'New York Large'"
                                 class="link-underline link-underline-opacity-0 text-dark">Order List</a></h5>
                     </div>
                     <div class="row text-center p-4 my-4">
