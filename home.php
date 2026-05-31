@@ -282,8 +282,7 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row">
-           
+        <div class="row">     
             <div class="col-md-1 d-none d-md-block sidebar-nav-container">
                 <div class="sidebar-nav">
                     <a href="noacchome.php#espresso"><img src="images/category/espresso-crafts.png" class="sidebar-img"><p class="sidebar-text">Espresso Crafts</p></a>
