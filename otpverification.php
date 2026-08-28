@@ -18,7 +18,7 @@ function send_verification($fullname, $email, $otp)
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = ''; // Your Gmail (For Privacy Reasons, Email is removed)
-        $mail->Password = ''; // Your App Password
+        $mail->Password = ''; // Your App Password (For Privacy Reasons, Email password is removed)
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
