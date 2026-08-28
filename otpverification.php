@@ -17,13 +17,13 @@ function send_verification($fullname, $email, $otp)
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'alyssapauline.noche.cics@ust.edu.ph'; // Your Gmail
-        $mail->Password = 'bkhr cezg vjsh ouco'; // Your App Password
+        $mail->Username = ''; // Your Gmail (For Privacy Reasons, Email is removed)
+        $mail->Password = ''; // Your App Password
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
         // Recipients
-        $mail->setFrom('alyssapauline.noche.cics@ust.edu.ph', 'Ohayo Brew Manila');
+        $mail->setFrom('', 'Ohayo Brew Manila');
         $mail->addAddress($email);
 
         // Content
